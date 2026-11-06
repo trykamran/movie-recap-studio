@@ -1,0 +1,7 @@
+interface:
+  display_name: "Movie Recap Studio"
+  short_description: "Create English movie recaps and concise scene timestamps"
+  brand_color: "#6D5DFB"
+  default_prompt: "Use Movie Recap Studio. Ask concise selectable questions, analyze my complete SRT, offer short topic choices, write the approved English narration, then map my uploaded MP3 to movie timestamps."
+policy:
+  allow_implicit_invocation: true

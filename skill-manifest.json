@@ -1,0 +1,26 @@
+{
+  "name": "movie-recap-studio",
+  "version": "2.3.0",
+  "format": "Agent Skills",
+  "canonical_path": "skills/movie-recap-studio",
+  "host_discovery": {
+    "claude_code": ".claude/skills/movie-recap-studio",
+    "codex": ".agents/skills/movie-recap-studio",
+    "chatgpt": "Standalone Agent Skill ZIP / supported Skills interface",
+    "gemini_cli": ".gemini/skills/movie-recap-studio",
+    "other_agent_skills": "skills/movie-recap-studio"
+  },
+  "capabilities": [
+    "full-movie-explanation",
+    "short-movie-recap",
+    "srt-story-analysis",
+    "original-narration",
+    "tts-led-scene-alignment",
+    "scenecutter-timestamps",
+    "master-video-to-shorts"
+  ],
+  "distribution": {
+    "canonical": "skills/movie-recap-studio",
+    "portable_zip": "dist/movie-recap-studio-agent-skill.zip"
+  }
+}
