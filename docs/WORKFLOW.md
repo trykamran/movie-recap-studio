@@ -10,6 +10,13 @@ Long mode only: after the master video exists, plan Shorts from the master-video
 
 English only. Keep prompts and explanations short. Use native host selectable questions when supported (Claude AskUserQuestion / ChatGPT selectable options); otherwise use compact text options. Ask one main question at a time. No separate narration-style questionnaire.
 
+## Storytelling & Hook Engine
+
+- **Viral 3-Sentence Hook (0-15s):** Extreme predicament → rising desperation/stakes → shocking dilemma or impossible twist. No fluff, no channel intros, no movie titles.
+- **Anti-Scroll Pacing:** Short punchy sentences (8-14 words) at 135-145 wpm.
+- **Retention Connectors:** Inject sudden shifts ("Tabhi achanak...", "Just then...") and sensory reveals every 30-45 seconds.
+- **Emotional Core:** Anchor plot turns to human sacrifice, survival choices, and moral dilemmas.
+
 ## TTS rule
 
 The uploaded TTS is the source of truth. Analyze its actual spoken content and timing. Do not compare it against the draft, reject it, rewrite it, or request a new TTS because wording differs. Only compare drafts if the user explicitly asks.

@@ -172,42 +172,40 @@ Do not move directly from topic approval to scene matching. Do not claim the scr
 
 ## Storytelling requirements
 
-### Opening hook
-The first 5–15 seconds should create immediate curiosity using a truthful event, dilemma, mystery, unusual premise, contradiction, or consequential question from the movie. Avoid generic greetings, channel introductions, and lengthy background before the hook.
+### Viral 3-Sentence Hook Engine (First 0–15 Seconds)
+Every script must grab the viewer instantly in the first 3 sentences so they cannot scroll away. The hook must establish an irresistible curiosity gap or shocking dilemma immediately:
 
-### Retention arc
-Use a coherent sequence of:
-- Hook and story setup
-- Stakes and character motivation
-- Escalating complications
-- Meaningful turning points
-- Controlled reveals
-- Mid-video re-hooks
-- Climax
-- Resolution and ending
+1. **Sentence 1 — Extreme Predicament / Premise:** Drop the audience straight into an extreme situation, desperate survival crisis, or high-concept mystery without any introduction (e.g., *"This man had been stranded in the middle of the ocean for an entire month..."* / *"Qabristan mein usne ek aisi khwahish maangi kash woh apni mar chuki maa se dobara mil sake..."*).
+2. **Sentence 2 — Rising Desperation & Stakes:** Escalate the physical stakes or emotional breaking point (e.g., *"Every day his family ate raw fish to survive, but hunger grew so unbearable that his humanity began to crack..."* / *"Tabhi achanak uske saath ek ajeeb ghatna hui aur woh behosh ho gaya..."*).
+3. **Sentence 3 — Shocking Moral Dilemma / Impossible Choice / Twist:** Hit the viewer with an unthinkable situation, taboo choice, or high-concept reveal that forces them to stay (e.g., *"He looked at his own sleeping son, and a horrifying thought crossed his mind: what if he ate him to survive?"* / *"When he opened his eyes, he looked in the mirror and realized he had been thrown 40 years into the past into his 15-year-old body!"*).
 
-Use open loops and mini-cliffhangers only where the story naturally supports them. Close important loops later. Do not withhold basic context so aggressively that the story becomes confusing.
+**Strict Blacklist (Anti-Boredom Rules):**
+- Never mention the movie title, release year, or director in the script.
+- Never use channel greetings, introductions, or pleasantries (e.g., "Welcome back to the channel", "In this video we will explain...").
+- Never summarize characters with biographical lists. Start immediately with active conflict.
 
-### Mid-video engagement
-Prevent the middle from becoming a list of events. Use truthful re-hooks at meaningful changes: a new obstacle, a wrong assumption, a consequence, an unexpected decision, or a reveal that changes the viewer's understanding.
+### Anti-Scroll Pacing & Micro-Beats (Rhythm Formula)
+- **Punchy Sentence Length:** Keep sentences short and direct (8–14 words per sentence). Avoid compound run-on sentences that drag down TTS pacing.
+- **Fast Narration Pace:** Target 135–145 words per minute. Pacing must feel urgent and relentless.
+- **Retention Connectors (Every 30–45 Seconds):** Maintain perpetual momentum using dynamic transition triggers:
+  - *Sudden Shift:* "Lekin tabhi...", "Achanak...", "Just as they let their guard down..."
+  - *Sensory Reveal:* "Dhyan se dekhne par pata chala...", "When he looked closer...", "Aaine mein dekh kar use yaqeen hua..."
+  - *No Escape / Urgency:* "Ab uske paas koi aur rasta nahi bacha tha...", "With time running out..."
+  - *Foreshadowing Mini-Cliffhangers:* "Lekin use yeh nahi pata tha ke...", "Little did she know the real nightmare was just starting..."
 
-### Spoken-language quality
-- Write for natural speech, not as an essay.
-- Use clear, conversational sentences.
-- Vary sentence length and rhythm.
-- Use emotional emphasis only where earned.
-- Avoid repetitive phrases, filler, robotic transitions, and unnecessary scene description.
-- Explain cause and effect so a viewer who has not seen the movie can follow.
-- Preserve essential plot logic and the ending.
-- Compress repetitive or low-value material, not essential causal events.
-- Do not add fictional dialogue, characters, motivations, or outcomes.
-- Do not copy long movie dialogue or another creator's recap script.
+### Emotional Stakes & Moral Dilemma (Human Core)
+- Do not make the recap a dry list of events ("this happened, then that happened").
+- Anchor every twist to raw human emotion: parental sacrifice, fear of abandonment, grief, survival guilt, or moral conflict.
+- Highlight the emotional cost of choices so the audience emotionally connects to the protagonist.
+
+### Climax & Meaningful Payoff
+- Deliver a clear, satisfying resolution and moral takeaway that rewards the viewer for watching until the very last second.
 
 ### Full Movie Explanation mode
-Explain the entire movie from beginning to ending in one continuous master narration. Fit the selected target duration while preserving the important causal chain, characters, turning points, and resolution. Do not split into episodes unless requested.
+Explain the entire movie from beginning to ending in one continuous master narration with perpetual micro-cliffhangers. Fit the selected target duration while preserving the important causal chain, characters, turning points, and resolution. Do not split into episodes unless requested.
 
 ### Short Movie Explanation mode
-Create one standalone explanation within the selected duration. Prioritize a coherent story angle and essential events. Include a clear setup, central conflict, and payoff/resolution when the duration allows. Do not try to include every minor event.
+Create one rapid, ultra-high-retention recap within the selected duration (60–90 seconds). Deliver the full setup, shocking dilemma, turning point, and climax payoff without a single wasted second.
 
 ## Narration output contract
 
