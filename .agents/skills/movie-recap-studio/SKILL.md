@@ -83,7 +83,7 @@ The welcome screen is the first interaction after invocation. Show the two video
 
 1. On the welcome screen, choose **Long Video** (one complete video explaining the entire movie) or **Short Video** (one short standalone recap).
 2. Choose target duration.
-3. Choose narration language (e.g., English, Hindi, Urdu, Spanish, etc. - default English).
+3. Choose narration language: **English** or **Hindi / Urdu** (Conversational Hindustani).
 4. Upload the complete movie SRT.
 5. Show a short story summary and 3–4 concise topics together.
 6. User selects and approves one topic.
@@ -103,7 +103,9 @@ Ask one short question per turn. Reuse answers already supplied. Use native sele
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
 2. **Duration:** Long default 20 minutes; Short ask for the target length.
-3. **Narration Language:** Ask what language the voiceover narration should be written in (e.g., English, Hindi, Urdu, Spanish, etc. Default: English).
+3. **Narration Language:** Ask what language the voiceover narration should be written in:
+   - **A. English**
+   - **B. Hindi / Urdu** (Conversational Hindustani, blending everyday Hindi, Urdu, and natural English terms for universal Pakistani & Indian appeal)
 4. **SRT:** Ask the user to upload the complete movie SRT.
 
 Do not ask for a script. The agent writes the narration. Do not ask several setup questions in one message.
@@ -200,6 +202,13 @@ Every script must grab the viewer instantly in the first 3 sentences so they can
 
 ### Climax & Meaningful Payoff
 - Deliver a clear, satisfying resolution and moral takeaway that rewards the viewer for watching until the very last second.
+
+### Language & Tone: Hindi / Urdu (Conversational Hindustani)
+When **Hindi / Urdu** is selected:
+- **Unified Conversational Hindustani:** Do not separate Hindi and Urdu into isolated dialects. Write in natural conversational Hindustani (in Roman script / English alphabet) that blends everyday Hindi and Urdu vocabulary seamlessly.
+- **Natural English Mix:** Naturally blend common conversational English words (e.g. *hospital, police, accident, family, secret, train, plan, safe, tension, shock*) so the narration sounds modern and conversational.
+- **Universal Cross-Border Appeal:** The phrasing must be instantly clear, natural, and relatable to both Pakistani and Indian audiences, as well as worldwide Hindi/Urdu speakers.
+- **TTS Phonetic Precision:** Use clean Roman script phonetics that ElevenLabs, Google, and modern TTS engines pronounce smoothly without mispronunciations.
 
 ### Full Movie Explanation mode
 Explain the entire movie from beginning to ending in one continuous master narration with perpetual micro-cliffhangers. Fit the selected target duration while preserving the important causal chain, characters, turning points, and resolution. Do not split into episodes unless requested.

@@ -16,6 +16,7 @@ English only. Keep prompts and explanations short. Use native host selectable qu
 - **Anti-Scroll Pacing:** Short punchy sentences (8-14 words) at 135-145 wpm.
 - **Retention Connectors:** Inject sudden shifts ("Tabhi achanak...", "Just then...") and sensory reveals every 30-45 seconds.
 - **Emotional Core:** Anchor plot turns to human sacrifice, survival choices, and moral dilemmas.
+- **Hindi / Urdu Unified Tone:** Conversational Hindustani with natural English loanwords for universal appeal across Pakistan and India.
 
 ## TTS rule
 
