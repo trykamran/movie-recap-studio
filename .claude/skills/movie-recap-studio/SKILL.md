@@ -26,6 +26,12 @@ On invocation (never on installation), use this short English welcome if setup i
 > **A. Long Video** — Explain the entire movie in one complete video.
 > **B. Short Video** — Create a short recap of the movie.
 
+When asking the language question in Step 3, show strictly two options:
+> What language would you like the narration in?
+> **A. English**
+> **B. Hindi/Urdu** (Conversational Hindustani for India & Pakistan)
+*(Never split Hindi and Urdu into two separate options).*
+
 Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use no more than 2–4 concise choices per question, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact A/B text options. Never claim that a host UI is available when it is not.
 
 Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (e.g., English, Hindi, Urdu, Spanish, etc.).
@@ -83,7 +89,7 @@ The welcome screen is the first interaction after invocation. Show the two video
 
 1. On the welcome screen, choose **Long Video** (one complete video explaining the entire movie) or **Short Video** (one short standalone recap).
 2. Choose target duration.
-3. Choose narration language: **English** or **Hindi / Urdu** (Conversational Hindustani).
+3. Choose narration language (strictly two options: **A. English** or **B. Hindi/Urdu**).
 4. Upload the complete movie SRT.
 5. Show a short story summary and 3–4 concise topics together.
 6. User selects and approves one topic.
@@ -103,9 +109,10 @@ Ask one short question per turn. Reuse answers already supplied. Use native sele
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
 2. **Duration:** Long default 20 minutes; Short ask for the target length.
-3. **Narration Language:** Ask what language the voiceover narration should be written in:
+3. **Narration Language:** Ask the user to choose between EXACTLY two choices. NEVER offer Hindi and Urdu as separate choices:
    - **A. English**
-   - **B. Hindi / Urdu** (Conversational Hindustani, blending everyday Hindi, Urdu, and natural English terms for universal Pakistani & Indian appeal)
+   - **B. Hindi/Urdu** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
+   *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into single option B: "Hindi/Urdu".
 4. **SRT:** Ask the user to upload the complete movie SRT.
 
 Do not ask for a script. The agent writes the narration. Do not ask several setup questions in one message.

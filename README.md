@@ -65,16 +65,21 @@ flowchart LR
 
 ### Claude / Claude Code
 
-Copy and paste this single prompt directly into Claude:
+**Option 1: Permanent Install in Claude Code (CLI)**  
+Run this command in your terminal to install the skill permanently as `/movie-recap-studio`:
+```bash
+git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
+```
+*(Windows PowerShell)*:
+```powershell
+git clone https://github.com/trykamran/movie-recap-studio.git "$env:USERPROFILE\.claude\skills\movie-recap-studio"
+```
 
+**Option 2: Single Prompt in Claude Web Chat**  
+Copy and paste this prompt directly into Claude:
 ```text
 https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.claude/skills/movie-recap-studio/SKILL.md
 Fetch and activate this Movie Recap Studio skill.
-```
-
-*(Terminal Install for Claude Code)*:
-```bash
-git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
 
 ---
