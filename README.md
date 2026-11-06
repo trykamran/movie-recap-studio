@@ -63,27 +63,43 @@ flowchart LR
 
 ## 📦 Installation
 
-### Claude / Cloud Agent (Single Prompt Install)
+### Claude / Claude Code
 
-Copy and paste this single prompt directly into Claude or your cloud agent:
+Copy and paste this single prompt directly into Claude:
 
 ```text
-https://github.com/trykamran/movie-recap-studio
-Load this skill.
+https://github.com/trykamran/movie-recap-studio/tree/main/.claude/skills/movie-recap-studio
+Install and load this skill.
 ```
 
-*(Terminal / Local clone)*:
+*(Optional Terminal Install)*:
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
 
 ---
 
-### ChatGPT / Custom GPTs
+### ChatGPT / OpenAI
 
-1. Open **Explore GPTs** → **Create a GPT**.
-2. In **Instructions**, paste the text from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
-3. Attach your movie `.srt` file to start creating recaps.
+Copy and paste this single prompt directly into ChatGPT:
+
+```text
+https://github.com/trykamran/movie-recap-studio/tree/main/.agents/skills/movie-recap-studio
+Install and load this skill.
+```
+
+*(Custom GPT Builder: Copy instructions from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md))*
+
+---
+
+### Gemini / Antigravity
+
+Copy and paste this prompt:
+
+```text
+https://github.com/trykamran/movie-recap-studio/tree/main/.gemini/skills/movie-recap-studio
+Install and load this skill.
+```
 
 ---
 
