@@ -68,11 +68,11 @@ flowchart LR
 Copy and paste this single prompt directly into Claude:
 
 ```text
-https://github.com/trykamran/movie-recap-studio/tree/main/.claude/skills/movie-recap-studio
-Install and load this skill.
+https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.claude/skills/movie-recap-studio/SKILL.md
+Fetch and activate this Movie Recap Studio skill.
 ```
 
-*(Optional Terminal Install)*:
+*(Terminal Install for Claude Code)*:
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
@@ -84,8 +84,8 @@ git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/m
 Copy and paste this single prompt directly into ChatGPT:
 
 ```text
-https://github.com/trykamran/movie-recap-studio/tree/main/.agents/skills/movie-recap-studio
-Install and load this skill.
+https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.agents/skills/movie-recap-studio/SKILL.md
+Fetch and activate this Movie Recap Studio skill.
 ```
 
 *(Custom GPT Builder: Copy instructions from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md))*
@@ -97,8 +97,8 @@ Install and load this skill.
 Copy and paste this prompt:
 
 ```text
-https://github.com/trykamran/movie-recap-studio/tree/main/.gemini/skills/movie-recap-studio
-Install and load this skill.
+https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.gemini/skills/movie-recap-studio/SKILL.md
+Fetch and activate this Movie Recap Studio skill.
 ```
 
 ---
