@@ -11,7 +11,7 @@
 
 **One movie. One coherent story. A production-ready narration and scene plan.**
 
-[Quick Start](#-quick-start) · [Features](#-what-it-does) · [Workflow](#-how-the-workflow-works) · [Install](#-installation) · [Contributing](CONTRIBUTING.md)
+[Quick Start](#-quick-start-example) · [Features](#-what-it-does) · [How it works](#how-movie-recap-studio-works) · [Install](#-installation) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -19,13 +19,13 @@
 
 ## What is Movie Recap Studio?
 
-**Movie Recap Studio** is an open-format **Agent Skill** that enables AI models (Claude, ChatGPT, Gemini) to analyze a movie subtitle file (SRT), write original retention-focused recap narration, and generate exact scene timestamps for automated video editing.
+**Movie Recap Studio** is an open-format **Agent Skill** that enables AI models (Claude, ChatGPT, Gemini) to analyze a movie subtitle file (`.srt`), write retention-focused recap narration, and output exact scene timestamps for automated video editing.
 
 ---
 
 ## 📱 Movie Recap Companion Apps
 
-Automate your cutting, voiceover merging, and dead-pause removal with the official companion editing apps:
+Automate your scene trimming, voiceover merging, and dead-pause removal with the official companion editing apps:
 
 | Platform | Package | Description | Download |
 |---|---|---|---|
@@ -38,64 +38,53 @@ Automate your cutting, voiceover merging, and dead-pause removal with the offici
 
 ## ✨ What it does
 
-| Capability | Description |
-|---|---|
-| **Full & Short Recaps** | Plans long-form (~20 min) or short-form (~90 sec) explanations. |
-| **Complete SRT Analysis** | Reads full movie subtitle files to extract character arcs, plot twists, and chronological scenes. |
-| **Original Narration** | Generates engaging, copyright-safe English recap scripts with natural hooks. |
-| **TTS Alignment** | Maps spoken voiceover beats against original movie scene timestamps. |
-| **Movie Recap Output** | Produces clean timestamps formatted directly for one-click pasting into the Movie Recap app. |
+- **Deep SRT Story Analysis:** Extracts plot beats, chronological scenes, and character arcs from raw subtitles.
+- **Viral Recap Narration:** Crafts copyright-safe, engaging narration paced for maximum retention.
+- **Automated Scene Alignment:** Generates frame-accurate timestamps mapped to the voiceover.
+- **One-Click Video Assembly:** Outputs timestamp lists ready for instant import into the Movie Recap app.
 
 ---
 
-## 🎬 How the workflow works
+## How Movie Recap Studio works
+
+Your agent calls Movie Recap Studio to analyze movie subtitles (SRT), structure chronological storyline beats, and write narration scripts. Movie Recap Studio returns exact scene timestamps and audio sync points. The agent uses them to produce voiceovers and scene timelines, while the companion apps automate silence removal and final video assembly.
+
+### Movie Recap Studio workflow
 
 ```mermaid
-flowchart TD
-    A[Upload Movie SRT] --> B[AI Story Analysis & Narration Script]
-    B --> C[Generate Voiceover Audio]
-    C --> D[AI Aligns Spoken Beats with Movie Scenes]
-    D --> E[Output Clean Movie Recap Timestamps]
-    E --> F[Open Movie Recap App & Export Final Video]
+flowchart LR
+    A["<b>1. Ask / Input</b><br/><br/>Your agent + Movie SRT<br/>Target duration / format"] --> B["<b>2. Analyze & Script</b><br/><br/><b>Movie Recap Studio</b><br/>Agent Skill"]
+    B --> C["<b>3. Read the plan</b><br/><br/>Narration script /<br/>Scene timestamps / TTS"]
+    C --> D["<b>4. Cut & Assemble</b><br/><br/><b>Movie Recap App</b><br/>Auto silence trim & merge"]
+    D -. "Follow-up / Shorts extraction" .-> B
+    E["<b>Companion Tools</b><br/><br/>Movie Recap Windows & Android<br/>FFmpeg Silence Engine"] --> B
 ```
-
-### 3 Simple Production Steps:
-1. **AI Script & Timestamps:** Provide your movie subtitle (`.srt`) to Claude or ChatGPT with this skill. It analyzes the story, writes an original script, and gives exact scene timecodes.
-2. **Generate Voiceover:** Record or generate your narration audio using any TTS service (ElevenLabs, etc.).
-3. **One-Click Cut & Sync:** Open the **Movie Recap** app (Desktop or Mobile), drag & drop your video and voiceover, paste the timestamps, toggle **Auto Remove Silence**, and click **Start Cutting & Merge**!
 
 ---
 
 ## 📦 Installation
 
-### 1. Claude / Cloud Agent (Single Prompt Install)
+### Claude / Cloud Agent (Single Prompt Install)
 
-Copy and paste this single prompt directly into Claude:
+Copy and paste this single prompt directly into Claude or your cloud agent:
 
 ```text
 https://github.com/trykamran/movie-recap-studio
 Load this skill.
 ```
 
-*(Optional Terminal Install for Claude Code)*:
+*(Terminal / Local clone)*:
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
 
 ---
 
-### 2. ChatGPT / Custom GPTs
+### ChatGPT / Custom GPTs
+
 1. Open **Explore GPTs** → **Create a GPT**.
 2. In **Instructions**, paste the text from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
-3. Provide your movie `.srt` file to start creating recaps.
-
----
-
-### 3. Gemini CLI / Antigravity / Cursor
-Clone the skill directory:
-```bash
-git clone https://github.com/trykamran/movie-recap-studio.git ~/.gemini/skills/movie-recap-studio
-```
+3. Attach your movie `.srt` file to start creating recaps.
 
 ---
 
@@ -106,9 +95,9 @@ Paste this into your AI assistant after loading the skill:
 ```text
 Use Movie Recap Studio.
 
-I want to create a full movie explanation video.
+I want to create a movie explanation video.
 Here is my movie subtitle file: [paste or attach SRT].
-Guide me through the workflow one step at a time.
+Guide me through the workflow step by step.
 ```
 
 ---
