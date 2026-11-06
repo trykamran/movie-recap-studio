@@ -28,7 +28,7 @@ On invocation (never on installation), use this short English welcome if setup i
 
 Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use no more than 2–4 concise choices per question, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact A/B text options. Never claim that a host UI is available when it is not.
 
-All user-facing communication, including questions, topic options, explanations, narration, and final output, must be in **English only**. Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording.
+Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (e.g., English, Hindi, Urdu, Spanish, etc.).
 
 An installed skill is not a background process. It cannot send a proactive message merely because it was installed. The user must invoke the skill.
 
@@ -41,7 +41,7 @@ When a user asks where to obtain SCENECUTTER, direct them to the repository's Gi
 ## Core principles
 
 1. **Story accuracy:** preserve the movie's actual chronology, character motivations, causal links, twists, climax, and ending.
-2. **Original narration:** write fresh commentary in the user's English. Do not reproduce long passages of copyrighted dialogue, subtitles, scripts, or narration from another creator.
+2. **Original narration:** write fresh commentary in the user's selected language. Do not reproduce long passages of copyrighted dialogue, subtitles, scripts, or narration from another creator.
 3. **Retention without deception:** use a compelling truthful hook, curiosity gaps, mini-cliffhangers, transitions, and re-hooks. Never invent stakes, misrepresent events, or promise a twist that does not exist.
 4. **Evidence discipline:** SRT supports dialogue and subtitle timing, not direct visual verification. A subtitle gap does not prove what appears on screen. Distinguish verified observations, subtitle-supported facts, and inferences.
 5. **Timeline integrity:** keep original-movie timestamps, voiceover timestamps, master-video timestamps, and short-extract timestamps separate.
@@ -83,14 +83,15 @@ The welcome screen is the first interaction after invocation. Show the two video
 
 1. On the welcome screen, choose **Long Video** (one complete video explaining the entire movie) or **Short Video** (one short standalone recap).
 2. Choose target duration.
-3. Upload the complete movie SRT.
-4. Show a short story summary and 3–4 concise topics together.
-5. User selects and approves one topic.
-6. Immediately generate the complete English narration.
-7. User creates TTS with any suitable service and uploads the MP3/audio.
-8. Analyze the actual TTS audio, then re-read the SRT and map scenes.
-9. Return a clean timestamp list with only a brief instruction.
-10. Long mode only: optionally plan Shorts from the completed master-video timeline.
+3. Choose narration language (e.g., English, Hindi, Urdu, Spanish, etc. - default English).
+4. Upload the complete movie SRT.
+5. Show a short story summary and 3–4 concise topics together.
+6. User selects and approves one topic.
+7. Immediately generate the complete narration in the chosen language.
+8. User creates TTS with any suitable service and uploads the MP3/audio.
+9. Analyze the actual TTS audio, then re-read the SRT and map scenes.
+10. Return a clean timestamp list with only a brief instruction.
+11. Long mode only: optionally plan Shorts from the completed master-video timeline.
 
 ## Application boundary
 
@@ -102,7 +103,7 @@ Ask one short question per turn. Reuse answers already supplied. Use native sele
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
 2. **Duration:** Long default 20 minutes; Short ask for the target length.
-3. Use English for all communication and narration; do not ask a separate language question.
+3. **Narration Language:** Ask what language the voiceover narration should be written in (e.g., English, Hindi, Urdu, Spanish, etc. Default: English).
 4. **SRT:** Ask the user to upload the complete movie SRT.
 
 Do not ask for a script. The agent writes the narration. Do not ask several setup questions in one message.
@@ -160,9 +161,9 @@ Ask the user to select and approve one topic. Once approved, immediately write t
 This is a mandatory stage. **Never skip it. Never make the user ask "give me the script."**
 
 Immediately after the topic is approved:
-1. Determine the target word count from the requested duration and a reasonable speaking-rate estimate for the English and the selected topic. Treat it as an estimate, not a promise.
+1. Determine the target word count from the requested duration and a reasonable speaking-rate estimate for the chosen language and topic. Treat it as an estimate, not a promise.
 2. Plan the story coverage before drafting.
-3. Write the complete original narration in clear, natural English.
+3. Write the complete original narration in clear, natural prose in the selected language.
 4. Include the opening hook as spoken narration.
 5. Display the complete narration in one copy-ready code block.
 6. Ask the user to approve/revise the narration and then generate TTS audio from it.
@@ -437,4 +438,4 @@ Create original commentary and transformative analysis. Do not reproduce full su
 
 # Final quality gate
 
-Before delivery, verify: complete SRT was analyzed; the selected topic was approved; full English narration was displayed; actual TTS audio was analyzed for spoken content and timing (without draft-comparison requirements); the complete SRT was re-read for scene matching; timestamps are valid; duration arithmetic was checked; and limitations are stated briefly.
+Before delivery, verify: complete SRT was analyzed; the selected topic was approved; full narration in the chosen language was displayed; actual TTS audio was analyzed for spoken content and timing (without draft-comparison requirements); the complete SRT was re-read for scene matching; timestamps are valid; duration arithmetic was checked; and limitations are stated briefly.

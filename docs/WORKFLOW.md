@@ -2,7 +2,7 @@
 
 ## Main path
 
-Choose Long/Short → set duration → upload complete SRT → analyze story → show 3–4 short topic options → user selects and approves a topic → generate complete English narration immediately → user creates and uploads MP3 → analyze actual spoken words and audio timing → re-read complete SRT → map spoken beats to source scenes → return clean timestamp ranges.
+Choose Long/Short → set duration → choose narration language → upload complete SRT → analyze story → show 3–4 short topic options → user selects and approves a topic → generate complete narration in chosen language immediately → user creates and uploads MP3 → analyze actual spoken words and audio timing → re-read complete SRT → map spoken beats to source scenes → return clean timestamp ranges.
 
 Long mode only: after the master video exists, plan Shorts from the master-video timeline.
 
