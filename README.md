@@ -64,51 +64,66 @@ Movie Recap Studio connects an **AI Story Agent** with the **Movie Recap Compani
 
 ---
 
-## 📦 Installation (Claude Web & ChatGPT Web)
+## 📦 Installation & Setup
 
-Most creators use **Claude Web** or **ChatGPT Web** directly in their browser. Here is how to use the skill and save it permanently as the **`/movie-recap-studio`** command:
+Choose your preferred platform below. For web users, **Method 1 (Upload Skill)** is the recommended official way to permanently install the `/movie-recap-studio` command.
 
 ---
 
-### 🟣 Claude (Web & Desktop)
+### 🟣 Claude (Web & Desktop) — Recommended
 
-#### Method 1: Instant Command via Chat (Fastest)
-Copy and paste this prompt directly into any Claude chat:
+#### Method 1: Permanent Skill Upload (Official & Recommended)
+1. Download the ready-to-upload Skill ZIP: [**movie-recap-studio-claude-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip)
+2. Open **[Claude.ai](https://claude.ai)** → Click **Customize** in the left sidebar (or Profile icon → **Settings** → **Skills**).
+3. Click **Upload a Skill** and select the downloaded `movie-recap-studio-claude-skill.zip`.
+4. **Done!** Open any new chat and type `/movie-recap-studio` to launch the full automated workflow!
+
+#### Method 2: Direct Chat Prompt (No Download Required)
+If you prefer using it inside an existing chat without downloading files, paste this into any Claude chat:
 
 ```text
-https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.claude/skills/movie-recap-studio/SKILL.md
+Act as Movie Recap Studio. Register this workflow and start immediately:
 
-Read the skill file above. Install and register this permanently as my `/movie-recap-studio` command. Start the workflow now.
+Interactive Setup:
+1. Ask:
+   "Welcome to Movie Recap Studio! What would you like to create?
+   1. Long Video — Explain the entire movie in one complete video.
+   2. Short Video — Create a short recap of the movie."
+2. Then ask target duration (default 20 mins for long, or target seconds e.g. 60s for short).
+3. Then ask language with EXACTLY TWO options:
+   Question: "What language would you like the narration in?"
+   Options: ["English", "Hindustani (Hindi-Urdu)"]
+4. Ask user to upload complete movie SRT file.
+5. Analyze SRT, give summary and 3-4 topics.
+6. After topic approval, write full narration:
+   - If Hindustani (Hindi-Urdu): Hook MUST start with: "कहानी शुरू होती है एक..." (or Roman: "Kahani shuru hoti hai ek...") followed by active conflict.
+   - If English: Hook MUST start with: "The story begins with a..."
+   - Display script in one code block and ask for TTS MP3.
+7. CRITICAL AUDIO PROTOCOL: When user uploads TTS MP3:
+   - NEVER refuse timestamps and NEVER ask user for transcript.
+   - Measure audio duration (or use target duration), divide time across script sentences, re-read SRT, map scenes, and output timestamp block:
+     00:01:12 - 00:01:17
+     00:02:45 - 00:02:51
+   - Add note: "Paste these ranges into Movie Recap in this order."
+
+Start now with Question 1.
 ```
-> Claude will save the workflow and activate `/movie-recap-studio` immediately.
-
-#### Method 2: Permanent Skill Upload in Claude Customize / Settings
-1. Download the ready-to-upload Skill ZIP: [**movie-recap-studio-claude-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.3.0/movie-recap-studio-claude-skill.zip)
-2. Open **Claude.ai** → Click your profile icon → **Settings** (or **Customize**) → **Skills**.
-3. Click **Upload Skill** and select the downloaded ZIP file.
-4. **Done!** `/movie-recap-studio` is now permanently registered and available across all your chats and projects!
 
 ---
 
 ### 🟢 ChatGPT / OpenAI (Web)
 
-#### Method 1: Instant Prompt in Chat
-Copy and paste this prompt directly into ChatGPT:
-
-```text
-https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.agents/skills/movie-recap-studio/SKILL.md
-
-Read the skill file above. Save and register this as my Movie Recap Studio assistant. Start the workflow now.
-```
-
-#### Method 2: Create a Custom GPT (Permanent 1-Click Bot)
+#### Method 1: Create a Custom GPT (Permanent 1-Click Bot)
 1. In ChatGPT, open **Explore GPTs** → **Create a GPT**.
-2. In **Instructions**, paste the text from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
-3. Name it **Movie Recap Studio** and save. You now have a permanent dedicated recap generator!
+2. Under **Configure** → **Instructions**, paste the full prompt from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
+3. Name it **Movie Recap Studio** and save. You now have a permanent dedicated recap bot!
+
+#### Method 2: Instant Prompt in Chat
+Copy and paste the Direct Chat Prompt above directly into any ChatGPT conversation to start immediately.
 
 ---
 
-### 💻 Developer & CLI Options (Optional)
+### 💻 Developer & CLI Options (Others)
 <details>
 <summary>Click to view Claude Code (CLI) and Gemini terminal install</summary>
 
