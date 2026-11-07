@@ -66,68 +66,27 @@ Movie Recap Studio connects an **AI Story Agent** with the **Movie Recap Compani
 
 ## 📦 Installation & Setup
 
-Choose your preferred platform below. For web users, **Method 1 (Upload Skill)** is the recommended official way to permanently install the `/movie-recap-studio` command.
+Movie Recap Studio provides dedicated, pre-packaged Skill ZIPs for every major AI platform:
+
+| Platform | Recommended Method | Ready-to-Upload Package |
+|:---|:---|:---|
+| **🟣 Claude** (Web / Desktop) | Upload in Customize → Skills | [**Download Claude Skill ZIP**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip) |
+| **🟢 ChatGPT** (Custom GPT) | Upload in Create a GPT | [**Download ChatGPT Skill ZIP**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-codex-skill.zip) |
+| **🔵 Gemini** (CLI / Antigravity) | Install in Agent Skills | [**Download Gemini Skill ZIP**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-gemini-skill.zip) |
+| **⚡ Universal Agent** | Standard Agent Skill | [**Download Universal ZIP**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-agent-skill.zip) |
 
 ---
 
-### 🟣 Claude (Web & Desktop) — Recommended
+### 🟣 Claude (Web & Desktop)
 
-#### Method 1: Permanent Skill Upload (Official & Recommended)
-1. Download the ready-to-upload Skill ZIP: [**movie-recap-studio-claude-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip)
-2. Open **[Claude.ai](https://claude.ai)** → Click **Customize** in the left sidebar (or Profile icon → **Settings** → **Skills**).
-3. Click **Upload a Skill** and select the downloaded `movie-recap-studio-claude-skill.zip`.
-4. **Done!** Open any new chat and type `/movie-recap-studio` to launch the full automated workflow!
+#### Option 1: Claude Web (Customize → Skills) — Recommended
+1. Download [**movie-recap-studio-claude-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip).
+2. Open **[Claude.ai](https://claude.ai)** → Click **Customize** in the left sidebar (or Settings → **Skills**).
+3. Click **Upload a Skill** and select the downloaded ZIP file.
+4. **Done!** Open any new chat and type `/movie-recap-studio` to launch the workflow!
 
-#### Method 2: Direct Chat Prompt (No Download Required)
-If you prefer using it inside an existing chat without downloading files, paste this into any Claude chat:
-
-```text
-Act as Movie Recap Studio. Register this workflow and start immediately:
-
-Interactive Setup:
-1. Ask:
-   "Welcome to Movie Recap Studio! What would you like to create?
-   1. Long Video — Explain the entire movie in one complete video.
-   2. Short Video — Create a short recap of the movie."
-2. Then ask target duration (default 20 mins for long, or target seconds e.g. 60s for short).
-3. Then ask language with EXACTLY TWO options:
-   Question: "What language would you like the narration in?"
-   Options: ["English", "Hindustani (Hindi-Urdu)"]
-4. Ask user to upload complete movie SRT file.
-5. Analyze SRT, give summary and 3-4 topics.
-6. After topic approval, write full narration:
-   - If Hindustani (Hindi-Urdu): Hook MUST start with: "कहानी शुरू होती है एक..." (or Roman: "Kahani shuru hoti hai ek...") followed by active conflict.
-   - If English: Hook MUST start with: "The story begins with a..."
-   - Display script in one code block and ask for TTS MP3.
-7. CRITICAL AUDIO PROTOCOL: When user uploads TTS MP3:
-   - NEVER refuse timestamps and NEVER ask user for transcript.
-   - Measure audio duration (or use target duration), divide time across script sentences, re-read SRT, map scenes, and output timestamp block:
-     00:01:12 - 00:01:17
-     00:02:45 - 00:02:51
-   - Add note: "Paste these ranges into Movie Recap in this order."
-
-Start now with Question 1.
-```
-
----
-
-### 🟢 ChatGPT / OpenAI (Web)
-
-#### Method 1: Create a Custom GPT (Permanent 1-Click Bot)
-1. In ChatGPT, open **Explore GPTs** → **Create a GPT**.
-2. Under **Configure** → **Instructions**, paste the full prompt from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
-3. Name it **Movie Recap Studio** and save. You now have a permanent dedicated recap bot!
-
-#### Method 2: Instant Prompt in Chat
-Copy and paste the Direct Chat Prompt above directly into any ChatGPT conversation to start immediately.
-
----
-
-### 💻 Developer & CLI Options (Others)
-<details>
-<summary>Click to view Claude Code (CLI) and Gemini terminal install</summary>
-
-**Claude Code CLI:**
+#### Option 2: Claude Code (CLI / Terminal)
+Install directly into your local Claude environment:
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
@@ -136,11 +95,32 @@ git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/m
 git clone https://github.com/trykamran/movie-recap-studio.git "$env:USERPROFILE\.claude\skills\movie-recap-studio"
 ```
 
-**Gemini CLI / Antigravity:**
+---
+
+### 🟢 ChatGPT / OpenAI (Web & Codex)
+
+#### Option 1: Custom GPT (Web) — Recommended
+1. Download [**movie-recap-studio-codex-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-codex-skill.zip) and extract it.
+2. In ChatGPT, open **Explore GPTs** → **Create a GPT**.
+3. Under **Configure**, upload the extracted `SKILL.md` to **Knowledge** (or copy its text into Instructions).
+4. Name it **Movie Recap Studio** and save. You now have a permanent dedicated recap bot!
+
+#### Option 2: Codex CLI / Terminal
+```bash
+git clone https://github.com/trykamran/movie-recap-studio.git ~/.agents/skills/movie-recap-studio
+```
+
+---
+
+### 🔵 Gemini / Google Antigravity
+
+#### Option 1: Skill Package (Desktop / Antigravity)
+Download [**movie-recap-studio-gemini-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-gemini-skill.zip) and extract it into your agent skills directory.
+
+#### Option 2: Terminal / CLI
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.gemini/skills/movie-recap-studio
 ```
-</details>
 
 ---
 
