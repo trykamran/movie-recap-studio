@@ -44,20 +44,31 @@ Movie Recap Studio is accompanied by companion editing applications for **Window
 
 ---
 
-## How Movie Recap Studio works
+## 🎬 How Movie Recap Studio works
 
-Your agent calls Movie Recap Studio to analyze movie subtitles (SRT), structure chronological storyline beats, and write narration scripts. Movie Recap Studio returns exact scene timestamps and audio sync points. The agent uses them to produce voiceovers and scene timelines, while the companion apps automate silence removal and final video assembly.
-
-### Movie Recap Studio workflow
+Movie Recap Studio connects an **AI Story Agent** with the **Movie Recap Companion App** into a seamless, high-retention video production pipeline:
 
 ```mermaid
 flowchart LR
-    A["<b>1. Ask / Input</b><br/><br/>Your agent + Movie SRT<br/>Target duration / format"] --> B["<b>2. Analyze & Script</b><br/><br/><b>Movie Recap Studio</b><br/>Agent Skill"]
-    B --> C["<b>3. Read the plan</b><br/><br/>Narration script /<br/>Scene timestamps / TTS"]
-    C --> D["<b>4. Cut & Assemble</b><br/><br/><b>Movie Recap App</b><br/>Auto silence trim & merge"]
-    D -. "Follow-up / Shorts extraction" .-> B
-    E["<b>Companion Tools</b><br/><br/>Movie Recap Windows & Android<br/>FFmpeg Silence Engine"] --> B
+    classDef input fill:#1e1e2e,stroke:#6D5DFB,stroke-width:2px,color:#fff;
+    classDef ai fill:#2a1b4e,stroke:#a855f7,stroke-width:2px,color:#fff;
+    classDef app fill:#0f2b3c,stroke:#06b6d4,stroke-width:2px,color:#fff;
+    classDef out fill:#14342b,stroke:#10b981,stroke-width:2px,color:#fff;
+
+    A["📄 <b>1. Input</b><br/>Movie SRT & Settings"]:::input --> B["🧠 <b>2. AI Story Engine</b><br/>Story Map & Viral Hook"]:::ai
+    B --> C["🎙️ <b>3. Narration</b><br/>Script & TTS Audio"]:::ai
+    C --> D["🎯 <b>4. Scene Matching</b><br/>Precise Timecodes"]:::ai
+    D --> E["✂️ <b>5. Movie Recap App</b><br/>Auto Silence Cut & Merge"]:::app
+    E --> F["🚀 <b>Final Video</b><br/>YouTube-Ready Export"]:::out
 ```
+
+### 3-Step Production Pipeline
+
+| Stage | Process | Powered By | Deliverable |
+|:---|:---|:---|:---|
+| **1. Story & Script** | Analyzes movie SRT, builds chronological story map, and writes a retention-optimized script with the **Viral 3-Sentence Hook**. | **AI Agent** *(Claude / ChatGPT)* | Complete voiceover narration in English or Hindi/Urdu. |
+| **2. Audio & Scene Sync** | Takes your generated TTS audio and maps spoken sentences to exact film visual scenes. | **Movie Recap Studio Skill** | Frame-accurate timestamp list ready to copy. |
+| **3. One-Click Assembly** | Trims video clips, removes dead pauses (>0.3s) automatically, mutes movie audio, and merges everything with voiceover. | **Movie Recap App** *(Desktop / Android)* | 🎬 Exported master video ready for YouTube & Shorts. |
 
 ---
 
