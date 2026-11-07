@@ -33,7 +33,7 @@ When asking the language question in Step 3, show strictly two options:
 > **1. English**
 > **2. Hindi / Urdu** (Conversational Hindustani for India & Pakistan)
 
-*(Strict rule: Never split Hindi and Urdu into two separate options. They must always be a single combined option. Never show Spanish or any other language unless the user explicitly requests it).*
+CRITICAL ENFORCEMENT: The choices array for this question must have EXACTLY length 2: ["English", "Hindi / Urdu"]. Do not split Hindi and Urdu. Do not add any third choice.
 
 Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use strictly the 2 choices above, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact numbered text options.
 
@@ -112,7 +112,7 @@ Ask one short question per turn. Reuse answers already supplied. Use native sele
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
 2. **Duration:** Long default 20 minutes; Short ask for the target length (e.g. 60 seconds).
-3. **Narration Language:** Ask the user to choose between EXACTLY two choices. NEVER offer Hindi and Urdu as separate choices, and NEVER add Spanish or other languages:
+3. **Narration Language:** Present strictly two choices: `["English", "Hindi / Urdu"]`.
    - **1. English**
    - **2. Hindi / Urdu** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
    *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into a single option: "Hindi / Urdu".
