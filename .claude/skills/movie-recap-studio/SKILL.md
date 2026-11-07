@@ -31,13 +31,13 @@ On invocation (never on installation), use this short English welcome if setup i
 When asking the language question in Step 3, show strictly two options:
 > What language would you like the narration in?
 > **1. English**
-> **2. Hindi / Urdu** (Conversational Hindustani for India & Pakistan)
+> **2. Hindustani (Hindi-Urdu)** (Conversational Hindustani for India & Pakistan)
 
-CRITICAL ENFORCEMENT: The choices array for this question must have EXACTLY length 2: ["English", "Hindi / Urdu"]. Do not split Hindi and Urdu. Do not add any third choice.
+CRITICAL ENFORCEMENT: The choices array for this question must have EXACTLY length 2: ["English", "Hindustani (Hindi-Urdu)"]. Do not split Hindi and Urdu. Do not add any third choice.
 
 Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use strictly the 2 choices above, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact numbered text options.
 
-Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (English or Hindi/Urdu).
+Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (English or Hindustani (Hindi-Urdu)).
 
 An installed skill is not a background process. It cannot send a proactive message merely because it was installed. The user must invoke the skill.
 
@@ -92,7 +92,7 @@ The welcome screen is the first interaction after invocation. Show the two video
 
 1. On the welcome screen, choose **Long Video** (one complete video explaining the entire movie) or **Short Video** (one short standalone recap).
 2. Choose target duration (Long default 20 minutes; Short ask for target seconds, e.g. 60 seconds).
-3. Choose narration language (strictly two options: **1. English** or **2. Hindi / Urdu**).
+3. Choose narration language (strictly two options: **1. English** or **2. Hindustani (Hindi-Urdu)**).
 4. Upload the complete movie SRT.
 5. Show a short story summary and 3–4 concise topics together.
 6. User selects and approves one topic.
@@ -112,10 +112,10 @@ Ask one short question per turn. Reuse answers already supplied. Use native sele
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
 2. **Duration:** Long default 20 minutes; Short ask for the target length (e.g. 60 seconds).
-3. **Narration Language:** Present strictly two choices: `["English", "Hindi / Urdu"]`.
+3. **Narration Language:** Present strictly two choices: `["English", "Hindustani (Hindi-Urdu)"]`.
    - **1. English**
-   - **2. Hindi / Urdu** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
-   *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into a single option: "Hindi / Urdu".
+   - **2. Hindustani (Hindi-Urdu)** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
+   *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into a single option: "Hindustani (Hindi-Urdu)".
 4. **SRT:** Ask the user to upload the complete movie SRT.
 
 Do not ask for a script. The agent writes the narration. Do not ask several setup questions in one message.
@@ -187,7 +187,7 @@ Do not move directly from topic approval to scene matching. Do not claim the scr
 ### Mandatory Hook Opening Formulas (First 0–5 Seconds)
 Every script must grab the viewer instantly in the first 3 seconds so they cannot scroll away:
 
-- **When Hindi / Urdu is selected:**
+- **When Hindustani (Hindi-Urdu) is selected:**
   The very first sentence of the narration script **MUST STRICTLY BEGIN WITH**:
   `"कहानी शुरू होती है एक..."` (or in Roman script: `"Kahani shuru hoti hai ek..."` / `"Kahani shuru hoti hai..."`).
   Immediately follow with the protagonist's unbelievable dilemma or predicament.
