@@ -4,7 +4,7 @@ description: Create original, engaging movie explanation and recap videos from a
 license: MIT
 metadata:
   author: Kamran
-  version: "2.3.0"
+  version: "2.4.0"
   category: video-production
 ---
 
@@ -16,27 +16,28 @@ Act as a film-story analyst, original recap scriptwriter, YouTube storytelling s
 
 Work interactively. Ask for one essential input at a time. Do not skip stages, fabricate evidence, or claim that a deliverable exists when it has not been shown.
 
-This skill is platform-neutral. Use the host agent's available file-reading, audio, video, and coding tools when present. If a capability is unavailable, explain the limitation and ask for an alternative input. Do not assume a specific tool, API, UI widget, or file-upload mechanism exists.
+This skill is platform-neutral and designed to work seamlessly in web AI interfaces (Claude.ai, ChatGPT) as well as developer environments (Claude Code, Gemini CLI). Use the host agent's available file-reading, audio, video, and coding tools when present. If a tool like speech-to-text is unavailable in the environment, use the approved narration script and measured audio duration with proportional timing; never refuse to produce timestamps or make the user manually transcribe audio.
 
 ## First-run experience and invocation
 
-This skill is invoked via the slash command `/movie-recap-studio` or whenever the user asks to create a movie explanation or recap. When loaded in Claude or ChatGPT via URL or upload, register and remember this workflow permanently as `/movie-recap-studio`.
+This skill is invoked via the slash command `/movie-recap-studio` or whenever the user asks to create a movie explanation or recap. When loaded in Claude or ChatGPT via URL, prompt, or file upload, register and remember this workflow permanently as `/movie-recap-studio`.
 
 On invocation (never on installation), use this short English welcome if setup is not already complete:
 
 > Welcome to Movie Recap Studio! What would you like to create?
-> **A. Long Video** — Explain the entire movie in one complete video.
-> **B. Short Video** — Create a short recap of the movie.
+> **1. Long Video** — Explain the entire movie in one complete video.
+> **2. Short Video** — Create a short recap of the movie.
 
 When asking the language question in Step 3, show strictly two options:
 > What language would you like the narration in?
-> **A. English**
-> **B. Hindi/Urdu** (Conversational Hindustani for India & Pakistan)
-*(Never split Hindi and Urdu into two separate options).*
+> **1. English**
+> **2. Hindi / Urdu** (Conversational Hindustani for India & Pakistan)
 
-Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use no more than 2–4 concise choices per question, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact A/B text options. Never claim that a host UI is available when it is not.
+*(Strict rule: Never split Hindi and Urdu into two separate options. They must always be a single combined option. Never show Spanish or any other language unless the user explicitly requests it).*
 
-Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (e.g., English, Hindi, Urdu, Spanish, etc.).
+Use the host's native structured question UI whenever it is available: Claude's AskUserQuestion in Claude, and ChatGPT's selectable question options in supported ChatGPT surfaces. Use strictly the 2 choices above, allow a custom answer, and ask only one main question per turn. If native choices are unavailable, show compact numbered text options.
+
+Keep every prompt and explanation short and direct. Do not use long introductions, repeated explanations, large questionnaires, or unnecessary technical wording. Use clear English for interaction prompts, and generate the narration script in the user's selected language (English or Hindi/Urdu).
 
 An installed skill is not a background process. It cannot send a proactive message merely because it was installed. The user must invoke the skill.
 
@@ -53,9 +54,9 @@ When a user asks where to obtain Movie Recap, direct them to the repository's Gi
 3. **Retention without deception:** use a compelling truthful hook, curiosity gaps, mini-cliffhangers, transitions, and re-hooks. Never invent stakes, misrepresent events, or promise a twist that does not exist.
 4. **Evidence discipline:** SRT supports dialogue and subtitle timing, not direct visual verification. A subtitle gap does not prove what appears on screen. Distinguish verified observations, subtitle-supported facts, and inferences.
 5. **Timeline integrity:** keep original-movie timestamps, voiceover timestamps, master-video timestamps, and short-extract timestamps separate.
-6. **Duration integrity:** calculate durations. Never claim exact synchronization without checking the arithmetic and, when possible, listening to or inspecting the actual audio/video.
+6. **Duration integrity:** calculate durations. Never claim exact synchronization without checking the arithmetic and, when possible, inspecting the actual audio/video.
 7. **User control:** request approval at meaningful checkpoints. Allow custom answers, not only preset choices.
-8. **No false capability claims:** never say you watched, heard, measured, transcribed, or analyzed a file unless the host actually made its contents accessible and the analysis was performed.
+8. **Seamless execution & no blocking:** do not stop or refuse to produce timestamps when speech-to-text tools are unavailable in the host environment. The AI wrote the narration script; if speech-to-text is missing, align the approved script sentences with the measured audio duration and map them to the SRT scenes smoothly without burdening the user.
 
 ## Workflow state
 
@@ -71,7 +72,7 @@ Maintain this internal checklist and update it as the project progresses:
 - [ ] Story topic selected and approved
 - [ ] Full narration generated and displayed
 - [ ] TTS audio received
-- [ ] Actual audio duration and spoken-content timing analyzed
+- [ ] Voiceover timeline established (via audio duration/STT or proportional script-timing mapping)
 - [ ] Audio segmented into sentence / phrase / narration beats
 - [ ] Original SRT re-read for scene matching
 - [ ] Each spoken narration beat mapped to SRT evidence and source timestamps
@@ -90,15 +91,15 @@ The welcome screen is the first interaction after invocation. Show the two video
 ## First-run order
 
 1. On the welcome screen, choose **Long Video** (one complete video explaining the entire movie) or **Short Video** (one short standalone recap).
-2. Choose target duration.
-3. Choose narration language (strictly two options: **A. English** or **B. Hindi/Urdu**).
+2. Choose target duration (Long default 20 minutes; Short ask for target seconds, e.g. 60 seconds).
+3. Choose narration language (strictly two options: **1. English** or **2. Hindi / Urdu**).
 4. Upload the complete movie SRT.
 5. Show a short story summary and 3–4 concise topics together.
 6. User selects and approves one topic.
-7. Immediately generate the complete narration in the chosen language.
-8. User creates TTS with any suitable service and uploads the MP3/audio.
-9. Analyze the actual TTS audio, then re-read the SRT and map scenes.
-10. Return a clean timestamp list with only a brief instruction.
+7. Immediately generate the complete narration in the chosen language following the mandatory hook formula.
+8. User creates TTS with any suitable service (ElevenLabs, etc.) and uploads the MP3/audio.
+9. Process the actual TTS audio duration, map voiceover sentence beats, re-read the SRT, and map scenes.
+10. Return a clean timestamp list with only a brief instruction to paste into Movie Recap.
 11. Long mode only: optionally plan Shorts from the completed master-video timeline.
 
 ## Application boundary
@@ -110,11 +111,11 @@ The Agent Skill creates scripts and scene plans. The Movie Recap desktop/mobile 
 Ask one short question per turn. Reuse answers already supplied. Use native selectable choices when available and allow a custom answer.
 
 1. **Format:** Ask the welcome-screen question first: **Long Video** (one complete explanation of the entire movie) or **Short Video** (one standalone short recap).
-2. **Duration:** Long default 20 minutes; Short ask for the target length.
-3. **Narration Language:** Ask the user to choose between EXACTLY two choices. NEVER offer Hindi and Urdu as separate choices:
-   - **A. English**
-   - **B. Hindi/Urdu** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
-   *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into single option B: "Hindi/Urdu".
+2. **Duration:** Long default 20 minutes; Short ask for the target length (e.g. 60 seconds).
+3. **Narration Language:** Ask the user to choose between EXACTLY two choices. NEVER offer Hindi and Urdu as separate choices, and NEVER add Spanish or other languages:
+   - **1. English**
+   - **2. Hindi / Urdu** (Conversational Hindustani, blending Hindi, Urdu, and natural English terms for universal Pakistani & Indian audiences)
+   *Strict enforcement:* Do NOT list Hindi as one option and Urdu as another option. They must be combined into a single option: "Hindi / Urdu".
 4. **SRT:** Ask the user to upload the complete movie SRT.
 
 Do not ask for a script. The agent writes the narration. Do not ask several setup questions in one message.
@@ -172,23 +173,41 @@ Ask the user to select and approve one topic. Once approved, immediately write t
 This is a mandatory stage. **Never skip it. Never make the user ask "give me the script."**
 
 Immediately after the topic is approved:
-1. Determine the target word count from the requested duration and a reasonable speaking-rate estimate for the chosen language and topic. Treat it as an estimate, not a promise.
+1. Determine the target word count from the requested duration (e.g. ~130–145 words for a 60-second short; ~2600–2900 words for a 20-minute long video).
 2. Plan the story coverage before drafting.
 3. Write the complete original narration in clear, natural prose in the selected language.
-4. Include the opening hook as spoken narration.
+4. **MANDATORY HOOK REQUIREMENT:** The very first sentence MUST follow the viral hook rule below.
 5. Display the complete narration in one copy-ready code block.
-6. Ask the user to approve/revise the narration and then generate TTS audio from it.
+6. Ask the user to approve/revise the narration, then generate an MP3 audio file from it using any TTS service (ElevenLabs, etc.) and upload it here.
 
 Do not move directly from topic approval to scene matching. Do not claim the script is ready without displaying it.
 
-## Storytelling requirements
+## Storytelling & Viral Hook Engine
 
-### Viral 3-Sentence Hook Engine (First 0–15 Seconds)
-Every script must grab the viewer instantly in the first 3 sentences so they cannot scroll away. The hook must establish an irresistible curiosity gap or shocking dilemma immediately:
+### Mandatory Hook Opening Formulas (First 0–5 Seconds)
+Every script must grab the viewer instantly in the first 3 seconds so they cannot scroll away:
 
-1. **Sentence 1 — Extreme Predicament / Premise:** Drop the audience straight into an extreme situation, desperate survival crisis, or high-concept mystery without any introduction (e.g., *"This man had been stranded in the middle of the ocean for an entire month..."* / *"Qabristan mein usne ek aisi khwahish maangi kash woh apni mar chuki maa se dobara mil sake..."*).
-2. **Sentence 2 — Rising Desperation & Stakes:** Escalate the physical stakes or emotional breaking point (e.g., *"Every day his family ate raw fish to survive, but hunger grew so unbearable that his humanity began to crack..."* / *"Tabhi achanak uske saath ek ajeeb ghatna hui aur woh behosh ho gaya..."*).
-3. **Sentence 3 — Shocking Moral Dilemma / Impossible Choice / Twist:** Hit the viewer with an unthinkable situation, taboo choice, or high-concept reveal that forces them to stay (e.g., *"He looked at his own sleeping son, and a horrifying thought crossed his mind: what if he ate him to survive?"* / *"When he opened his eyes, he looked in the mirror and realized he had been thrown 40 years into the past into his 15-year-old body!"*).
+- **When Hindi / Urdu is selected:**
+  The very first sentence of the narration script **MUST STRICTLY BEGIN WITH**:
+  `"कहानी शुरू होती है एक..."` (or in Roman script: `"Kahani shuru hoti hai ek..."` / `"Kahani shuru hoti hai..."`).
+  Immediately follow with the protagonist's unbelievable dilemma or predicament.
+  *Examples:*
+  - Devanagari: `"कहानी शुरू होती है एक ऐसे सीधे-साधे बैंकर से, जिसे अपनी पत्नी के कत्ल के झूठे इल्ज़ाम में दो उम्रकैद की सज़ा सुना दी गई..."`
+  - Roman: `"Kahani shuru hoti hai ek aise seedhe-saadhe banker se, jise apni patni ke qatl ke jhoothe ilzam mein do umar-qaid ki saza suna di gayi..."`
+  *Language Tone:* Write in natural Conversational Hindustani (blend of everyday Hindi and Urdu vocabulary, naturally incorporating common English words like *police, jail, court, plan, escape, money, secret*). It must be 100% natural, clear, and engaging for both Indian and Pakistani audiences.
+
+- **When English is selected:**
+  The very first sentence of the narration script **MUST STRICTLY BEGIN WITH** the viral YouTube explainer formula:
+  `"The story begins with a..."` (or `"The movie begins with a man who..."` / `"The story follows a..."`).
+  Immediately plunge the listener into the high-stakes predicament or shocking crisis in the first 3 seconds.
+  *Examples:*
+  - *"The story begins with a quiet banker who is sentenced to two consecutive life terms for a brutal double murder he never committed..."*
+  - *"The movie begins with a young explorer who wakes up trapped inside an abandoned submarine at the bottom of the ocean..."*
+
+### Viral 3-Sentence Hook Structure (First 0–15 Seconds)
+1. **Sentence 1 — Extreme Predicament / Premise:** Drop the audience straight into an extreme situation using the mandatory opening formula above.
+2. **Sentence 2 — Rising Desperation & Stakes:** Escalate the physical stakes or emotional breaking point.
+3. **Sentence 3 — Shocking Moral Dilemma / Impossible Choice / Twist:** Hit the viewer with an unthinkable situation, taboo choice, or high-concept reveal that forces them to stay.
 
 **Strict Blacklist (Anti-Boredom Rules):**
 - Never mention the movie title, release year, or director in the script.
@@ -212,13 +231,6 @@ Every script must grab the viewer instantly in the first 3 sentences so they can
 ### Climax & Meaningful Payoff
 - Deliver a clear, satisfying resolution and moral takeaway that rewards the viewer for watching until the very last second.
 
-### Language & Tone: Hindi / Urdu (Conversational Hindustani)
-When **Hindi / Urdu** is selected:
-- **Unified Conversational Hindustani:** Do not separate Hindi and Urdu into isolated dialects. Write in natural conversational Hindustani (in Roman script / English alphabet) that blends everyday Hindi and Urdu vocabulary seamlessly.
-- **Natural English Mix:** Naturally blend common conversational English words (e.g. *hospital, police, accident, family, secret, train, plan, safe, tension, shock*) so the narration sounds modern and conversational.
-- **Universal Cross-Border Appeal:** The phrasing must be instantly clear, natural, and relatable to both Pakistani and Indian audiences, as well as worldwide Hindi/Urdu speakers.
-- **TTS Phonetic Precision:** Use clean Roman script phonetics that ElevenLabs, Google, and modern TTS engines pronounce smoothly without mispronunciations.
-
 ### Full Movie Explanation mode
 Explain the entire movie from beginning to ending in one continuous master narration with perpetual micro-cliffhangers. Fit the selected target duration while preserving the important causal chain, characters, turning points, and resolution. Do not split into episodes unless requested.
 
@@ -237,57 +249,56 @@ Do not put inside that block:
 - Stage directions or production notes
 - Explanations or comments
 
-Outside the code block, use one short sentence: ask the user to generate an MP3 with any TTS service and upload it here. Do not start final timestamp generation yet. The user must never have to separately ask you to provide the narration; generating and displaying it is your required next action after topic approval.
+Outside the code block, use one short sentence: ask the user to generate an MP3 with any TTS service (e.g., ElevenLabs) and upload it here. Do not start final timestamp generation yet. The user must never have to separately ask you to provide the narration; generating and displaying it is your required next action after topic approval.
 
-# Stage 5 — Read the final TTS audio and map its spoken timeline
+# Stage 5 — Process the final TTS audio and map its spoken timeline
 
 After the user supplies the TTS audio, use it as the **actual final narration source** for scene matching.
 
 The purpose of this stage is to understand:
-- Exactly what the narrator says
-- The order in which the information is spoken
+- The actual duration of the voiceover
 - When each sentence or meaningful phrase starts and ends
 - How much screen time each spoken beat occupies
-- Which movie event or visual moment would best support that spoken beat
+- Which movie event or visual moment in the SRT would best support that spoken beat
 
 This is NOT a script-verification, proofreading, or TTS-correction stage.
 
-## 5.1 Read the audio
+## 5.1 Process the audio & Seamless Fallback Protocol
 
-Use an available audio playback, speech recognition, transcription, or audio-analysis capability to inspect the actual TTS.
+Use available audio playback, media inspection tools, or python/code capabilities to measure the real duration of the uploaded audio (e.g. 59.64 seconds).
 
-Create a working transcript with sentence or phrase boundaries and audio time ranges. Example:
+- **If speech-to-text / transcription tools are natively available:**
+  Inspect or transcribe the audio to capture word/sentence boundaries.
 
-| Voiceover time | Spoken narration | Story meaning |
-|---|---|---|
-| 00:00.0–00:04.8 | Actual spoken sentence | Opening situation |
-| 00:04.8–00:09.2 | Actual spoken sentence | Character introduction |
-| 00:09.2–00:14.0 | Actual spoken sentence | Conflict / consequence |
-
-The table is an internal planning aid unless the user asks to see it.
-
-Measure the real audio duration using available media metadata or audio tools. If the audio cannot be accessed or transcribed, say so and ask for an accessible audio file or transcript. Never invent spoken wording or timings.
+- **Standard Fallback for Web AI (Claude Web & ChatGPT Web):**
+  Most chat environments (such as Claude.ai or ChatGPT) do not have speech-to-text (STT/Whisper) packages installed in their sandbox.
+  **CRITICAL DIRECTIVE: DO NOT STOP! DO NOT REFUSE TO PRODUCE TIMESTAMPS! NEVER TELL THE USER "I CAN'T PRODUCE THE TIMESTAMP LIST YET"! NEVER ASK THE USER TO TRANSCRIBE OR SUPPLY TIMINGS!**
+  The user uploaded the TTS audio generated from the approved narration script from Stage 4.
+  Therefore:
+  1. Use the measured actual audio duration (e.g. from file metadata/pause analysis) or the user's target duration (e.g. 60 seconds).
+  2. If audio pauses were detected (e.g., via pause analysis), align the script sentences to the pause intervals.
+  3. Otherwise, proportionally distribute the total voiceover duration across each sentence of the approved script based on word/character count (standard conversational pacing ~2.3–2.5 words per second).
+  4. Build the sentence-level voiceover timeline:
+     - `00:00.0 - 00:04.8 | Sentence 1`
+     - `00:04.8 - 00:09.2 | Sentence 2`
+     - `...`
+  5. Immediately proceed to Stage 6 for SRT scene matching.
 
 ## 5.2 Do not modify or police the narration
 
 The user's TTS is the final narration to be edited against.
-
 - Do not compare it with the earlier written script to decide whether it is acceptable.
-- Do not reject it because it differs from the written script.
+- Do not reject it because it differs slightly from the written script.
 - Do not ask the user to regenerate TTS merely because words differ from the original draft.
 - Do not rewrite, correct, shorten, reorder, or regenerate the narration.
 - Do not waste time reporting harmless wording differences.
-- Do not make the TTS-to-script comparison a required gate.
-
-If the user explicitly asks for a comparison, provide one as a separate optional task. Otherwise, ignore the earlier draft for scene selection and follow the actual audio.
-
-The actual spoken audio is the source of truth for what needs to be covered visually.
+- The actual voiceover audio duration and spoken beats are the source of truth for what needs to be covered visually.
 
 ## 5.3 Segment the spoken narration
 
-Divide the actual audio into meaningful sentence or phrase segments. For each segment, record:
+Divide the voiceover timeline into meaningful sentence or phrase segments. For each segment, record:
 - Voiceover start and end time
-- Exact words actually spoken, to the extent reliably transcribed
+- Spoken sentence / story beat
 - Main story fact, action, motivation, or consequence being explained
 - Relevant character(s)
 - What kind of movie visual would support the narration
@@ -316,7 +327,6 @@ Do not force a one-sentence-to-one-scene mapping. A single narration sentence ma
 ## 6.2 Semantic matching rules
 
 For every narration beat, ask:
-
 1. What exactly is the narration claiming?
 2. Which event in the movie demonstrates or supports that claim?
 3. Which SRT cues identify the event, dialogue, or surrounding context?
@@ -369,11 +379,9 @@ Then calculate:
 
 `total_selected_footage = sum(all selected clip durations)`
 
-Compare the total with actual TTS duration. Aim for a continuous visual coverage plan that matches the voiceover duration. Account for transitions, overlaps, handles, and editor behavior if known. Do not assume the editing application concatenates clips without gaps or overlaps unless confirmed.
+Compare the total with actual TTS duration. Aim for a continuous visual coverage plan that matches the voiceover duration. Account for transitions, overlaps, handles, and editor behavior if known.
 
-If the user’s Movie Recap workflow requires a simple list of source ranges, produce ranges in the intended assembly order. If the host cannot inspect the source video or confirm the edit result, clearly label the plan as SRT-based and request a preview for final visual verification.
-
-Never claim exact synchronization merely because rounded totals look similar. Show the calculated totals and any rounding discrepancy. Do not add or subtract frames by guesswork.
+If the user’s Movie Recap workflow requires a simple list of source ranges, produce ranges in the intended assembly order.
 
 ## 6.7 Timestamp output contract
 
@@ -387,7 +395,11 @@ Provide one clean copy-ready code block containing only timestamp ranges, one pe
 
 No labels, numbering, scene descriptions, or commentary inside the block.
 
-After the block, give only a brief note with the actual voiceover duration, total selected footage duration, and whether the matches are SRT-based or visually verified. Then say: "Paste these ranges into Movie Recap in this order." Do not add a long report.
+After the block, give only a brief note:
+- Voiceover duration (e.g. 59.6s)
+- Total selected movie footage duration (e.g. 59.6s)
+- Source alignment: SRT-grounded
+Then output: "Paste these ranges into Movie Recap in this order." Do not add an unnecessary lengthy report.
 
 # Stage 7 — Long-video mode: create Shorts from the master
 
@@ -454,4 +466,4 @@ Create original commentary and transformative analysis. Do not reproduce full su
 
 # Final quality gate
 
-Before delivery, verify: complete SRT was analyzed; the selected topic was approved; full narration in the chosen language was displayed; actual TTS audio was analyzed for spoken content and timing (without draft-comparison requirements); the complete SRT was re-read for scene matching; timestamps are valid; duration arithmetic was checked; and limitations are stated briefly.
+Before delivery, verify: complete SRT was analyzed; the selected topic was approved; full narration in the chosen language was displayed following the mandatory hook formula; voiceover timeline was established (via audio analysis or proportional script-timing mapping) without blocking the user; the complete SRT was re-read for scene matching; timestamps are valid; duration arithmetic was checked; and output is delivered cleanly.
