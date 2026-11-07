@@ -61,12 +61,55 @@ flowchart LR
 
 ---
 
-## 📦 Installation
+## 📦 Installation (Claude Web & ChatGPT Web)
 
-### Claude / Claude Code
+Most creators use **Claude Web** or **ChatGPT Web** directly in their browser. Here is how to use the skill and save it permanently as the **`/movie-recap-studio`** command:
 
-**Option 1: Permanent Install in Claude Code (CLI)**  
-Run this command in your terminal to install the skill permanently as `/movie-recap-studio`:
+---
+
+### 🟣 Claude (Web & Desktop)
+
+#### Method 1: Instant Command via Chat (Fastest)
+Copy and paste this prompt directly into any Claude chat:
+
+```text
+https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.claude/skills/movie-recap-studio/SKILL.md
+
+Read the skill file above. Install and register this permanently as my `/movie-recap-studio` command. Start the workflow now.
+```
+> Claude will save the workflow and activate `/movie-recap-studio` immediately.
+
+#### Method 2: Permanent Skill Upload in Claude Customize / Settings
+1. Download the ready-to-upload Skill ZIP: [**movie-recap-studio-claude-skill.zip**](https://github.com/trykamran/movie-recap-studio/releases/download/v2.3.0/movie-recap-studio-claude-skill.zip)
+2. Open **Claude.ai** → Click your profile icon → **Settings** (or **Customize**) → **Skills**.
+3. Click **Upload Skill** and select the downloaded ZIP file.
+4. **Done!** `/movie-recap-studio` is now permanently registered and available across all your chats and projects!
+
+---
+
+### 🟢 ChatGPT / OpenAI (Web)
+
+#### Method 1: Instant Prompt in Chat
+Copy and paste this prompt directly into ChatGPT:
+
+```text
+https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.agents/skills/movie-recap-studio/SKILL.md
+
+Read the skill file above. Save and register this as my Movie Recap Studio assistant. Start the workflow now.
+```
+
+#### Method 2: Create a Custom GPT (Permanent 1-Click Bot)
+1. In ChatGPT, open **Explore GPTs** → **Create a GPT**.
+2. In **Instructions**, paste the text from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md).
+3. Name it **Movie Recap Studio** and save. You now have a permanent dedicated recap generator!
+
+---
+
+### 💻 Developer & CLI Options (Optional)
+<details>
+<summary>Click to view Claude Code (CLI) and Gemini terminal install</summary>
+
+**Claude Code CLI:**
 ```bash
 git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/movie-recap-studio
 ```
@@ -75,36 +118,11 @@ git clone https://github.com/trykamran/movie-recap-studio.git ~/.claude/skills/m
 git clone https://github.com/trykamran/movie-recap-studio.git "$env:USERPROFILE\.claude\skills\movie-recap-studio"
 ```
 
-**Option 2: Single Prompt in Claude Web Chat**  
-Copy and paste this prompt directly into Claude:
-```text
-https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.claude/skills/movie-recap-studio/SKILL.md
-Fetch and activate this Movie Recap Studio skill.
+**Gemini CLI / Antigravity:**
+```bash
+git clone https://github.com/trykamran/movie-recap-studio.git ~/.gemini/skills/movie-recap-studio
 ```
-
----
-
-### ChatGPT / OpenAI
-
-Copy and paste this single prompt directly into ChatGPT:
-
-```text
-https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.agents/skills/movie-recap-studio/SKILL.md
-Fetch and activate this Movie Recap Studio skill.
-```
-
-*(Custom GPT Builder: Copy instructions from [skills/movie-recap-studio/SKILL.md](skills/movie-recap-studio/SKILL.md))*
-
----
-
-### Gemini / Antigravity
-
-Copy and paste this prompt:
-
-```text
-https://raw.githubusercontent.com/trykamran/movie-recap-studio/main/.gemini/skills/movie-recap-studio/SKILL.md
-Fetch and activate this Movie Recap Studio skill.
-```
+</details>
 
 ---
 
