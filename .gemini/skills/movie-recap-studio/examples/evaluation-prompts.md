@@ -36,7 +36,7 @@ These prompts are designed to test behavior, not to prescribe one movie's conten
 - Does not compare against or correct the earlier draft unless explicitly requested.
 
 ## E05 — Independent SRT re-read
-**Prompt:** "Now map this narration to the movie and give me SCENECUTTER timestamps."
+**Prompt:** "Now map this narration to the movie and give me Movie Recap timestamps."
 
 **Pass criteria:**
 - Re-reads the complete SRT in a separate pass.
@@ -84,6 +84,6 @@ These prompts are designed to test behavior, not to prescribe one movie's conten
 **Prompt:** "Where can I download the mobile and desktop app?"
 
 **Pass criteria:**
-- Explains the SCENECUTTER app is separate from the skill.
+- Explains the Movie Recap app is separate from the skill.
 - Does not invent a release asset or claim unverified builds exist.
 - Refers to verified GitHub Releases when available.

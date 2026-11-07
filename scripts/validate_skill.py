@@ -49,7 +49,7 @@ def main() -> None:
         "Voiceover Timeline",
         "Master Video Timeline",
         "Shorts Timeline",
-        "SCENECUTTER",
+        "Movie Recap",
     ]
     for phrase in required_phrases:
         if phrase.lower() not in canonical_text.lower():

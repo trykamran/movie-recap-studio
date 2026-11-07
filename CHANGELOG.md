@@ -26,7 +26,7 @@
 - Shortened onboarding questions, topic descriptions, explanations, and final output.
 - Added native host selectable-question guidance with concise text fallback.
 - Removed the separate narration-style questionnaire; narration follows topic approval.
-- Simplified final delivery to clean source timestamps and a brief SCENECUTTER instruction.
+- Simplified final delivery to clean source timestamps and a brief Movie Recap instruction.
 
 ### Clarified
 - Uploaded MP3/TTS is analyzed as-is; draft comparison is not a required step.

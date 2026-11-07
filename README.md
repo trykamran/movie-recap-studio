@@ -48,19 +48,11 @@ Movie Recap Studio is accompanied by companion editing applications for **Window
 
 Movie Recap Studio connects an **AI Story Agent** with the **Movie Recap Companion App** into a seamless, high-retention video production pipeline:
 
-```mermaid
-flowchart LR
-    classDef input fill:#1e1e2e,stroke:#6D5DFB,stroke-width:2px,color:#fff;
-    classDef ai fill:#2a1b4e,stroke:#a855f7,stroke-width:2px,color:#fff;
-    classDef app fill:#0f2b3c,stroke:#06b6d4,stroke-width:2px,color:#fff;
-    classDef out fill:#14342b,stroke:#10b981,stroke-width:2px,color:#fff;
+<div align="center">
 
-    A["📄 <b>1. Input</b><br/>Movie SRT & Settings"]:::input --> B["🧠 <b>2. AI Story Engine</b><br/>Story Map & Viral Hook"]:::ai
-    B --> C["🎙️ <b>3. Narration</b><br/>Script & TTS Audio"]:::ai
-    C --> D["🎯 <b>4. Scene Matching</b><br/>Precise Timecodes"]:::ai
-    D --> E["✂️ <b>5. Movie Recap App</b><br/>Auto Silence Cut & Merge"]:::app
-    E --> F["🚀 <b>Final Video</b><br/>YouTube-Ready Export"]:::out
-```
+![Movie Recap Studio Workflow](docs/workflow.png)
+
+</div>
 
 ### 3-Step Production Pipeline
 

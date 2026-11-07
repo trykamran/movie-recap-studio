@@ -2,7 +2,7 @@
 
 ## Three independently versioned layers
 
-1. **Agent Skill** — prompt-based workflow: story analysis, narration, audio-led timing, SRT re-read, SCENECUTTER timestamp list. Works without installing SCENECUTTER, provided the host can access required files and media tools.
+1. **Agent Skill** — prompt-based workflow: story analysis, narration, audio-led timing, SRT re-read, Movie Recap timestamp list. Works without installing Movie Recap, provided the host can access required files and media tools.
 2. **Desktop application** — distributed as a signed or verified release artifact for each supported OS and CPU architecture. Imports or pastes source time ranges and cuts authorized source media locally.
 3. **Mobile application** — distributed as an Android APK or other platform-specific package only when actually built and tested. An iOS application requires an appropriate Apple distribution route; do not promise direct iOS installation from GitHub Releases.
 
@@ -15,8 +15,8 @@ flowchart LR
   N --> T[User's TTS service]
   T --> A
   A --> R[Source movie timestamp ranges]
-  R --> D[SCENECUTTER desktop app]
-  R --> M[SCENECUTTER mobile app]
+  R --> D[Movie Recap desktop app]
+  R --> M[Movie Recap mobile app]
   V[Authorized source video] --> D
   V --> M
   D --> O[Rendered movie recap]

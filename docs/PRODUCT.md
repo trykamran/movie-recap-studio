@@ -4,7 +4,7 @@
 
 **Movie Recap Studio** is the Agent Skill: it analyzes a complete movie SRT, presents concise story-topic choices, writes original English narration, analyzes the user's final TTS audio, and maps spoken beats to source-movie timestamps.
 
-**SCENECUTTER** is the separate desktop/mobile editing application. The skill returns timestamp ranges for the user to paste into the app. Do not claim direct integration unless implemented and tested.
+**Movie Recap** is the separate desktop/mobile editing application. The skill returns timestamp ranges for the user to paste into the app. Do not claim direct integration unless implemented and tested.
 
 ## Minimal user journey
 
@@ -22,4 +22,4 @@ All user-facing content is English only. Questions and explanations must be brie
 
 ## Product boundary
 
-A skill does not itself supply movie footage, guarantee transcription tools, or run SCENECUTTER. It must disclose unavailable media capabilities. Timestamp plans are SRT-based unless actual video inspection verifies the visuals.
+A skill does not itself supply movie footage, guarantee transcription tools, or run Movie Recap. It must disclose unavailable media capabilities. Timestamp plans are SRT-based unless actual video inspection verifies the visuals.

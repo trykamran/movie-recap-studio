@@ -24,7 +24,7 @@ The uploaded TTS is the source of truth. Analyze its actual spoken content and t
 
 ## Timeline integrity
 
-- Source Movie: original film timestamps for SCENECUTTER.
+- Source Movie: original film timestamps for Movie Recap.
 - Voiceover: actual TTS timecodes.
 - Master Video: completed long-form edit timecodes.
 - Shorts: ranges inside the master video.

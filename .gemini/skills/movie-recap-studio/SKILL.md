@@ -1,6 +1,6 @@
 ---
 name: movie-recap-studio
-description: Create original, engaging movie explanation and recap videos from a complete movie SRT and optional source video/audio. Use when a user wants a long-form full-movie explanation, a short movie recap, narration scripts, TTS synchronization, source-movie scene timestamps for SCENECUTTER, or short-form extracts from a finished master video.
+description: Create original, engaging movie explanation and recap videos from a complete movie SRT and optional source video/audio. Use when a user wants a long-form full-movie explanation, a short movie recap, narration scripts, TTS synchronization, source-movie scene timestamps for Movie Recap, or short-form extracts from a finished master video.
 license: MIT
 metadata:
   author: Kamran
@@ -40,11 +40,11 @@ Keep every prompt and explanation short and direct. Do not use long introduction
 
 An installed skill is not a background process. It cannot send a proactive message merely because it was installed. The user must invoke the skill.
 
-## Relationship to SCENECUTTER releases
+## Relationship to Movie Recap releases
 
-Movie Recap Studio is the AI workflow; SCENECUTTER is the separate desktop/mobile editing application. The skill generates original narration and timestamp ranges for the user to paste/import into SCENECUTTER. The skill does not download, install, or execute the editing app on its own.
+Movie Recap Studio is the AI workflow; Movie Recap is the separate desktop/mobile editing application. The skill generates original narration and timestamp ranges for the user to paste/import into Movie Recap. The skill does not download, install, or execute the editing app on its own.
 
-When a user asks where to obtain SCENECUTTER, direct them to the repository's GitHub Releases page **only if an actual release URL is known**. Do not invent release download links or claim that desktop/mobile binaries have been published. If the app is unavailable on the user's OS, explain the limitation and continue with skill-based narration and scene planning.
+When a user asks where to obtain Movie Recap, direct them to the repository's GitHub Releases page **only if an actual release URL is known**. Do not invent release download links or claim that desktop/mobile binaries have been published. If the app is unavailable on the user's OS, explain the limitation and continue with skill-based narration and scene planning.
 
 ## Core principles
 
@@ -103,7 +103,7 @@ The welcome screen is the first interaction after invocation. Show the two video
 
 ## Application boundary
 
-The Agent Skill creates scripts and scene plans. The SCENECUTTER desktop/mobile apps are separate executables obtained from GitHub Releases. Do not claim the agent installs or controls the apps automatically. The timestamp output must remain usable through copy/paste even when no application integration is available. Do not invent an API, deep link, file import, or synchronization feature until it is actually implemented.
+The Agent Skill creates scripts and scene plans. The Movie Recap desktop/mobile apps are separate executables obtained from GitHub Releases. Do not claim the agent installs or controls the apps automatically. The timestamp output must remain usable through copy/paste even when no application integration is available. Do not invent an API, deep link, file import, or synchronization feature until it is actually implemented.
 
 # Stage 1 — Interactive setup
 
@@ -352,7 +352,7 @@ For intentional flash-forward hooks, mark the selection as a deliberate editoria
 
 ## 6.5 Keep four timelines separate
 
-1. **Source Movie Timeline:** timestamps in the original movie; used by SCENECUTTER to extract source footage.
+1. **Source Movie Timeline:** timestamps in the original movie; used by Movie Recap to extract source footage.
 2. **Voiceover Timeline:** actual timing of speech in the generated audio.
 3. **Master Video Timeline:** timing in the assembled explanation video.
 4. **Shorts Timeline:** ranges inside the completed master video used to extract social clips.
@@ -371,7 +371,7 @@ Then calculate:
 
 Compare the total with actual TTS duration. Aim for a continuous visual coverage plan that matches the voiceover duration. Account for transitions, overlaps, handles, and editor behavior if known. Do not assume the editing application concatenates clips without gaps or overlaps unless confirmed.
 
-If the user’s SCENECUTTER workflow requires a simple list of source ranges, produce ranges in the intended assembly order. If the host cannot inspect the source video or confirm the edit result, clearly label the plan as SRT-based and request a preview for final visual verification.
+If the user’s Movie Recap workflow requires a simple list of source ranges, produce ranges in the intended assembly order. If the host cannot inspect the source video or confirm the edit result, clearly label the plan as SRT-based and request a preview for final visual verification.
 
 Never claim exact synchronization merely because rounded totals look similar. Show the calculated totals and any rounding discrepancy. Do not add or subtract frames by guesswork.
 
@@ -387,7 +387,7 @@ Provide one clean copy-ready code block containing only timestamp ranges, one pe
 
 No labels, numbering, scene descriptions, or commentary inside the block.
 
-After the block, give only a brief note with the actual voiceover duration, total selected footage duration, and whether the matches are SRT-based or visually verified. Then say: "Paste these ranges into SCENECUTTER in this order." Do not add a long report.
+After the block, give only a brief note with the actual voiceover duration, total selected footage duration, and whether the matches are SRT-based or visually verified. Then say: "Paste these ranges into Movie Recap in this order." Do not add a long report.
 
 # Stage 7 — Long-video mode: create Shorts from the master
 

@@ -1,4 +1,4 @@
-# SCENECUTTER vX.Y.Z
+# Movie Recap vX.Y.Z
 
 ## Downloads
 

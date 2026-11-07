@@ -16,7 +16,7 @@
     "srt-story-analysis",
     "original-narration",
     "tts-led-scene-alignment",
-    "scenecutter-timestamps",
+    "movie-recap-timestamps",
     "master-video-to-shorts"
   ],
   "distribution": {

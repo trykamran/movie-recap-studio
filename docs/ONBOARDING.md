@@ -18,6 +18,6 @@
 7. Receive the complete narration immediately.
 8. Generate an MP3 using any TTS service and upload it.
 9. The agent analyzes the actual audio and re-reads the original SRT.
-10. Receive source-movie timestamp ranges and a short instruction to paste them into SCENECUTTER.
+10. Receive source-movie timestamp ranges and a short instruction to paste them into Movie Recap.
 
 Do not add a separate narration-style questionnaire. Do not compare the uploaded TTS with the draft unless explicitly asked.

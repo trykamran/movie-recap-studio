@@ -3,10 +3,10 @@
 ## Production paths
 
 ### Full movie explanation
-Setup → complete SRT → story map → approval → style selection → full narration → TTS generation → read actual TTS → segment voiceover timeline → re-read complete SRT → map spoken beats to source scenes → calculate source clip durations → deliver SCENECUTTER ranges → assemble/review master → plan Shorts from master timeline.
+Setup → complete SRT → story map → approval → style selection → full narration → TTS generation → read actual TTS → segment voiceover timeline → re-read complete SRT → map spoken beats to source scenes → calculate source clip durations → deliver Movie Recap ranges → assemble/review master → plan Shorts from master timeline.
 
 ### Short movie explanation
-Setup → complete SRT → story map → approval → style selection → full narration → TTS generation → read actual TTS → segment voiceover timeline → re-read complete SRT → map spoken beats to source scenes → calculate source clip durations → deliver SCENECUTTER ranges → assemble/review short.
+Setup → complete SRT → story map → approval → style selection → full narration → TTS generation → read actual TTS → segment voiceover timeline → re-read complete SRT → map spoken beats to source scenes → calculate source clip durations → deliver Movie Recap ranges → assemble/review short.
 
 ## Four independent timelines
 

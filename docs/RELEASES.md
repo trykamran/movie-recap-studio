@@ -8,10 +8,10 @@ Keep source, skill instructions, docs, and GitHub automation in the repository. 
 
 | Target | Example filename (illustrative, not an existing file) | Verification |
 |---|---|---|
-| macOS Apple Silicon | `SCENECUTTER-macos-arm64.dmg` | macOS version, Apple Silicon support, signing/notarization status |
-| macOS Intel | `SCENECUTTER-macos-x64.dmg` | Publish only if tested and supported |
-| Windows | `SCENECUTTER-windows-x64-setup.exe` | Publish only if built and tested |
-| Android | `SCENECUTTER-android.apk` | Android minimum version, signing, permissions, install steps |
+| macOS Apple Silicon | `Movie Recap-macos-arm64.dmg` | macOS version, Apple Silicon support, signing/notarization status |
+| macOS Intel | `Movie Recap-macos-x64.dmg` | Publish only if tested and supported |
+| Windows | `Movie Recap-windows-x64-setup.exe` | Publish only if built and tested |
+| Android | `Movie Recap-android.apk` | Android minimum version, signing, permissions, install steps |
 | iOS | Distribution channel and installation instructions | A normal GitHub `.ipa` is not a universal install path; explain signing/TestFlight/App Store constraints |
 
 Only include targets for which working builds exist. Development on a MacBook does not imply that Windows, Android, or iOS binaries already exist.
@@ -29,12 +29,12 @@ Only include targets for which working builds exist. Development on a MacBook do
 
 ## User onboarding
 
-README should explain two separate steps: (1) install/invoke the Agent Skill on a supported host, (2) download/install the SCENECUTTER app from a published GitHub Release if one exists. Installing one does not automatically install the other.
+README should explain two separate steps: (1) install/invoke the Agent Skill on a supported host, (2) download/install the Movie Recap app from a published GitHub Release if one exists. Installing one does not automatically install the other.
 
 ## Example release note template
 
 ```markdown
-# SCENECUTTER vX.Y.Z
+# Movie Recap vX.Y.Z
 
 ## Downloads
 - macOS: [actual asset once published]
