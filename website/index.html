@@ -327,6 +327,13 @@
     .purchase-glow-btn:active {
       transform: scale(0.98) translateY(0);
     }
+  
+    /* Sliding Indicator Pill Physics */
+    .sliding-pill-indicator {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
   </style>
 </head>
 <body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500 relative">
@@ -765,11 +772,14 @@
                   One-time download, continuous updates come to your machine
                 </p>
                 
-                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1">
-                  <button type="button" id="switch-updates-0" class="switch-pill-btn active relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm">
+                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
+                  <!-- The Animated Gliding Black Pill -->
+                  <div id="sliding-pill-updates" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
+
+                  <button type="button" id="switch-updates-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
                     3 Months
                   </button>
-                  <button type="button" id="switch-updates-1" class="switch-pill-btn relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm">
+                  <button type="button" id="switch-updates-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
                     Forever
                   </button>
                 </div>
@@ -784,11 +794,14 @@
                   Select Corporate if you're part of the team or studio
                 </p>
                 
-                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1">
-                  <button type="button" id="switch-license-0" class="switch-pill-btn active relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm">
+                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
+                  <!-- The Animated Gliding Black Pill -->
+                  <div id="sliding-pill-license" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
+
+                  <button type="button" id="switch-license-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
                     Personal
                   </button>
-                  <button type="button" id="switch-license-1" class="switch-pill-btn relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm">
+                  <button type="button" id="switch-license-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
                     Corporate
                   </button>
                 </div>
@@ -1093,8 +1106,10 @@
       });
       revealElements.forEach(el => revealObserver.observe(el));
 
-      // 6. Smooth Scroll Reading Progress & Navbar Dynamic Glass Elevation
-      
+      // 6. Navbar Dynamic Glass Elevation on Scroll
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         if (header) {
           if (scrollTop > 15) {
             header.classList.add('header-scrolled');
@@ -1178,10 +1193,12 @@
         if (window.lucide) lucide.createIcons();
       });
     
-      // UI Layout Pricing Switcher Logic with NumberFlow UpReveal Animation
+      // UI Layout Pricing Switcher Logic with Gliding Pill & NumberFlow UpReveal
       let isUpdates = false;
       let isCorporate = false;
 
+      const pillUpdates = document.getElementById('sliding-pill-updates');
+      const pillLicense = document.getElementById('sliding-pill-license');
       const btnUpdates0 = document.getElementById('switch-updates-0');
       const btnUpdates1 = document.getElementById('switch-updates-1');
       const btnLicense0 = document.getElementById('switch-license-0');
@@ -1217,33 +1234,46 @@
         animateNumberFlow(dynamicVal, val);
       }
 
-      // Initialize initial number flow rendering
+      // Initialize default number flow rendering
       animateNumberFlow(dynamicVal, 98);
 
+      // Switch 1: Access to updates (3 Months vs Forever)
       btnUpdates0?.addEventListener('click', () => {
+        if (!isUpdates) return;
         isUpdates = false;
-        btnUpdates0.classList.add('active');
-        btnUpdates1.classList.remove('active');
+        if (pillUpdates) pillUpdates.style.transform = 'translateX(0%)';
+        btnUpdates0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
+        btnUpdates1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
         updatePricingDisplay();
       });
 
       btnUpdates1?.addEventListener('click', () => {
+        if (isUpdates) return;
         isUpdates = true;
-        btnUpdates1.classList.add('active');
-        btnUpdates0.classList.remove('active');
+        if (pillUpdates) pillUpdates.style.transform = 'translateX(100%)';
+        btnUpdates1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
+        btnUpdates0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
         updatePricingDisplay();
       });
 
+      // Switch 2: Lifetime license (Personal vs Corporate)
       btnLicense0?.addEventListener('click', () => {
+        if (!isCorporate) return;
         isCorporate = false;
-        btnLicense0.classList.add('active');
-        btnLicense1.classList.remove('active');
+        if (pillLicense) pillLicense.style.transform = 'translateX(0%)';
+        btnLicense0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
+        btnLicense1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
         updatePricingDisplay();
       });
 
       btnLicense1?.addEventListener('click', () => {
+        if (isCorporate) return;
         isCorporate = true;
-        btnLicense1.classList.add('active');
+        if (pillLicense) pillLicense.style.transform = 'translateX(100%)';
+        btnLicense1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
+        btnLicense0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
+        updatePricingDisplay();
+      });
         btnLicense0.classList.remove('active');
         updatePricingDisplay();
       });
