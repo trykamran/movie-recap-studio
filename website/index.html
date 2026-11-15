@@ -253,6 +253,35 @@
       to { background-position-y: 28px; }
     }
 
+  
+    /* UI Layout Pricing Section Custom Styles */
+    .switch-pill-active {
+      background: linear-gradient(to top, #171717, #262626, #171717);
+      border: 4px solid #000000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      color: #ffffff !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dark .switch-pill-active {
+      background: linear-gradient(to top, #09090b, #27272a, #09090b);
+      border: 4px solid #3f3f46;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      color: #ffffff !important;
+    }
+    .purchase-glow-btn {
+      background: linear-gradient(to top, #2563eb, #3b82f6, #2563eb);
+      border: 4px solid #2563eb;
+      box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.5);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .purchase-glow-btn:hover {
+      box-shadow: 0 8px 28px -2px rgba(37, 99, 235, 0.7);
+      transform: translateY(-2px);
+    }
+    .purchase-glow-btn:active {
+      transform: scale(0.98) translateY(0);
+    }
+
   </style>
 </head>
 <body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500 relative">
@@ -699,153 +728,178 @@
 
     <!-- 3-Tier Free Pricing Section (Accurately Tailored) -->
         <!-- Interactive Single-Plan Pricing Section (Exact 21st.dev UI Layout Style) -->
-    <section id="pricing" class="py-24 px-4 sm:px-6 max-w-5xl mx-auto border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40 apple-reveal">
-      <div class="text-center mb-16">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Transparent Access</h2>
-        <p class="text-3xl sm:text-4xl font-bold text-apple-textPrimary dark:text-white">Simple, 100% Free Plan</p>
-        <p class="mt-3 text-base text-apple-textSecondary dark:text-gray-400 max-w-lg mx-auto">
-          One comprehensive production suite for creators. All tools, skills, and desktop apps included at $0 for our community launch.
-        </p>
+        <!-- UI Layout Exact Pricing Section 2 (Ported from 21st.dev Component) -->
+    <section id="pricing" class="py-20 px-4 w-full mx-auto relative apple-reveal overflow-hidden">
+      
+      <!-- Radial Ambient Mesh Background from React Component -->
+      <div class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20"
+        style="background: radial-gradient(125% 125% at 50% 90%, transparent 40%, #0071e3 100%);">
       </div>
 
-      <!-- Single Wide Interactive Pricing Card -->
-      <div class="relative max-w-4xl mx-auto rounded-[32px] p-8 sm:p-12 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder shadow-apple-card overflow-hidden">
+      <div class="max-w-6xl mx-auto relative z-10">
         
-        <!-- Ambient Radial Glow on Top-Right (Matching 21st.dev Preview) -->
-        <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-apple-blue/15 dark:bg-apple-blue/25 blur-3xl pointer-events-none"></div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 relative z-10">
-          
-          <!-- Left Column: What's Inside Feature Checklist -->
-          <div class="lg:col-span-6 flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-apple-textPrimary dark:text-white mb-6">What's inside</h3>
-              
-              <ul class="space-y-4">
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span><strong class="font-semibold text-apple-blue">Windows Desktop App (.exe)</strong> with FFmpeg engine</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span><strong class="font-semibold text-apple-blue">Android Mobile App (.apk)</strong> for 9:16 vertical recaps</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Claude & ChatGPT Prompt Skill (.zip) included</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Grounded subtitle parser (0 hallucinations)</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Iconic 3-sentence viral curiosity hook formula</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Automated silence stripping (&gt;0.3s dead pauses)</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Multi-language Edge-TTS sync (English & Hindustani)</span>
-                </li>
-
-                <li class="flex items-start space-x-3 text-sm text-apple-textPrimary dark:text-gray-200">
-                  <div class="w-5 h-5 rounded-full bg-apple-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm shadow-apple-blue/40">
-                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <span>Full commercial rights for YouTube monetization</span>
-                </li>
-              </ul>
-            </div>
+        <!-- Header -->
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-semibold mb-4">
+            <svg class="h-4 w-4 text-blue-500 fill-blue-500 mr-1.5" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>Time to connect</span>
           </div>
 
-          <!-- Right Column: Interactive Switches & Big Price CTA -->
-          <div class="lg:col-span-6 flex flex-col justify-between space-y-8">
+          <h2 class="md:text-5xl sm:text-4xl text-3xl font-bold text-apple-textPrimary dark:text-white mb-4 leading-[120%] tracking-tight">
+            Let's get started
+          </h2>
+
+          <p class="text-base sm:text-xl text-apple-textSecondary dark:text-gray-400 font-normal">
+            Get Movie Recap Studio, connect your workflow, save hours. 100% Free!
+          </p>
+        </div>
+
+        <!-- Product Features & Pricing Switcher Card -->
+        <div class="rounded-[32px] p-6 sm:p-12 bg-white/80 dark:bg-apple-darkCard/90 backdrop-blur-xl border border-apple-borderLight/80 dark:border-apple-darkBorder shadow-apple-card">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             
-            <div class="space-y-6">
-              
-              <!-- Option 1: Access to updates -->
-              <div>
-                <div class="text-sm font-semibold text-apple-textPrimary dark:text-white">Access to updates</div>
-                <div class="text-xs text-apple-textSecondary dark:text-gray-400 mt-0.5 mb-2.5">One-time download, continuous updates via GitHub Releases</div>
+            <!-- Left Column: What's inside Checklist -->
+            <div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-apple-textPrimary dark:text-white mb-6">
+                What's inside
+              </h3>
+
+              <div class="space-y-4">
                 
-                <!-- Pill Toggle Container -->
-                <div class="p-1 rounded-full bg-gray-100 dark:bg-zinc-800/80 border border-apple-borderLight/60 dark:border-apple-darkBorder flex items-center">
-                  <button type="button" class="w-1/2 py-2 px-4 rounded-full text-xs font-semibold bg-black dark:bg-zinc-950 text-white shadow-sm transition-all text-center">
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200 font-medium">Windows Desktop App (.exe) standalone with FFmpeg</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200 font-medium">Android Mobile App (.apk) for 9:16 vertical shorts</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Claude & ChatGPT Prompt Skill (.zip) package</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Grounded subtitle parser (0 hallucinations)</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">3-sentence viral curiosity hook formula (English & Urdu)</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Automated silence stripping (&gt;0.3s dead pause removal)</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Multi-language Edge-TTS narration sync</span>
+                </div>
+
+                <div class="flex items-center">
+                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
+                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
+                  </div>
+                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Commercial YouTube & TikTok monetization rights</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Column: Interactive Switches & Pricing Calculation -->
+            <div class="space-y-8">
+              
+              <!-- Switch 1: Access to updates -->
+              <div>
+                <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
+                  Access to updates
+                </h4>
+                <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
+                  One-time download, continuous updates come to your machine
+                </p>
+                
+                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1">
+                  <button type="button" id="switch-updates-0" class="relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors switch-pill-active text-white text-xs sm:text-sm">
+                    3 Months
+                  </button>
+                  <button type="button" id="switch-updates-1" class="relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors text-apple-textSecondary dark:text-gray-400 hover:text-black dark:hover:text-white text-xs sm:text-sm">
                     Forever
                   </button>
-                  <button type="button" class="w-1/2 py-2 px-4 rounded-full text-xs font-medium text-apple-textSecondary dark:text-gray-400 hover:text-apple-textPrimary dark:hover:text-white transition-all text-center">
-                    Beta Track
-                  </button>
                 </div>
               </div>
 
-              <!-- Option 2: Lifetime license -->
+              <!-- Switch 2: Lifetime license -->
               <div>
-                <div class="text-sm font-semibold text-apple-textPrimary dark:text-white">Lifetime license</div>
-                <div class="text-xs text-apple-textSecondary dark:text-gray-400 mt-0.5 mb-2.5">Select Studio if you are producing on automated agency scale</div>
+                <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
+                  Lifetime license
+                </h4>
+                <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
+                  Select Corporate if you're part of the team or studio
+                </p>
                 
-                <!-- Pill Toggle Container -->
-                <div class="p-1 rounded-full bg-gray-100 dark:bg-zinc-800/80 border border-apple-borderLight/60 dark:border-apple-darkBorder flex items-center">
-                  <button type="button" class="w-1/2 py-2 px-4 rounded-full text-xs font-semibold bg-black dark:bg-zinc-950 text-white shadow-sm transition-all text-center">
-                    Personal & Creator
+                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1">
+                  <button type="button" id="switch-license-0" class="relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors switch-pill-active text-white text-xs sm:text-sm">
+                    Personal
                   </button>
-                  <button type="button" class="w-1/2 py-2 px-4 rounded-full text-xs font-medium text-apple-textSecondary dark:text-gray-400 hover:text-apple-textPrimary dark:hover:text-white transition-all text-center">
-                    Corporate / Studio
+                  <button type="button" id="switch-license-1" class="relative z-10 w-full sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 font-medium transition-colors text-apple-textSecondary dark:text-gray-400 hover:text-black dark:hover:text-white text-xs sm:text-sm">
+                    Corporate
                   </button>
                 </div>
               </div>
 
-            </div>
-
-            <!-- Bottom Price & CTA Trigger -->
-            <div class="pt-6 border-t border-apple-borderLight/50 dark:border-apple-darkBorder/50 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-              <div>
-                <div class="flex items-baseline space-x-2">
-                  <span class="text-4xl sm:text-5xl font-extrabold text-apple-textPrimary dark:text-white tracking-tight">$0</span>
-                  <span class="text-lg line-through text-apple-textSecondary/70 dark:text-gray-500 font-medium">$98</span>
-                  <span class="text-xs text-apple-textSecondary/60 dark:text-gray-400 line-through">$142</span>
-                  <span class="ml-2 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-                    Community Free
+              <!-- Pricing Display & Purchase Button -->
+              <div class="text-center grid grid-cols-1 sm:grid-cols-2 items-center gap-4 pt-2">
+                
+                <!-- Price Display with Strikethrough & Free Launch -->
+                <div class="flex items-center justify-center sm:justify-start">
+                  <span class="text-4xl sm:text-5xl font-extrabold text-apple-textPrimary dark:text-white tracking-tight">
+                    $0
                   </span>
+                  
+                  <div class="ml-3 text-left">
+                    <span id="price-strikethrough" class="text-xl sm:text-2xl text-gray-400 dark:text-gray-500 line-through font-semibold relative block">
+                      $<span id="dynamic-val">98</span>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      Launch Free
+                    </span>
+                  </div>
                 </div>
-                <p class="text-[11px] text-apple-textSecondary dark:text-gray-400 mt-1">Free community launch &mdash; no credit card or tokens needed.</p>
+
+                <!-- Big Glossy Purchase / Download Button -->
+                <a href="#downloads" class="purchase-glow-btn text-white text-base sm:text-lg font-semibold h-12 sm:h-14 w-full rounded-full inline-flex items-center justify-center space-x-2">
+                  <span>Download Free</span>
+                  <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+
               </div>
 
-              <!-- Big Glossy Blue Action Button -->
-              <a href="#downloads" class="apple-btn w-full sm:w-auto px-9 py-3.5 rounded-full text-sm font-semibold bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-apple-float text-center flex items-center justify-center space-x-2 shrink-0">
-                <span>Download Free</span>
-                <i data-lucide="arrow-down" class="w-4 h-4"></i>
-              </a>
             </div>
 
           </div>
-
         </div>
 
       </div>
+
     </section>
 
     <!-- Reviews & Community Feedback Section (Combined at Bottom) -->
@@ -1204,6 +1258,68 @@
         feedbackForm?.classList.remove('hidden');
         if (window.lucide) lucide.createIcons();
       });
+    
+      // UI Layout Pricing Switcher Logic (Ported from React Component)
+      let isUpdates = false;
+      let isCorporate = false;
+
+      const btnUpdates0 = document.getElementById('switch-updates-0');
+      const btnUpdates1 = document.getElementById('switch-updates-1');
+      const btnLicense0 = document.getElementById('switch-license-0');
+      const btnLicense1 = document.getElementById('switch-license-1');
+      const dynamicVal = document.getElementById('dynamic-val');
+
+      function calculatePrice() {
+        if (!isUpdates && !isCorporate) return 98;
+        if (isUpdates && !isCorporate) return 400;
+        if (!isUpdates && isCorporate) return 159;
+        if (isUpdates && isCorporate) return 650;
+        return 98;
+      }
+
+      function updatePricingDisplay() {
+        const val = calculatePrice();
+        if (dynamicVal) {
+          dynamicVal.textContent = val;
+        }
+      }
+
+      btnUpdates0?.addEventListener('click', () => {
+        isUpdates = false;
+        btnUpdates0.classList.add('switch-pill-active');
+        btnUpdates0.classList.remove('text-apple-textSecondary', 'dark:text-gray-400');
+        btnUpdates1.classList.remove('switch-pill-active');
+        btnUpdates1.classList.add('text-apple-textSecondary', 'dark:text-gray-400');
+        updatePricingDisplay();
+      });
+
+      btnUpdates1?.addEventListener('click', () => {
+        isUpdates = true;
+        btnUpdates1.classList.add('switch-pill-active');
+        btnUpdates1.classList.remove('text-apple-textSecondary', 'dark:text-gray-400');
+        btnUpdates0.classList.remove('switch-pill-active');
+        btnUpdates0.classList.add('text-apple-textSecondary', 'dark:text-gray-400');
+        updatePricingDisplay();
+      });
+
+      btnLicense0?.addEventListener('click', () => {
+        isCorporate = false;
+        btnLicense0.classList.add('switch-pill-active');
+        btnLicense0.classList.remove('text-apple-textSecondary', 'dark:text-gray-400');
+        btnLicense1.classList.remove('switch-pill-active');
+        btnLicense1.classList.add('text-apple-textSecondary', 'dark:text-gray-400');
+        updatePricingDisplay();
+      });
+
+      btnLicense1?.addEventListener('click', () => {
+        isCorporate = true;
+        btnLicense1.classList.add('switch-pill-active');
+        btnLicense1.classList.remove('text-apple-textSecondary', 'dark:text-gray-400');
+        btnLicense0.classList.remove('switch-pill-active');
+        btnLicense0.classList.add('text-apple-textSecondary', 'dark:text-gray-400');
+        updatePricingDisplay();
+      });
+
     });
   </script>
 </body>

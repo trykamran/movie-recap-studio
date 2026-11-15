@@ -291,37 +291,78 @@
     ]
   },
   "pricing": {
-    "layout": "single_plan_interactive_card",
-    "reference": "21st.dev/@uilayout.contact/components/pricing-section-1",
-    "title": "Simple, 100% Free Plan",
-    "whats_inside": [
-      "Windows Desktop App (.exe) with FFmpeg engine",
-      "Android Mobile App (.apk) for 9:16 vertical recaps",
-      "Claude & ChatGPT Prompt Skill (.zip) included",
-      "Grounded subtitle parser (0 hallucinations)",
-      "Iconic 3-sentence viral curiosity hook formula",
-      "Automated silence stripping (>0.3s dead pauses)",
-      "Multi-language Edge-TTS sync (English & Hindustani)",
-      "Full commercial rights for YouTube monetization"
-    ],
-    "access_to_updates": {
-      "options": [
-        "Forever",
-        "Beta Track"
-      ],
-      "selected": "Forever"
+    "layout": "single_card_interactive_columns",
+    "inspiration": "21st.dev @uilayout.contact/components/pricing-section-1",
+    "title": "Transparent, 100% Free Lifetime Access",
+    "subtitle": "Get the complete AI Agent Skill and companion editing applications without subscriptions, hidden credit fees, or paywalls.",
+    "left_column": {
+      "heading": "What's inside",
+      "description": "Full access to the entire Movie Recap Studio suite for solo creators, teams, and production studios.",
+      "features": [
+        {
+          "name": "Universal AI Agent Skill (.zip package)",
+          "detail": "Native support for Claude, ChatGPT, and Gemini assistants"
+        },
+        {
+          "name": "Deep SRT Subtitle Analyzer",
+          "detail": "Instant plot arc extraction and 3-sentence hook generation"
+        },
+        {
+          "name": "Movie Recap Windows App (.exe)",
+          "detail": "Hardware-accelerated rendering and 1-click timeline cut"
+        },
+        {
+          "name": "Movie Recap Android App (.apk)",
+          "detail": "Direct mobile editing and 9:16 vertical Shorts export"
+        },
+        {
+          "name": "Auto Silence Stripper",
+          "detail": "Cuts dead audio gaps (>0.3s) for maximum audience retention"
+        },
+        {
+          "name": "Copyright-Safe Fair Use Pacing",
+          "detail": "Original audio muting and dialogue-anchored scene transitions"
+        },
+        {
+          "name": "Bilingual Narration Generation",
+          "detail": "English and Romanized Hindi/Urdu storytelling styles"
+        },
+        {
+          "name": "Continuous GitHub Updates",
+          "detail": "Community discussions, issue reporting, and future AI dubbing roadmap"
+        }
+      ]
     },
-    "lifetime_license": {
-      "options": [
-        "Personal & Creator",
-        "Corporate / Studio"
+    "right_column": {
+      "pricing_display": {
+        "current_price": "$0",
+        "period": "Lifetime Free",
+        "strike_regular": "$98",
+        "strike_commercial": "$142",
+        "badge": "100% Free Launch Access"
+      },
+      "selectors": [
+        {
+          "label": "Access to updates",
+          "options": [
+            "Forever Free",
+            "Beta Track"
+          ]
+        },
+        {
+          "label": "Lifetime license",
+          "options": [
+            "Personal & Creator",
+            "Corporate Studio"
+          ]
+        }
       ],
-      "selected": "Personal & Creator"
-    },
-    "current_price": "$0",
-    "strikethrough_price": "$98",
-    "msrp_strikethrough": "$142",
-    "badge": "Community Free"
+      "cta": {
+        "label": "Download Free Suite",
+        "href": "#downloads",
+        "subtext": "MIT License \u00b7 No credit card required \u00b7 Instant direct downloads"
+      }
+    }
   },
   "creator_reviews": [
     {
