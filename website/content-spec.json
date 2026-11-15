@@ -291,84 +291,37 @@
     ]
   },
   "pricing": {
-    "title": "Transparent, 100% Free Community Pricing",
-    "subtitle": "No hidden subscriptions, no credit tokens, no feature lockouts. Movie Recap Studio is an open-source movement for independent creators.",
-    "launch_special_notice": "Limited Launch Special: Pro and Studio tiers are 100% FREE during the public v2.4 release period.",
-    "tiers": [
-      {
-        "id": "starter",
-        "name": "Starter",
-        "badge": "Open Source Core",
-        "price": "$0",
-        "period": "Forever Free",
-        "description": "Essential for solo creators and enthusiasts learning the AI movie recap production workflow.",
-        "popular": false,
-        "features": [
-          "Claude & ChatGPT Prompt Skill (.zip package)",
-          "Universal AI Agent Skill for Claude, ChatGPT & Gemini",
-          "Full SRT subtitle story analysis & chapter indexing",
-          "Viral 3-Sentence Curiosity Hook formula",
-          "Unlimited narration script generation",
-          "Frame-accurate timestamp ranges output",
-          "Bilingual support (English & Hindi/Urdu)",
-          "Community GitHub Discussions & Issue Tracker",
-          "MIT Open Source License"
-        ],
-        "cta": {
-          "label": "Download Skill ZIP",
-          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip"
-        }
-      },
-      {
-        "id": "pro",
-        "name": "Pro Creator",
-        "badge": "Most Popular \u00b7 100% Free Launch",
-        "price": "$0",
-        "original_price": "$29/mo",
-        "period": "Free during Launch Special",
-        "description": "Built for active movie recap channels wanting maximum production speed, hardware acceleration, and seamless companion apps.",
-        "popular": true,
-        "features": [
-          "Everything in Starter included",
-          "Windows Desktop App (.exe) included",
-          "Android Mobile App (.apk) included",
-          "Automatic silence remover (>0.3s dead pause cut)",
-          "1-Click Clipboard timestamp range importer",
-          "Hardware-accelerated GPU export (NVENC / QuickSync)",
-          "Movie audio auto-mute & voiceover replacement",
-          "16:9 Longform & 9:16 Shorts export presets",
-          "Pre-configured workflows for 10-minute deep recaps"
-        ],
-        "cta": {
-          "label": "Download Windows + Android Apps",
-          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe"
-        }
-      },
-      {
-        "id": "studio",
-        "name": "Studio Agency",
-        "badge": "Coming Soon \u00b7 Roadmap",
-        "price": "$0",
-        "original_price": "$99/mo",
-        "period": "Free Launch Special / In Development",
-        "description": "Future cloud-native suite for high-volume multi-channel creators, production studios, and agencies.",
-        "popular": false,
-        "features": [
-          "Everything in Pro Creator included",
-          "Cloud batching & rendering pipeline (Coming Soon)",
-          "Multi-channel automated publishing scheduler (Coming Soon)",
-          "AI multi-lingual voice dubbing & sync engine (Coming Soon)",
-          "Genre-specific storytelling prompt studio (Coming Soon)",
-          "Collaborative multi-seat team workspace (Coming Soon)",
-          "Zero royalty obligations & commercial licensing",
-          "Direct developer roadmap voting on GitHub"
-        ],
-        "cta": {
-          "label": "View Upcoming Roadmap",
-          "href": "https://github.com/trykamran/movie-recap-studio/issues"
-        }
-      }
-    ]
+    "layout": "single_plan_interactive_card",
+    "reference": "21st.dev/@uilayout.contact/components/pricing-section-1",
+    "title": "Simple, 100% Free Plan",
+    "whats_inside": [
+      "Windows Desktop App (.exe) with FFmpeg engine",
+      "Android Mobile App (.apk) for 9:16 vertical recaps",
+      "Claude & ChatGPT Prompt Skill (.zip) included",
+      "Grounded subtitle parser (0 hallucinations)",
+      "Iconic 3-sentence viral curiosity hook formula",
+      "Automated silence stripping (>0.3s dead pauses)",
+      "Multi-language Edge-TTS sync (English & Hindustani)",
+      "Full commercial rights for YouTube monetization"
+    ],
+    "access_to_updates": {
+      "options": [
+        "Forever",
+        "Beta Track"
+      ],
+      "selected": "Forever"
+    },
+    "lifetime_license": {
+      "options": [
+        "Personal & Creator",
+        "Corporate / Studio"
+      ],
+      "selected": "Personal & Creator"
+    },
+    "current_price": "$0",
+    "strikethrough_price": "$98",
+    "msrp_strikethrough": "$142",
+    "badge": "Community Free"
   },
   "creator_reviews": [
     {
