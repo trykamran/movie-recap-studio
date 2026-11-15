@@ -175,14 +175,102 @@
     .apple-btn:hover::after {
       transform: translateX(650%) rotate(25deg);
     }
-    .apple-btn-secondary::after {
-      background: linear-gradient(105deg, transparent 20%, rgba(0, 113, 227, 0.45) 50%, transparent 80%) !important;
+    /* 3D Adaptive Navigation Pill (PillBase) Skeuomorphic Architecture */
+    .nav-3d-pill {
+      position: relative;
+      border-radius: 9999px;
+      height: 48px;
+      width: 140px;
+      background: linear-gradient(135deg, #fcfcfd 0%, #f8f8fa 15%, #f3f4f6 30%, #eeeff2 45%, #e9eaed 60%, #e4e5e8 75%, #dee0e3 90%, #e2e3e6 100%);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.10), 0 16px 32px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.12), inset 0 2px 1px rgba(255,255,255,0.7), inset 0 -2px 6px rgba(0,0,0,0.10), inset 2px 2px 8px rgba(0,0,0,0.08), inset -2px 2px 8px rgba(0,0,0,0.07), inset 0 0 1px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: width 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease-out;
+      cursor: pointer;
     }
-    .dark .apple-btn-secondary::after {
-      background: linear-gradient(105deg, transparent 20%, rgba(56, 189, 248, 0.5) 50%, transparent 80%) !important;
+    .nav-3d-pill.is-expanded {
+      width: 480px;
+      max-width: calc(100vw - 32px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 6px 12px rgba(0,0,0,0.12), 0 12px 24px rgba(0,0,0,0.14), 0 24px 48px rgba(0,0,0,0.10), inset 0 2px 2px rgba(255,255,255,0.8), inset 0 -3px 8px rgba(0,0,0,0.12), inset 3px 3px 8px rgba(0,0,0,0.10), inset -3px 3px 8px rgba(0,0,0,0.09), inset 0 -1px 2px rgba(0,0,0,0.08);
     }
-    .apple-btn-blue-sheen::after {
-      background: linear-gradient(105deg, transparent 15%, rgba(0, 113, 227, 0.6) 50%, transparent 85%);
+    .dark .nav-3d-pill {
+      background: linear-gradient(135deg, #2a2a2e 0%, #242428 15%, #1f1f23 30%, #1b1b1e 45%, #17171a 60%, #141416 75%, #101012 90%, #121215 100%);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.35), 0 12px 24px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -2px 6px rgba(0,0,0,0.4), inset 0 0 1px rgba(255,255,255,0.15);
+    }
+    .dark .nav-3d-pill.is-expanded {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45), 0 18px 36px rgba(0,0,0,0.35), inset 0 1.5px 1.5px rgba(255,255,255,0.3), inset 0 -3px 8px rgba(0,0,0,0.5);
+    }
+    .nav-3d-ridge {
+      position: absolute; left: 0; right: 0; top: 0; height: 2px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 5%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0.95) 95%, rgba(255,255,255,0) 100%);
+      filter: blur(0.3px); pointer-events: none;
+    }
+    .nav-3d-hemisphere {
+      position: absolute; left: 0; right: 0; top: 0; height: 55%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 30%, rgba(255,255,255,0.10) 60%, rgba(255,255,255,0) 100%);
+      border-radius: 9999px; pointer-events: none;
+    }
+    .nav-3d-directional {
+      position: absolute; inset: 0; border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.20) 20%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0) 65%);
+      pointer-events: none;
+    }
+    .nav-3d-gloss {
+      position: absolute; left: 15%; top: 16%; width: 60px; height: 14px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.10) 70%, rgba(255,255,255,0) 100%);
+      filter: blur(4px); transform: rotate(-12deg); pointer-events: none; transition: all 0.3s ease;
+    }
+    .nav-3d-pill.is-expanded .nav-3d-gloss { left: 18%; width: 140px; }
+    .nav-3d-gloss-sec {
+      position: absolute; right: 22%; top: 20%; width: 80px; height: 10px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%);
+      filter: blur(3px); transform: rotate(8deg); pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .nav-3d-pill.is-expanded .nav-3d-gloss-sec { opacity: 1; }
+    .nav-3d-bottom-shadow {
+      position: absolute; inset-x: 0; bottom: 0; height: 50%;
+      background: linear-gradient(0deg, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.08) 25%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0) 100%);
+      border-bottom-left-radius: 9999px; border-bottom-right-radius: 9999px; pointer-events: none;
+    }
+    .nav-3d-inner-glow {
+      position: absolute; inset: 0; border-radius: 9999px;
+      box-shadow: inset 0 0 40px rgba(255,255,255,0.22), inset 0 0 0 0.5px rgba(0,0,0,0.10);
+      pointer-events: none;
+    }
+    .nav-pill-text-tactile {
+      font-size: 14px; font-weight: 650; color: #1a1a1a; letter-spacing: 0.35px; white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25), 0 -1px 0 rgba(255,255,255,0.8), 1px 1px 0 rgba(0,0,0,0.12);
+    }
+    .dark .nav-pill-text-tactile {
+      color: #f5f5f7; text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 -1px 0 rgba(255,255,255,0.15);
+    }
+    .nav-pill-btn {
+      font-size: 13.5px; font-weight: 550; color: #656565; letter-spacing: 0.3px; padding: 6px 14px;
+      border-radius: 9999px; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); white-space: nowrap;
+      background: transparent; border: none; cursor: pointer;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 -1px 0 rgba(255,255,255,0.6);
+    }
+    .dark .nav-pill-btn { color: #a1a1aa; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    .nav-pill-btn:hover { color: #111111; transform: translateY(-1px); }
+    .dark .nav-pill-btn:hover { color: #ffffff; }
+    .nav-pill-btn.nav-pill-btn-active {
+      color: #000000; font-weight: 700; transform: translateY(-1px);
+      text-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 -1px 0 rgba(255,255,255,0.85);
+    }
+    .dark .nav-pill-btn.nav-pill-btn-active {
+      color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.7), 0 0 12px rgba(255,255,255,0.2);
+    }
+    .nav-pill-collapsed-view {
+      opacity: 1; transform: scale(1); transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-3d-pill.is-expanded .nav-pill-collapsed-view {
+      opacity: 0; transform: scale(0.9); pointer-events: none; position: absolute;
+    }
+    .nav-pill-expanded-view {
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease 0.08s;
+      display: flex; align-items: center; justify-content: space-evenly; width: 100%;
+    }
+    .nav-3d-pill.is-expanded .nav-pill-expanded-view {
+      opacity: 1; pointer-events: auto;
     }
     .apple-btn:hover {
       transform: translateY(-1.5px) scale(1.015);
@@ -353,38 +441,40 @@
   <!-- Interactive Cursor Glow (Apple Keynote Aesthetic) -->
   <div id="cursor-glow" class="hidden sm:block"></div>
 
-  <!-- Apple Minimal Navigation Bar -->
-  <header class="sticky top-0 z-50 w-full apple-glass bg-[#fbfbfd]/80 dark:bg-black/80 border-b border-apple-borderLight/40 dark:border-apple-darkBorder/40 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+  <!-- Floating 3D Adaptive Navigation Pill (Pure Island - No Header Bar) -->
+  <div class="fixed top-5 sm:top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
+    <nav id="nav-3d-pill" class="nav-3d-pill flex items-center justify-center select-none" aria-label="Floating Navigation">
+      <!-- Primary top edge ridge - ultra bright -->
+      <div class="nav-3d-ridge"></div>
       
-      <!-- Brand Logo with Official App Icon -->
-      <a href="#" class="flex items-center space-x-2.5 group">
-        <div class="w-8 h-8 rounded-[10px] overflow-hidden bg-white/10 dark:bg-apple-darkCard p-0.5 border border-apple-borderLight/50 dark:border-apple-darkBorder/60 shadow-sm shadow-apple-blue/20 group-hover:scale-105 transition-transform duration-300">
-          <img src="assets/app-logo.png" alt="Movie Recap Studio Logo" class="w-full h-full object-cover rounded-[8px]">
-        </div>
-        <span class="font-semibold text-sm tracking-tight text-apple-textPrimary dark:text-white">Movie Recap Studio</span>
-      </a>
+      <!-- Top hemisphere light catch -->
+      <div class="nav-3d-hemisphere"></div>
+      
+      <!-- Directional light - top left -->
+      <div class="nav-3d-directional"></div>
+      
+      <!-- Premium gloss reflections -->
+      <div class="nav-3d-gloss"></div>
+      <div class="nav-3d-gloss-sec"></div>
+      
+      <!-- Bottom curvature & shadows -->
+      <div class="nav-3d-bottom-shadow"></div>
+      <div class="nav-3d-inner-glow"></div>
 
-      <!-- Center Links -->
-      <nav class="hidden md:flex items-center space-x-8 text-[13px] font-normal text-apple-textSecondary dark:text-gray-300">
-        <a href="#overview" class="hover:text-apple-blue transition-colors">Overview</a>
-        <a href="#workflow" class="hover:text-apple-blue transition-colors">Workflow</a>
-        <button type="button" class="trigger-download-modal hover:text-apple-blue transition-colors font-medium text-left">Downloads</button>
-        <a href="#pricing" class="hover:text-apple-blue transition-colors">Pricing</a>
-        <a href="#reviews" class="hover:text-apple-blue transition-colors">Reviews & Feedback</a>
-      </nav>
-
-      <!-- Right Action & Theme Toggle -->
-      <div class="flex items-center space-x-4">
-        <button id="theme-btn" type="button" aria-label="Toggle theme" class="w-8 h-8 rounded-full flex items-center justify-center text-apple-textSecondary hover:text-apple-blue dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
-        </button>
-
-        <button type="button" class="trigger-download-modal apple-btn inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-medium bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-sm shadow-apple-blue/30">Download Free</button>
+      <!-- Content: Collapsed State (Active Section Label) -->
+      <div id="nav-pill-collapsed" class="nav-pill-collapsed-view flex items-center justify-center px-5 h-full">
+        <span id="nav-pill-active-label" class="nav-pill-text-tactile">Overview</span>
       </div>
 
-    </div>
-  </header>
+      <!-- Content: Expanded State (All Section Buttons) -->
+      <div id="nav-pill-expanded" class="nav-pill-expanded-view px-4 h-full">
+        <button type="button" class="nav-pill-btn nav-pill-btn-active" data-section="overview">Overview</button>
+        <button type="button" class="nav-pill-btn" data-section="workflow">Workflow</button>
+        <button type="button" class="nav-pill-btn" data-section="pricing">Pricing</button>
+        <button type="button" class="nav-pill-btn" data-section="reviews">Feedback</button>
+      </div>
+    </nav>
+  </div>
 
   <!-- Main Content Flow -->
   <main class="flex-grow">
@@ -426,7 +516,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
         <button type="button" class="trigger-download-modal apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-apple-float flex items-center justify-center space-x-2"><span>Download Free Suite</span><i data-lucide="arrow-down" class="w-4 h-4"></i></button>
 
-        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="apple-btn apple-btn-secondary w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-white dark:bg-apple-darkCard hover:bg-gray-50 dark:hover:bg-zinc-800 text-apple-textPrimary dark:text-white border border-apple-borderLight/80 dark:border-apple-darkBorder flex items-center justify-center space-x-2">
+        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-white dark:bg-apple-darkCard hover:bg-gray-50 dark:hover:bg-zinc-800 text-apple-textPrimary dark:text-white border border-apple-borderLight/80 dark:border-apple-darkBorder flex items-center justify-center space-x-2">
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>View on GitHub</span>
         </a>
@@ -1064,6 +1154,67 @@
         localStorage.setItem('theme', nextDark ? 'dark' : 'light');
         updateTheme(nextDark);
       });
+
+      // 2b. 3D Adaptive Navigation Pill (PillBase) Controller
+      const navPill = document.getElementById('nav-3d-pill');
+      const activeLabelEl = document.getElementById('nav-pill-active-label');
+      const navButtons = document.querySelectorAll('.nav-pill-btn');
+      let pillHoverTimeout = null;
+
+      const navSectionMap = {
+        overview: 'Overview',
+        workflow: 'Workflow',
+        pricing: 'Pricing',
+        reviews: 'Feedback'
+      };
+
+      if (navPill) {
+        navPill.addEventListener('mouseenter', () => {
+          if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
+          navPill.classList.add('is-expanded');
+        });
+
+        navPill.addEventListener('mouseleave', () => {
+          if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
+          pillHoverTimeout = setTimeout(() => {
+            navPill.classList.remove('is-expanded');
+          }, 600);
+        });
+
+        navButtons.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-section');
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+            if (activeLabelEl && navSectionMap[targetId]) {
+              activeLabelEl.textContent = navSectionMap[targetId];
+            }
+            navButtons.forEach(b => b.classList.toggle('nav-pill-btn-active', b === btn));
+            if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
+            navPill.classList.remove('is-expanded');
+          });
+        });
+
+        function updateActiveSectionByScroll() {
+          const scrollPos = window.scrollY + 220;
+          const sectionIds = ['reviews', 'pricing', 'workflow', 'overview'];
+          for (const id of sectionIds) {
+            const el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollPos) {
+              if (activeLabelEl && activeLabelEl.textContent !== navSectionMap[id]) {
+                activeLabelEl.textContent = navSectionMap[id];
+              }
+              navButtons.forEach(b => b.classList.toggle('nav-pill-btn-active', b.getAttribute('data-section') === id));
+              break;
+            }
+          }
+        }
+        window.addEventListener('scroll', updateActiveSectionByScroll, { passive: true });
+        updateActiveSectionByScroll();
+      }
 
       // 3. 60fps Apple Keynote Ambient Cursor Spotlight (GPU LERP)
       const glow = document.getElementById('cursor-glow');
