@@ -388,6 +388,14 @@
       "switch_contrast": {
         "active": "bg-black text-white dark:bg-white dark:text-black font-bold shadow-md",
         "inactive": "text-neutral-700 dark:text-neutral-300 font-semibold hover:text-black dark:hover:text-white"
+      },
+      "gliding_pill": {
+        "selectors": [
+          "#sliding-pill-updates",
+          "#sliding-pill-license"
+        ],
+        "transition": "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+        "behavior": "Continuous physical sliding translation between segmented switch options without blinking or discrete class jumps"
       }
     }
   },
