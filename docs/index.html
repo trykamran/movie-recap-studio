@@ -231,6 +231,28 @@
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
     }
 
+  
+    /* Mobile Vertical Flowing Path Animation */
+    @keyframes flowVerticalDashes {
+      from {
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke-dashoffset: -28;
+      }
+    }
+    .mobile-flowing-line {
+      background-image: linear-gradient(to bottom, currentColor 50%, rgba(255,255,255,0) 0%);
+      background-position: left;
+      background-size: 2px 14px;
+      background-repeat: repeat-y;
+      animation: flowVerticalAnim 1.5s linear infinite;
+    }
+    @keyframes flowVerticalAnim {
+      from { background-position-y: 0px; }
+      to { background-position-y: 28px; }
+    }
+
   </style>
 </head>
 <body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500 relative">
@@ -327,26 +349,27 @@
 
       <!-- Keynote Preview Card: 3-Step Automated Pipeline -->
                 <!-- 5-Step Zigzag How It Works Section (Exact Chamaac UI / 21st.dev Style) -->
-    <section id="workflow" class="py-28 px-6 max-w-6xl mx-auto relative overflow-hidden apple-reveal">
+        <!-- 5-Step Zigzag How It Works Section (Mobile-Optimized & Desktop-Perfect Chamaac Style) -->
+    <section id="workflow" class="pt-24 pb-28 px-4 sm:px-6 max-w-6xl mx-auto relative overflow-hidden apple-reveal">
       
       <!-- Subtle Chamaac Grid Lines Texture directly on page background -->
       <div class="absolute inset-0 pointer-events-none opacity-[0.04] dark:opacity-[0.08]" style="background-image: linear-gradient(currentColor 1px, transparent 1px); background-size: 100% 32px;"></div>
 
       <!-- Section Title & Subtitle -->
-      <div class="text-center max-w-2xl mx-auto mb-20 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16 sm:mb-20 relative z-10 px-2">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue text-xs font-semibold mb-3 border border-apple-blue/20">
           <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
           <span>How It Works • 5-Step Production Pipeline</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-apple-textPrimary dark:text-white">
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-apple-textPrimary dark:text-white leading-tight">
           From Raw Movie to Viral Recap
         </h2>
-        <p class="mt-4 text-base sm:text-lg text-apple-textSecondary dark:text-gray-400 leading-relaxed">
+        <p class="mt-3 sm:mt-4 text-sm sm:text-lg text-apple-textSecondary dark:text-gray-400 leading-relaxed">
           Watch your production flow step-by-step with automated scene cutting and high-retention narration.
         </p>
       </div>
 
-      <!-- Zigzag Flow Container -->
+      <!-- Flow Container -->
       <div class="relative w-full max-w-[1000px] mx-auto z-10">
         
         <!-- Animated Connecting SVG Path (Desktop Zigzag Curve) -->
@@ -360,11 +383,14 @@
           />
         </svg>
 
-        <!-- Cards Wrapper (Desktop absolute positioning, Mobile stacked) -->
-        <div class="relative w-full flex flex-col space-y-8 md:space-y-0 md:block h-auto md:h-[1160px]">
+        <!-- Animated Connecting Line for Mobile View (Center-aligned dotted line) -->
+        <div class="absolute top-10 bottom-16 left-1/2 -translate-x-1/2 w-[2px] mobile-flowing-line text-apple-blue/40 dark:text-apple-blue/50 block md:hidden z-0 pointer-events-none"></div>
 
-          <!-- Step 01: Ingest Subtitles (Orange Theme) -->
-          <div class="relative w-full md:w-[290px] md:absolute md:top-0 md:left-[12%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+        <!-- Cards Wrapper (Desktop absolute positioning, Mobile centered with organic tilts) -->
+        <div class="relative w-full flex flex-col space-y-12 md:space-y-0 md:block h-auto md:h-[1160px]">
+
+          <!-- Step 01: Ingest Subtitles (Amber Theme) -->
+          <div class="relative w-[92%] max-w-[310px] mx-auto md:w-[290px] md:max-w-none md:absolute md:top-0 md:left-[12%] transition-all duration-300 rotate-2 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
             <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
               <!-- Pushpin Icon -->
               <div class="flex justify-center -mt-5 mb-3">
@@ -389,7 +415,7 @@
           </div>
 
           <!-- Step 02: Generate Viral Hook (Blue Theme) -->
-          <div class="relative w-full md:w-[290px] md:absolute md:top-[130px] md:right-[12%] transition-all duration-300 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+          <div class="relative w-[92%] max-w-[310px] mx-auto md:w-[290px] md:max-w-none md:absolute md:top-[130px] md:right-[12%] transition-all duration-300 -rotate-2 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
             <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
               <!-- Pushpin Icon -->
               <div class="flex justify-center -mt-5 mb-3">
@@ -414,7 +440,7 @@
           </div>
 
           <!-- Step 03: Match Scene Timestamps (Purple Theme) -->
-          <div class="relative w-full md:w-[290px] md:absolute md:top-[430px] md:left-[14%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+          <div class="relative w-[92%] max-w-[310px] mx-auto md:w-[290px] md:max-w-none md:absolute md:top-[430px] md:left-[14%] transition-all duration-300 rotate-2 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
             <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
               <!-- Pushpin Icon -->
               <div class="flex justify-center -mt-5 mb-3">
@@ -438,8 +464,8 @@
             </div>
           </div>
 
-          <!-- Step 04: Strip Dead Pauses (Orange/Amber Theme) -->
-          <div class="relative w-full md:w-[290px] md:absolute md:top-[570px] md:right-[10%] transition-all duration-300 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+          <!-- Step 04: Strip Dead Pauses (Amber Theme) -->
+          <div class="relative w-[92%] max-w-[310px] mx-auto md:w-[290px] md:max-w-none md:absolute md:top-[570px] md:right-[10%] transition-all duration-300 -rotate-2 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
             <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
               <!-- Pushpin Icon -->
               <div class="flex justify-center -mt-5 mb-3">
@@ -464,7 +490,7 @@
           </div>
 
           <!-- Step 05: 1-Click Export (Blue Theme) -->
-          <div class="relative w-full md:w-[290px] md:absolute md:top-[850px] md:left-[12%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+          <div class="relative w-[92%] max-w-[310px] mx-auto md:w-[290px] md:max-w-none md:absolute md:top-[850px] md:left-[12%] transition-all duration-300 rotate-2 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
             <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
               <!-- Pushpin Icon -->
               <div class="flex justify-center -mt-5 mb-3">
