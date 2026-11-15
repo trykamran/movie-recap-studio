@@ -161,9 +161,10 @@
     {
       "step": 1,
       "tag": "Step 01",
-      "name": "Story & Subtitle Ingestion",
-      "subtitle": "AI reads and structures the film in seconds",
-      "description": "Drop your movie subtitle file (.srt) into Claude, ChatGPT, or Gemini. The Movie Recap Studio skill parses chronological dialogue beats, identifies critical narrative pivots, and suggests 2-3 focused storytelling angles.",
+      "theme": "amber",
+      "name": "Ingest Subtitles",
+      "subtitle": "AI analyzes complete movie dialogue in seconds",
+      "description": "Feed any standard .srt subtitle file. The agent scans the entire narrative timeline, isolates emotional arcs, and detects pivotal plot twists without missing subtle context cues.",
       "key_features": [
         "Full SRT chronological timeline parsing",
         "Character arc and plot twist detection",
@@ -174,9 +175,10 @@
     {
       "step": 2,
       "tag": "Step 02",
-      "name": "Retention Narration Scripting",
+      "theme": "blue",
+      "name": "Generate Viral Hook",
       "subtitle": "Engineered for 70%+ audience watch time",
-      "description": "The AI writes a copyright-safe, highly engaging script starting with the battle-tested '3-Sentence Curiosity Hook'. Every paragraph is written to build suspense, provoke curiosity, and keep viewers watching until the final second.",
+      "description": "Applies the signature 3-Sentence Curiosity Hook formula. Automatically balances story intrigue, stakes, and cliffhanger setup to capture viewer retention instantly.",
       "key_features": [
         "Proven 3-Sentence Hook (Curiosity + Stakes + Cliffhanger)",
         "Natural conversational pacing without cringe clich\u00e9s",
@@ -187,9 +189,10 @@
     {
       "step": 3,
       "tag": "Step 03",
-      "name": "Audio Calibration & Scene Sync",
+      "theme": "purple",
+      "name": "Match Scene Timestamps",
       "subtitle": "Dialogue-grounded frame-accurate cut marks",
-      "description": "Generate voiceover audio with any TTS tool (ElevenLabs, Edge-TTS, OpenAI). The agent analyzes the real audio length and re-reads the movie SRT to output frame-accurate source timestamp ranges mapped sentence by sentence.",
+      "description": "The AI matches each spoken script beat to exact movie visual timecodes. Eliminates hallucinated scenes with zero footage mismatch, outputting clean, verified timestamp ranges.",
       "key_features": [
         "Speech duration matched to visual scene pacing",
         "Zero visual hallucinations \u2014 anchored in real timestamps",
@@ -200,15 +203,30 @@
     {
       "step": 4,
       "tag": "Step 04",
-      "name": "1-Click Assembly & Silence Removal",
-      "subtitle": "Render master video in Windows or Android app",
-      "description": "Paste the timestamp list into the Movie Recap companion app. It trims the clips, automatically deletes dead pauses (>0.3s) for relentless momentum, replaces movie audio with your voiceover, and exports the finished master video.",
+      "theme": "amber",
+      "name": "Strip Dead Pauses",
+      "subtitle": "Automatic >0.3s silence elimination",
+      "description": "The companion desktop and mobile apps automatically trim trailing audio silences and awkward pauses (>0.3s) for crisp, rapid-fire, high-retention narration pacing.",
       "key_features": [
-        "1-click clipboard paste directly into the timeline",
-        "Auto silence killer cuts pauses >0.3s instantly",
-        "Multi-threaded GPU-accelerated export in 1080p / 4K"
+        "Automated peak and RMS audio silence detection",
+        "Cuts awkward pauses longer than 0.3s instantly",
+        "Smooth zero-cross crossfades preventing clicks"
       ],
-      "metric": "Render full recap in <3 minutes"
+      "metric": ">0.3s silence auto-stripped"
+    },
+    {
+      "step": 5,
+      "tag": "Step 05",
+      "theme": "blue",
+      "name": "1-Click Export",
+      "subtitle": "Render master video in Windows or Android app",
+      "description": "Import the generated timestamp cuts with a single click. The engine mutes original dialogue, syncs voiceover narration, and renders in hardware-accelerated 1080p, 4K, or 9:16 vertical.",
+      "key_features": [
+        "1-click clipboard paste directly into timeline",
+        "Hardware-accelerated GPU export (NVENC / QuickSync)",
+        "16:9 Longform & 9:16 Shorts / Reels presets"
+      ],
+      "metric": "Render complete recap in <3 min"
     }
   ],
   "feature_comparison": {
