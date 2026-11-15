@@ -213,6 +213,24 @@
       animation: flowDashes 2.2s linear infinite;
     }
 
+  
+    /* Chamaac UI Flowing Animated Curve */
+    @keyframes flowDashes {
+      from {
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke-dashoffset: -28;
+      }
+    }
+    .chamaac-path {
+      stroke-dasharray: 8 6;
+      animation: flowDashes 2s linear infinite;
+    }
+    .pin-shadow {
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    }
+
   </style>
 </head>
 <body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500 relative">
@@ -308,62 +326,173 @@
       </div>
 
       <!-- Keynote Preview Card: 3-Step Automated Pipeline -->
-            <!-- Chamaac UI Style How-It-Works Connected Process Section -->
-      <div id="workflow" class="relative max-w-5xl mx-auto rounded-3xl p-1 bg-gradient-to-b from-apple-blue/25 via-apple-borderLight/20 to-transparent shadow-apple-card apple-reveal">
-        <div class="rounded-[22px] bg-white dark:bg-apple-darkCard p-8 sm:p-12 border border-apple-borderLight/50 dark:border-apple-darkBorder text-left relative overflow-hidden">
-          
-          <!-- Subtle Texture -->
-          <div class="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.08]" style="background-image: linear-gradient(#0071e3 1px, transparent 1px); background-size: 100% 32px;"></div>
-          
-          <!-- Section Header -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-10 border-b border-apple-borderLight/40 dark:border-apple-darkBorder/40 gap-4 relative z-10">
-            <div>
-              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue text-xs font-semibold mb-2">
-                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-                <span>How It Works • Automated Pipeline</span>
+                <!-- 5-Step Zigzag How It Works Section (Exact Chamaac UI / 21st.dev Style) -->
+    <section id="workflow" class="py-28 px-6 max-w-6xl mx-auto relative overflow-hidden apple-reveal">
+      
+      <!-- Subtle Chamaac Grid Lines Texture directly on page background -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.04] dark:opacity-[0.08]" style="background-image: linear-gradient(currentColor 1px, transparent 1px); background-size: 100% 32px;"></div>
+
+      <!-- Section Title & Subtitle -->
+      <div class="text-center max-w-2xl mx-auto mb-20 relative z-10">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue text-xs font-semibold mb-3 border border-apple-blue/20">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>How It Works • 5-Step Production Pipeline</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-apple-textPrimary dark:text-white">
+          From Raw Movie to Viral Recap
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-apple-textSecondary dark:text-gray-400 leading-relaxed">
+          Watch your production flow step-by-step with automated scene cutting and high-retention narration.
+        </p>
+      </div>
+
+      <!-- Zigzag Flow Container -->
+      <div class="relative w-full max-w-[1000px] mx-auto z-10">
+        
+        <!-- Animated Connecting SVG Path (Desktop Zigzag Curve) -->
+        <svg class="absolute top-0 left-0 w-full h-[1150px] pointer-events-none hidden md:block z-0" viewBox="0 0 1000 1150" fill="none">
+          <path
+            class="chamaac-path text-neutral-300 dark:text-neutral-700"
+            d="M 290 140 C 500 140, 550 250, 710 250 C 860 250, 500 370, 290 470 C 290 620, 550 710, 750 710 C 950 710, 500 830, 290 910"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <!-- Cards Wrapper (Desktop absolute positioning, Mobile stacked) -->
+        <div class="relative w-full flex flex-col space-y-8 md:space-y-0 md:block h-auto md:h-[1160px]">
+
+          <!-- Step 01: Ingest Subtitles (Orange Theme) -->
+          <div class="relative w-full md:w-[290px] md:absolute md:top-0 md:left-[12%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+            <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
+              <!-- Pushpin Icon -->
+              <div class="flex justify-center -mt-5 mb-3">
+                <svg class="w-8 h-8 text-amber-500 pin-shadow" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                </svg>
               </div>
-              <h2 class="text-2xl sm:text-3xl font-bold text-apple-textPrimary dark:text-white">From Subtitles to Finished Video</h2>
-              <p class="text-xs sm:text-sm text-apple-textSecondary dark:text-gray-400 mt-1">A connected 3-step automated workflow designed for viral social creators.</p>
+              <div class="bg-amber-500/10 border border-amber-500/20 rounded-[18px] p-5 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <span class="text-amber-500 dark:text-amber-400 text-3xl font-extrabold font-mono mb-2 block">01</span>
+                  <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-2">Ingest Subtitles</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                    Drop your movie subtitle file (.srt) into Claude or ChatGPT. The AI parses story beats, dialogue, and timestamps without hallucinations.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-amber-500/20 flex items-center text-[11px] font-semibold text-amber-600 dark:text-amber-400 space-x-1.5">
+                  <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                  <span>Grounded Subtitle Parsing</span>
+                </div>
+              </div>
             </div>
-            <span class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40 shrink-0">
-              Zero Manual Scrubbing
-            </span>
           </div>
 
-          <!-- Chamaac Pinned Connected Cards Flow -->
-          <div class="relative pt-12 pb-4 z-10">
-            
-            <!-- Animated Connecting SVG Path (Desktop View) -->
-            <svg class="absolute top-1/2 left-0 w-full -translate-y-1/2 pointer-events-none hidden md:block z-0" height="120" viewBox="0 0 900 120" fill="none">
-              <path class="flowing-path text-apple-blue/50 dark:text-apple-blue/40" d="M 180 60 C 280 20, 320 100, 450 60 C 580 20, 620 100, 720 60" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            </svg>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-              
-              <!-- Card 1: Step 01 (Blue Theme) -->
-              <div class="group relative transition-all duration-300 hover:z-20 md:rotate-1 hover:rotate-0 hover:scale-[1.03]">
-                <div class="bg-white dark:bg-zinc-900/90 p-2.5 rounded-[24px] shadow-apple-soft group-hover:shadow-apple-float border border-apple-borderLight/70 dark:border-apple-darkBorder transition-all">
-                  <!-- Chamaac Pushpin Icon -->
-                  <div class="flex justify-center -mt-5 mb-2">
-                    <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-sm shadow-blue-500/50">
-                      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z"/></svg>
-                    </div>
-                  </div>
-                  <!-- Inner Card Content -->
-                  <div class="bg-blue-50/80 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/40 rounded-[18px] p-5 flex flex-col justify-between h-full min-h-[220px]">
-                    <div>
-                      <span class="text-3xl font-extrabold text-blue-600 dark:text-blue-400 tracking-tight block mb-2 font-mono">01</span>
-                      <h3 class="text-base font-bold text-apple-textPrimary dark:text-white leading-snug mb-2">SRT Story Ingestion</h3>
-                      <p class="text-xs text-apple-textSecondary dark:text-gray-300 leading-relaxed">
-                        Drop your movie subtitle file into Claude or ChatGPT. The AI parses story beats, dialogue, and timestamps without hallucinations.
-                      </p>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-blue-200/50 dark:border-blue-800/30 flex items-center text-[11px] font-semibold text-blue-600 dark:text-blue-400 space-x-1.5">
-                      <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                      <span>Grounded Subtitle Parsing</span>
-                    </div>
-                  </div>
+          <!-- Step 02: Generate Viral Hook (Blue Theme) -->
+          <div class="relative w-full md:w-[290px] md:absolute md:top-[130px] md:right-[12%] transition-all duration-300 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+            <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
+              <!-- Pushpin Icon -->
+              <div class="flex justify-center -mt-5 mb-3">
+                <svg class="w-8 h-8 text-blue-500 pin-shadow" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                </svg>
+              </div>
+              <div class="bg-blue-500/10 border border-blue-500/20 rounded-[18px] p-5 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <span class="text-blue-500 dark:text-blue-400 text-3xl font-extrabold font-mono mb-2 block">02</span>
+                  <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-2">Generate Viral Hook</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                    AI crafts high-retention narration with the iconic 3-sentence curiosity hook formula in English or natural Hindustani.
+                  </p>
                 </div>
+                <div class="mt-4 pt-3 border-t border-blue-500/20 flex items-center text-[11px] font-semibold text-blue-600 dark:text-blue-400 space-x-1.5">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  <span>3-Sentence Hook Formula</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03: Match Scene Timestamps (Purple Theme) -->
+          <div class="relative w-full md:w-[290px] md:absolute md:top-[430px] md:left-[14%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+            <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
+              <!-- Pushpin Icon -->
+              <div class="flex justify-center -mt-5 mb-3">
+                <svg class="w-8 h-8 text-purple-500 pin-shadow" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                </svg>
+              </div>
+              <div class="bg-purple-500/10 border border-purple-500/20 rounded-[18px] p-5 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <span class="text-purple-500 dark:text-purple-400 text-3xl font-extrabold font-mono mb-2 block">03</span>
+                  <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-2">Match Timestamps</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                    Automatically syncs script lines with accurate movie cut ranges, filtering out dead time and redundant plot fillers.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-purple-500/20 flex items-center text-[11px] font-semibold text-purple-600 dark:text-purple-400 space-x-1.5">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                  <span>Zero Manual Scrubbing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 04: Strip Dead Pauses (Orange/Amber Theme) -->
+          <div class="relative w-full md:w-[290px] md:absolute md:top-[570px] md:right-[10%] transition-all duration-300 md:-rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+            <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
+              <!-- Pushpin Icon -->
+              <div class="flex justify-center -mt-5 mb-3">
+                <svg class="w-8 h-8 text-amber-500 pin-shadow" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                </svg>
+              </div>
+              <div class="bg-amber-500/10 border border-amber-500/20 rounded-[18px] p-5 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <span class="text-amber-500 dark:text-amber-400 text-3xl font-extrabold font-mono mb-2 block">04</span>
+                  <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-2">Strip Dead Pauses</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                    Desktop app analyzes the video and voiceover, automatically cutting silent gaps longer than 0.3s for rapid pacing.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-amber-500/20 flex items-center text-[11px] font-semibold text-amber-600 dark:text-amber-400 space-x-1.5">
+                  <i data-lucide="scissors" class="w-3.5 h-3.5"></i>
+                  <span>Auto Silence Removal (&gt;0.3s)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 05: 1-Click Export (Blue Theme) -->
+          <div class="relative w-full md:w-[290px] md:absolute md:top-[850px] md:left-[12%] transition-all duration-300 md:rotate-6 hover:rotate-0 hover:scale-105 hover:z-30">
+            <div class="bg-white dark:bg-neutral-900 p-2.5 rounded-[26px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] border border-neutral-200/80 dark:border-neutral-800">
+              <!-- Pushpin Icon -->
+              <div class="flex justify-center -mt-5 mb-3">
+                <svg class="w-8 h-8 text-blue-500 pin-shadow" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                </svg>
+              </div>
+              <div class="bg-blue-500/10 border border-blue-500/20 rounded-[18px] p-5 flex flex-col justify-between min-h-[220px]">
+                <div>
+                  <span class="text-blue-500 dark:text-blue-400 text-3xl font-extrabold font-mono mb-2 block">05</span>
+                  <h3 class="text-xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-2">1-Click Export</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-xs leading-relaxed">
+                    Stitches audio narration, cuts, and transitions into a finished 1080p horizontal video or 9:16 vertical TikTok/Shorts.
+                  </p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-blue-500/20 flex items-center text-[11px] font-semibold text-blue-600 dark:text-blue-400 space-x-1.5">
+                  <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                  <span>Ready for YouTube & TikTok</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
               </div>
 
               <!-- Card 2: Step 02 (Purple/Indigo Theme) -->
