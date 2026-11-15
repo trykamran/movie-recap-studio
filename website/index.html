@@ -175,6 +175,15 @@
     .apple-btn:hover::after {
       transform: translateX(650%) rotate(25deg);
     }
+    .apple-btn-secondary::after {
+      background: linear-gradient(105deg, transparent 20%, rgba(0, 113, 227, 0.45) 50%, transparent 80%) !important;
+    }
+    .dark .apple-btn-secondary::after {
+      background: linear-gradient(105deg, transparent 20%, rgba(56, 189, 248, 0.5) 50%, transparent 80%) !important;
+    }
+    .apple-btn-blue-sheen::after {
+      background: linear-gradient(105deg, transparent 15%, rgba(0, 113, 227, 0.6) 50%, transparent 85%);
+    }
     .apple-btn:hover {
       transform: translateY(-1.5px) scale(1.015);
     }
@@ -417,7 +426,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
         <button type="button" class="trigger-download-modal apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-apple-float flex items-center justify-center space-x-2"><span>Download Free Suite</span><i data-lucide="arrow-down" class="w-4 h-4"></i></button>
 
-        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-white dark:bg-apple-darkCard hover:bg-gray-50 dark:hover:bg-zinc-800 text-apple-textPrimary dark:text-white border border-apple-borderLight/80 dark:border-apple-darkBorder flex items-center justify-center space-x-2">
+        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="apple-btn apple-btn-secondary w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-white dark:bg-apple-darkCard hover:bg-gray-50 dark:hover:bg-zinc-800 text-apple-textPrimary dark:text-white border border-apple-borderLight/80 dark:border-apple-darkBorder flex items-center justify-center space-x-2">
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>View on GitHub</span>
         </a>
@@ -681,11 +690,11 @@
           </div>
 
           <h2 class="md:text-5xl sm:text-4xl text-3xl font-bold text-apple-textPrimary dark:text-white mb-4 leading-[120%] tracking-tight">
-            Let's get started
+            Claim Your Lifetime Studio Access
           </h2>
 
           <p class="text-base sm:text-xl text-apple-textSecondary dark:text-gray-400 font-normal">
-            Get Movie Recap Studio, connect your workflow, save hours. 100% Free!
+            Zero monthly subscriptions. Download the complete creator suite free during our early-bird launch.
           </p>
         </div>
 
@@ -763,13 +772,13 @@
             <!-- Right Column: Interactive Switches & Pricing Calculation -->
             <div class="space-y-8">
               
-              <!-- Switch 1: Access to updates -->
+              <!-- Switch 1: Software & Engine Updates -->
               <div>
                 <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
-                  Access to updates
+                  Software & Engine Updates
                 </h4>
                 <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
-                  One-time download, continuous updates come to your machine
+                  One-time download, continuous AI & FFmpeg engine updates delivered locally
                 </p>
                 
                 <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
@@ -777,21 +786,21 @@
                   <div id="sliding-pill-updates" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
 
                   <button type="button" id="switch-updates-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
-                    3 Months
+                    Standard (1 Year)
                   </button>
                   <button type="button" id="switch-updates-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
-                    Forever
+                    Lifetime (Forever)
                   </button>
                 </div>
               </div>
 
-              <!-- Switch 2: Lifetime license -->
+              <!-- Switch 2: License & Monetization Scope -->
               <div>
                 <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
-                  Lifetime license
+                  License & Monetization Scope
                 </h4>
                 <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
-                  Select Corporate if you're part of the team or studio
+                  Select Agency / Studio if you operate multi-channel networks or an editing agency
                 </p>
                 
                 <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
@@ -799,10 +808,10 @@
                   <div id="sliding-pill-license" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
 
                   <button type="button" id="switch-license-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
-                    Personal
+                    Solo Creator
                   </button>
                   <button type="button" id="switch-license-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
-                    Corporate
+                    Agency / Studio
                   </button>
                 </div>
               </div>
