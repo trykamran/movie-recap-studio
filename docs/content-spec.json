@@ -293,8 +293,8 @@
   "pricing": {
     "component": "pricing-section-2 (UI Layout 21st.dev)",
     "badge": "Time to connect",
-    "title": "Let's get started",
-    "subtitle": "Choose the configuration that best fits your workflow and production scale.",
+    "title": "Claim Your Lifetime Studio Access",
+    "subtitle": "Zero monthly subscriptions. Download the complete creator suite free during our early-bird launch.",
     "backdrop_gradient": "radial-gradient(125% 125% at 50% 90%, transparent 40%, #0071e3 100%)",
     "left_column": {
       "heading": "What's inside",
@@ -336,40 +336,40 @@
     "right_column": {
       "switches": [
         {
-          "label": "Access to updates",
+          "label": "Software & Engine Updates",
           "options": [
-            "3 Months",
-            "Forever"
+            "Standard (1 Year)",
+            "Lifetime (Forever)"
           ]
         },
         {
-          "label": "Lifetime license",
+          "label": "License & Monetization Scope",
           "options": [
-            "Personal",
-            "Corporate"
+            "Solo Creator",
+            "Agency / Studio"
           ]
         }
       ],
       "price_matrix": {
-        "Personal_3 Months": {
+        "Solo Creator_Standard (1 Year)": {
           "original": "$98",
           "current": "$0",
-          "label": "Free Launch Special"
+          "label": "Early-Bird Free"
         },
-        "Corporate_3 Months": {
+        "Agency / Studio_Standard (1 Year)": {
           "original": "$400",
           "current": "$0",
-          "label": "Free Launch Special"
+          "label": "Early-Bird Free"
         },
-        "Personal_Forever": {
+        "Solo Creator_Lifetime (Forever)": {
           "original": "$159",
           "current": "$0",
-          "label": "Free Launch Special"
+          "label": "Early-Bird Free"
         },
-        "Corporate_Forever": {
+        "Agency / Studio_Lifetime (Forever)": {
           "original": "$650",
           "current": "$0",
-          "label": "Free Launch Special"
+          "label": "Early-Bird Free"
         }
       },
       "cta": {
@@ -627,7 +627,8 @@
       "button_physics": {
         "click_transform": "scale(0.97)",
         "transition": "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-        "specular_sheen": "linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 70%)"
+        "specular_sheen": "linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 70%)",
+        "github_sheen": "linear-gradient(120deg, rgba(0, 113, 227, 0) 30%, rgba(0, 113, 227, 0.45) 50%, rgba(0, 113, 227, 0) 70%)"
       },
       "spotlight_cursor": {
         "radial_gradient": "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%)",
