@@ -291,72 +291,87 @@
     ]
   },
   "pricing": {
-    "layout": "single_card_interactive_columns",
-    "inspiration": "21st.dev @uilayout.contact/components/pricing-section-1",
-    "title": "Transparent, 100% Free Lifetime Access",
-    "subtitle": "Get the complete AI Agent Skill and companion editing applications without subscriptions, hidden credit fees, or paywalls.",
+    "component": "pricing-section-2 (UI Layout 21st.dev)",
+    "badge": "Time to connect",
+    "title": "Let's get started",
+    "subtitle": "Choose the configuration that best fits your workflow and production scale.",
+    "backdrop_gradient": "radial-gradient(125% 125% at 50% 90%, transparent 40%, #0071e3 100%)",
     "left_column": {
       "heading": "What's inside",
-      "description": "Full access to the entire Movie Recap Studio suite for solo creators, teams, and production studios.",
       "features": [
         {
           "name": "Universal AI Agent Skill (.zip package)",
-          "detail": "Native support for Claude, ChatGPT, and Gemini assistants"
-        },
-        {
-          "name": "Deep SRT Subtitle Analyzer",
-          "detail": "Instant plot arc extraction and 3-sentence hook generation"
+          "detail": "Claude, ChatGPT & Gemini prompt skill"
         },
         {
           "name": "Movie Recap Windows App (.exe)",
-          "detail": "Hardware-accelerated rendering and 1-click timeline cut"
+          "detail": "Hardware-accelerated rendering & auto-cutter"
         },
         {
           "name": "Movie Recap Android App (.apk)",
-          "detail": "Direct mobile editing and 9:16 vertical Shorts export"
+          "detail": "Direct mobile editing & 9:16 vertical Shorts export"
+        },
+        {
+          "name": "Deep SRT Subtitle Analyzer",
+          "detail": "Plot arc extraction & 3-sentence viral hooks"
         },
         {
           "name": "Auto Silence Stripper",
-          "detail": "Cuts dead audio gaps (>0.3s) for maximum audience retention"
+          "detail": "Cuts dead pauses (>0.3s) for maximum retention"
         },
         {
           "name": "Copyright-Safe Fair Use Pacing",
-          "detail": "Original audio muting and dialogue-anchored scene transitions"
+          "detail": "Original audio muting & scene sync"
         },
         {
           "name": "Bilingual Narration Generation",
-          "detail": "English and Romanized Hindi/Urdu storytelling styles"
+          "detail": "English and Romanized Hindi/Urdu storytelling"
         },
         {
           "name": "Continuous GitHub Updates",
-          "detail": "Community discussions, issue reporting, and future AI dubbing roadmap"
+          "detail": "Community roadmap & developer releases"
         }
       ]
     },
     "right_column": {
-      "pricing_display": {
-        "current_price": "$0",
-        "period": "Lifetime Free",
-        "strike_regular": "$98",
-        "strike_commercial": "$142",
-        "badge": "100% Free Launch Access"
-      },
-      "selectors": [
+      "switches": [
         {
           "label": "Access to updates",
           "options": [
-            "Forever Free",
-            "Beta Track"
+            "3 Months",
+            "Forever"
           ]
         },
         {
           "label": "Lifetime license",
           "options": [
-            "Personal & Creator",
-            "Corporate Studio"
+            "Personal",
+            "Corporate"
           ]
         }
       ],
+      "price_matrix": {
+        "Personal_3 Months": {
+          "original": "$98",
+          "current": "$0",
+          "label": "Free Launch Special"
+        },
+        "Corporate_3 Months": {
+          "original": "$400",
+          "current": "$0",
+          "label": "Free Launch Special"
+        },
+        "Personal_Forever": {
+          "original": "$159",
+          "current": "$0",
+          "label": "Free Launch Special"
+        },
+        "Corporate_Forever": {
+          "original": "$650",
+          "current": "$0",
+          "label": "Free Launch Special"
+        }
+      },
       "cta": {
         "label": "Download Free Suite",
         "href": "#downloads",
