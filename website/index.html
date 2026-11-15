@@ -74,53 +74,128 @@
     .apple-glass {
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
+      transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-scrolled {
+      backdrop-filter: saturate(190%) blur(26px) !important;
+      -webkit-backdrop-filter: saturate(190%) blur(26px) !important;
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.08);
+    }
+    .dark .header-scrolled {
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.55);
     }
 
-    /* Apple Cursor Spotlight Ambient Glow */
+    /* Ambient Cursor Spotlight Glow */
     #cursor-glow {
       position: fixed;
-      width: 450px;
-      height: 450px;
+      width: 480px;
+      height: 480px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 68%);
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 9999;
+      will-change: transform;
       transition: opacity 0.3s ease;
     }
     .dark #cursor-glow {
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.16) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(41, 151, 255, 0.16) 0%, transparent 68%);
+    }
+
+    /* Dynamic Card Spotlight Glow (Apple Keynote Surface Physics) */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+      will-change: transform, box-shadow;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 113, 227, 0.08), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+    }
+    .dark .spotlight-card::before {
+      background: radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(41, 151, 255, 0.15), transparent 45%);
+    }
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+    .spotlight-card:hover {
+      transform: translateY(-4px);
+    }
+    .spotlight-card > * {
+      position: relative;
+      z-index: 2;
     }
 
     /* Apple Scroll-Triggered Reveal Animations */
     .apple-reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
     }
     .apple-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
 
-    /* Apple Button Interaction */
+    /* Apple Button Micro-Interactions & Specular Sheen */
     .apple-btn {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, box-shadow;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+    }
+    .apple-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20%;
+      height: 200%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.25) 50%, transparent 80%);
+      transform: rotate(25deg);
+      pointer-events: none;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-btn:hover::after {
+      transform: translateX(650%) rotate(25deg);
     }
     .apple-btn:hover {
-      transform: translateY(-1.5px);
+      transform: translateY(-1.5px) scale(1.015);
     }
     .apple-btn:active {
-      transform: scale(0.97);
+      transform: scale(0.965) translateY(0);
+      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Card Hover Physics */
-    .apple-hover-card {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+    /* Icon micro-motion */
+    .apple-btn [data-lucide="arrow-down"],
+    .apple-btn [data-lucide="download"] {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .apple-hover-card:hover {
-      transform: translateY(-4px);
+    .apple-btn:hover [data-lucide="arrow-down"],
+    .apple-btn:hover [data-lucide="download"] {
+      transform: translateY(2px);
+    }
+    .apple-btn [data-lucide="send"] {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-btn:hover [data-lucide="send"] {
+      transform: translate(2px, -2px);
     }
   </style>
 </head>

@@ -9,7 +9,11 @@
     "license": "MIT Open Source",
     "repository": "https://github.com/trykamran/movie-recap-studio",
     "author": "Kamran & Open Source Contributors",
-    "status": "Production Release"
+    "status": "Production Release",
+    "logo": {
+      "src": "assets/app-logo.png",
+      "alt": "Movie Recap Studio Official App Icon"
+    }
   },
   "navigation": {
     "brand": "Movie Recap Studio",
@@ -282,6 +286,7 @@
         "description": "Essential for solo creators and enthusiasts learning the AI movie recap production workflow.",
         "popular": false,
         "features": [
+          "Claude & ChatGPT Prompt Skill (.zip package)",
           "Universal AI Agent Skill for Claude, ChatGPT & Gemini",
           "Full SRT subtitle story analysis & chapter indexing",
           "Viral 3-Sentence Curiosity Hook formula",
@@ -303,11 +308,12 @@
         "price": "$0",
         "original_price": "$29/mo",
         "period": "Free during Launch Special",
-        "description": "For serious YouTube & Shorts creators who need maximum editing speed, hardware acceleration, and audio sync.",
+        "description": "Built for active movie recap channels wanting maximum production speed, hardware acceleration, and seamless companion apps.",
         "popular": true,
         "features": [
           "Everything in Starter included",
-          "Movie Recap Windows Desktop Application (.exe)",
+          "Windows Desktop App (.exe) included",
+          "Android Mobile App (.apk) included",
           "Automatic silence remover (>0.3s dead pause cut)",
           "1-Click Clipboard timestamp range importer",
           "Hardware-accelerated GPU export (NVENC / QuickSync)",
@@ -316,32 +322,32 @@
           "Pre-configured workflows for 10-minute deep recaps"
         ],
         "cta": {
-          "label": "Download Windows Suite",
+          "label": "Download Windows + Android Apps",
           "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe"
         }
       },
       {
         "id": "studio",
         "name": "Studio Agency",
-        "badge": "Full Suite Access \u00b7 100% Free Launch",
+        "badge": "Coming Soon \u00b7 Roadmap",
         "price": "$0",
         "original_price": "$99/mo",
-        "period": "Free during Launch Special",
-        "description": "For high-volume multi-channel creators, editing teams, and agencies looking to publish daily videos.",
+        "period": "Free Launch Special / In Development",
+        "description": "Future cloud-native suite for high-volume multi-channel creators, production studios, and agencies.",
         "popular": false,
         "features": [
           "Everything in Pro Creator included",
-          "Movie Recap Android Mobile Companion APK (.apk)",
-          "Mobile-first vertical cutting for TikTok & Shorts",
-          "Multi-channel batch production workflow templates",
-          "Genre-specific storytelling prompts (Horror, Sci-Fi, Anime)",
-          "Commercial usage permitted with zero royalties",
-          "Priority feature requests via GitHub releases",
-          "Direct developer community support"
+          "Cloud batching & rendering pipeline (Coming Soon)",
+          "Multi-channel automated publishing scheduler (Coming Soon)",
+          "AI multi-lingual voice dubbing & sync engine (Coming Soon)",
+          "Genre-specific storytelling prompt studio (Coming Soon)",
+          "Collaborative multi-seat team workspace (Coming Soon)",
+          "Zero royalty obligations & commercial licensing",
+          "Direct developer roadmap voting on GitHub"
         ],
         "cta": {
-          "label": "Get Full Suite (All Releases)",
-          "href": "https://github.com/trykamran/movie-recap-studio/releases"
+          "label": "View Upcoming Roadmap",
+          "href": "https://github.com/trykamran/movie-recap-studio/issues"
         }
       }
     ]
@@ -591,6 +597,49 @@
         "revealed_state": "opacity: 1; transform: translateY(0)",
         "transition": "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)"
       }
+    }
+  },
+  "feedback_form": {
+    "title": "Community Feedback & Suggestions",
+    "subtitle": "Help shape the future of Movie Recap Studio. Share ideas, report issues, or suggest new features.",
+    "position": "Under Creator Reviews section at the bottom of the page",
+    "fields": [
+      {
+        "name": "creator_name",
+        "label": "Your Name / Channel Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "rating",
+        "label": "Experience Rating",
+        "type": "star_rating",
+        "max_stars": 5,
+        "required": true
+      },
+      {
+        "name": "category",
+        "label": "Feedback Category",
+        "type": "select",
+        "options": [
+          "Feature Suggestion",
+          "Bug Report",
+          "App Feedback",
+          "Prompt / Skill Improvement",
+          "General Review"
+        ]
+      },
+      {
+        "name": "message",
+        "label": "Your Feedback or Feature Request",
+        "type": "textarea",
+        "rows": 4,
+        "required": true
+      }
+    ],
+    "action": {
+      "label": "Submit Feedback",
+      "success_message": "Thank you! Your feedback has been received and added to our community roadmap."
     }
   }
 }

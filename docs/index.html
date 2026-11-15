@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/app-logo.png">
+  <link rel="apple-touch-icon" href="assets/app-logo.png">
   <title>Movie Recap Studio — AI Video Production Suite</title>
   <meta name="description" content="Turn any movie into viral social recaps in minutes. Subtitle analysis, viral retention scripts, and one-click scene synchronization.">
 
@@ -74,57 +75,135 @@
     .apple-glass {
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
+      transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-scrolled {
+      backdrop-filter: saturate(190%) blur(26px) !important;
+      -webkit-backdrop-filter: saturate(190%) blur(26px) !important;
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.08);
+    }
+    .dark .header-scrolled {
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.55);
     }
 
-    /* Apple Cursor Spotlight Ambient Glow */
+    /* Ambient Cursor Spotlight Glow */
     #cursor-glow {
       position: fixed;
-      width: 450px;
-      height: 450px;
+      width: 480px;
+      height: 480px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.09) 0%, transparent 68%);
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 9999;
+      will-change: transform;
       transition: opacity 0.3s ease;
     }
     .dark #cursor-glow {
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.16) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(41, 151, 255, 0.16) 0%, transparent 68%);
+    }
+
+    /* Dynamic Card Spotlight Glow (Apple Keynote Surface Physics) */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+      will-change: transform, box-shadow;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    }
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 113, 227, 0.08), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+    }
+    .dark .spotlight-card::before {
+      background: radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(41, 151, 255, 0.15), transparent 45%);
+    }
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+    .spotlight-card:hover {
+      transform: translateY(-4px);
+    }
+    .spotlight-card > * {
+      position: relative;
+      z-index: 2;
     }
 
     /* Apple Scroll-Triggered Reveal Animations */
     .apple-reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
     }
     .apple-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
 
-    /* Apple Button Interaction */
+    /* Apple Button Micro-Interactions & Specular Sheen */
     .apple-btn {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, box-shadow;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+    }
+    .apple-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20%;
+      height: 200%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.25) 50%, transparent 80%);
+      transform: rotate(25deg);
+      pointer-events: none;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-btn:hover::after {
+      transform: translateX(650%) rotate(25deg);
     }
     .apple-btn:hover {
-      transform: translateY(-1.5px);
+      transform: translateY(-1.5px) scale(1.015);
     }
     .apple-btn:active {
-      transform: scale(0.97);
+      transform: scale(0.965) translateY(0);
+      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Card Hover Physics */
-    .apple-hover-card {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+    /* Icon micro-motion */
+    .apple-btn [data-lucide="arrow-down"],
+    .apple-btn [data-lucide="download"] {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .apple-hover-card:hover {
-      transform: translateY(-4px);
+    .apple-btn:hover [data-lucide="arrow-down"],
+    .apple-btn:hover [data-lucide="download"] {
+      transform: translateY(2px);
+    }
+    .apple-btn [data-lucide="send"] {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-btn:hover [data-lucide="send"] {
+      transform: translate(2px, -2px);
     }
   </style>
 </head>
 <body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500 relative">
+
+  <!-- Apple Scroll Reading Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-apple-blue via-sky-400 to-indigo-500 z-[100] w-0 transition-all duration-75 pointer-events-none"></div>
 
   <!-- Interactive Cursor Glow (Apple Keynote Aesthetic) -->
   <div id="cursor-glow" class="hidden sm:block"></div>
@@ -135,7 +214,9 @@
       
       <!-- Brand Logo with Official App Icon -->
       <a href="#" class="flex items-center space-x-2.5 group">
-        <img src="assets/app-logo.png" alt="Movie Recap Studio Logo" class="w-7 h-7 rounded-lg shadow-sm shadow-apple-blue/30 group-hover:scale-105 transition-transform object-contain">
+        <div class="w-8 h-8 rounded-[10px] overflow-hidden bg-white/10 dark:bg-apple-darkCard p-0.5 border border-apple-borderLight/50 dark:border-apple-darkBorder/60 shadow-sm shadow-apple-blue/20 group-hover:scale-105 transition-transform duration-300">
+          <img src="assets/app-logo.png" alt="Movie Recap Studio Logo" class="w-full h-full object-cover rounded-[8px]">
+        </div>
         <span class="font-semibold text-sm tracking-tight text-apple-textPrimary dark:text-white">Movie Recap Studio</span>
       </a>
 
@@ -168,10 +249,13 @@
     <!-- Hero Section: Ultra-Clean Apple Keynote Style -->
     <section id="overview" class="pt-24 pb-20 px-6 max-w-5xl mx-auto text-center apple-reveal">
       
-      <!-- Official App Icon Emblem -->
-      <div class="inline-flex items-center justify-center mb-6">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white dark:bg-apple-darkCard p-1 border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-card">
-          <img src="assets/app-logo.png" alt="App Icon" class="w-full h-full object-contain rounded-xl">
+      <!-- Official App Icon Emblem (Apple Keynote Squircle) -->
+      <div class="flex justify-center mb-6">
+        <div class="relative group">
+          <div class="absolute -inset-2 bg-gradient-to-tr from-apple-blue/40 via-indigo-500/25 to-cyan-400/30 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-[22px] overflow-hidden bg-white/80 dark:bg-apple-darkCard/80 p-1.5 border border-white/60 dark:border-white/15 shadow-2xl backdrop-blur-md group-hover:scale-[1.04] transition-all duration-500">
+            <img src="assets/app-logo.png" alt="Movie Recap Studio Official App Icon" class="w-full h-full object-cover rounded-[18px]">
+          </div>
         </div>
       </div>
 
@@ -267,7 +351,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Option 1: AI Prompt Skill ZIP -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft hover:shadow-apple-card transition-all apple-reveal stagger-1">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-apple-blue flex items-center justify-center mb-6">
               <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -299,7 +383,7 @@
         </div>
 
         <!-- Option 2: Windows Desktop App EXE -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue dark:border-apple-blue flex flex-col justify-between shadow-apple-float relative">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue dark:border-apple-blue flex flex-col justify-between shadow-apple-float relative apple-reveal stagger-2">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-apple-blue text-white shadow-sm">
             Most Popular
           </div>
@@ -334,7 +418,7 @@
         </div>
 
         <!-- Option 3: Mobile APK -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft hover:shadow-apple-card transition-all apple-reveal stagger-3">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/40 text-apple-blue flex items-center justify-center mb-6">
               <i data-lucide="smartphone" class="w-6 h-6"></i>
@@ -381,7 +465,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         
         <!-- Starter Tier -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft hover:shadow-apple-card transition-all apple-reveal stagger-1">
           <div>
             <div class="text-xs font-semibold text-apple-textSecondary dark:text-gray-400 uppercase tracking-wider mb-2">Starter Creator</div>
             <div class="flex items-baseline mb-4">
@@ -416,7 +500,7 @@
         </div>
 
         <!-- Pro Tier (Includes BOTH Windows EXE & Android APK) -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue flex flex-col justify-between shadow-apple-float relative">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue flex flex-col justify-between shadow-apple-float relative apple-reveal stagger-2">
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500 text-white shadow-sm">
             Launch Promo Free
           </div>
@@ -458,7 +542,7 @@
         </div>
 
         <!-- Studio Tier (Future Features / Coming Soon) -->
-        <div class="apple-hover-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft hover:shadow-apple-card transition-all apple-reveal stagger-3">
           <div>
             <div class="text-xs font-semibold text-apple-textSecondary dark:text-gray-400 uppercase tracking-wider mb-2">Studio & Cloud Roadmap</div>
             <div class="flex items-baseline mb-4">
@@ -510,7 +594,7 @@
       <!-- Testimonial Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
         
-        <div class="apple-hover-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft hover:shadow-apple-card transition-all flex flex-col justify-between apple-reveal stagger-1">
           <div>
             <div class="flex items-center space-x-1 text-amber-400 mb-4">
               <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
@@ -529,7 +613,7 @@
           </div>
         </div>
 
-        <div class="apple-hover-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft hover:shadow-apple-card transition-all flex flex-col justify-between apple-reveal stagger-2">
           <div>
             <div class="flex items-center space-x-1 text-amber-400 mb-4">
               <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
@@ -548,7 +632,7 @@
           </div>
         </div>
 
-        <div class="apple-hover-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft hover:shadow-apple-card transition-all flex flex-col justify-between apple-reveal stagger-3">
           <div>
             <div class="flex items-center space-x-1 text-amber-400 mb-4">
               <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
@@ -570,7 +654,7 @@
       </div>
 
       <!-- Integrated Community Feedback & Suggestions Form -->
-      <div id="feedback" class="rounded-3xl p-8 sm:p-12 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft apple-reveal">
+      <div id="feedback" class="spotlight-card rounded-3xl p-8 sm:p-12 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft apple-reveal">
         
         <div class="text-center max-w-xl mx-auto mb-8">
           <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue text-xs font-semibold mb-3">
@@ -705,16 +789,46 @@
         updateTheme(nextDark);
       });
 
-      // 3. Apple-Style Cursor Spotlight Effect
+      // 3. 60fps Apple Keynote Ambient Cursor Spotlight (GPU LERP)
       const glow = document.getElementById('cursor-glow');
       if (glow && window.matchMedia('(pointer: fine)').matches) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let currentX = mouseX;
+        let currentY = mouseY;
+        let ticking = false;
+
         window.addEventListener('mousemove', (e) => {
-          glow.style.left = e.clientX + 'px';
-          glow.style.top = e.clientY + 'px';
-        });
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateCursor);
+          }
+        }, { passive: true });
+
+        function updateCursor() {
+          currentX += (mouseX - currentX) * 0.16;
+          currentY += (mouseY - currentY) * 0.16;
+          glow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+          if (Math.abs(mouseX - currentX) > 0.5 || Math.abs(mouseY - currentY) > 0.5) {
+            requestAnimationFrame(updateCursor);
+          } else {
+            ticking = false;
+          }
+        }
       }
 
-      // 4. Apple Scroll-Triggered Reveal Animations (Intersection Observer)
+      // 4. Dynamic Card-Level Spotlight Glow (--mouse-x, --mouse-y)
+      document.querySelectorAll('.spotlight-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        }, { passive: true });
+      });
+
+      // 5. Apple Scroll-Triggered Reveal Animations (Intersection Observer)
       const revealElements = document.querySelectorAll('.apple-reveal');
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -727,8 +841,43 @@
         threshold: 0.12,
         rootMargin: '0px 0px -40px 0px'
       });
-
       revealElements.forEach(el => revealObserver.observe(el));
+
+      // 6. Smooth Scroll Reading Progress & Navbar Dynamic Glass Elevation
+      const progressBar = document.getElementById('scroll-progress');
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        if (progressBar) progressBar.style.width = progress + '%';
+        if (header) {
+          if (scrollTop > 15) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+        }
+      }, { passive: true });
+
+      // 7. Smooth Anchor Navigation with Sticky Header Offset
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || href === '') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = 64;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
 
       // 5. Creator Feedback Star Rating & Form Handler
       const stars = document.querySelectorAll('#star-rating i');
