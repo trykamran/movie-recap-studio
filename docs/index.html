@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Recap Studio — Next-Gen AI Film Storytelling & Recap Suite</title>
-  <meta name="description" content="Turn complete movies into viral recaps in minutes. AI Agent Skill & Editing Suite for SRT analysis, viral hook generation, audio sync, and scene timestamp mapping.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232997ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230071e3'><circle cx='12' cy='12' r='10'/><polygon points='10,8 16,12 10,16' fill='white'/></svg>">
+  <title>Movie Recap Studio — AI Video Production Suite</title>
+  <meta name="description" content="Turn any movie into viral social recaps in minutes. Grounded subtitle analysis, viral retention scripts, and one-click auto scene cuts.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,29 +16,26 @@
         extend: {
           colors: {
             apple: {
-              black: '#000000',
-              dark: '#08080a',
-              cardDark: '#121217',
-              surfaceDark: '#1a1a24',
-              borderDark: '#262635',
-              blue: '#2997ff',
-              purple: '#a855f7',
-              cyan: '#06b6d4',
-              lightBg: '#fbfbfd',
+              blue: '#0071e3',
+              hoverBlue: '#0077ed',
+              darkBlue: '#0040a8',
+              bgLight: '#fbfbfd',
               cardLight: '#ffffff',
-              surfaceLight: '#f5f5f7',
-              borderLight: '#e5e5ea',
-              textMuted: '#86868b'
+              borderLight: '#d2d2d7',
+              textPrimary: '#1d1d1f',
+              textSecondary: '#6e6e73',
+              darkBg: '#000000',
+              darkCard: '#161617',
+              darkBorder: '#333336'
             }
           },
           fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"SF Pro"', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
           },
           boxShadow: {
-            'glow-blue': '0 0 50px -10px rgba(41, 151, 255, 0.35)',
-            'glow-purple': '0 0 50px -10px rgba(168, 85, 247, 0.35)',
-            'apple-card': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
-            'apple-light': '0 10px 30px -10px rgba(0, 0, 0, 0.08)'
+            'apple-soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'apple-float': '0 20px 40px -15px rgba(0, 113, 227, 0.15)',
+            'apple-card': '0 12px 32px -8px rgba(0, 0, 0, 0.08)'
           }
         }
       }
@@ -49,1177 +46,752 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Silky smooth Apple transitions */
-    *, *::before, *::after {
-      transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                  color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    
-    .glass-nav {
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
+    /* Apple SF Pro Typography Precision */
+    body {
+      letter-spacing: -0.015em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .apple-gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .dark .apple-gradient-text {
-      background: linear-gradient(135deg, #ffffff 10%, #9ca3af 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    html:not(.dark) .apple-gradient-text {
-      background: linear-gradient(135deg, #111827 0%, #4b5563 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* Ambient Subtle Mesh Grid */
+    .apple-mesh-bg {
+      background-color: #fbfbfd;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 40%, rgba(90, 200, 250, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 60%, rgba(0, 113, 227, 0.05) 0%, transparent 40%);
     }
 
-    .accent-gradient-text {
-      background: linear-gradient(135deg, #2997ff 0%, #a855f7 50%, #ec4899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .dark .apple-mesh-bg {
+      background-color: #000000;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 20% 40%, rgba(90, 200, 250, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(0, 113, 227, 0.1) 0%, transparent 40%);
     }
 
-    /* Ambient glow spots */
-    .glow-spot {
-      position: absolute;
-      border-radius: 9999px;
-      filter: blur(100px);
-      pointer-events: none;
-      z-index: 0;
+    /* Apple Frosted Blur Navbar */
+    .apple-glass {
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
     }
 
-    /* Apple-style button physics & specular sheen */
-    button, a[class*="rounded-"] {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Apple Interactive Card Float Effect */
+    .apple-card-hover {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    button:active, a[class*="rounded-"]:active {
-      transform: scale(0.97) !important;
+    .apple-card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px -12px rgba(0, 113, 227, 0.12);
     }
 
-    /* Apple-style card spotlight glow */
-    .spotlight-card {
-      position: relative;
+    /* Spring Click Physics */
+    .apple-btn {
+      transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease;
     }
-    .spotlight-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: radial-gradient(
-        350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-        rgba(41, 151, 255, 0.16),
-        transparent 65%
-      );
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .dark .spotlight-card::before {
-      background: radial-gradient(
-        350px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-        rgba(41, 151, 255, 0.20),
-        transparent 65%
-      );
-    }
-    .spotlight-card:hover::before {
-      opacity: 1;
+    .apple-btn:active {
+      transform: scale(0.97);
     }
   </style>
 </head>
-<body class="bg-apple-light dark:bg-apple-black text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-apple-blue selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
-  <!-- Background Ambient Glows -->
-  <div class="glow-spot w-96 h-96 -top-20 -left-20 bg-apple-blue/20 dark:bg-apple-blue/15"></div>
-  <div class="glow-spot w-[32rem] h-[32rem] top-40 -right-32 bg-apple-purple/15 dark:bg-apple-purple/10"></div>
-  <div class="glow-spot w-80 h-80 top-[1200px] left-1/3 bg-cyan-500/10"></div>
+<body class="apple-mesh-bg text-apple-textPrimary dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-500">
 
-  <!-- Glassmorphism Navigation Bar -->
-  <header class="fixed top-0 inset-x-0 z-50 glass-nav bg-white/75 dark:bg-apple-black/75 border-b border-apple-borderLight dark:border-apple-borderDark/60 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- Apple Minimal Navigation -->
+  <header class="sticky top-0 z-50 w-full apple-glass bg-[#fbfbfd]/80 dark:bg-black/80 border-b border-apple-borderLight/40 dark:border-apple-darkBorder/40 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-apple-blue via-indigo-600 to-apple-purple flex items-center justify-center shadow-md shadow-apple-blue/25 group-hover:scale-105 transition-transform duration-300">
-          <i data-lucide="clapperboard" class="w-5 h-5 text-white"></i>
+      <a href="#" class="flex items-center space-x-2.5 group">
+        <div class="w-7 h-7 rounded-lg bg-apple-blue flex items-center justify-center text-white shadow-sm shadow-apple-blue/40 group-hover:scale-105 transition-transform">
+          <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
         </div>
-        <div class="flex flex-col">
-          <span class="font-bold text-base sm:text-lg tracking-tight flex items-center gap-1.5">
-            Movie Recap Studio
-            <span class="text-[10px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-apple-blue/10 dark:bg-apple-blue/20 text-apple-blue border border-apple-blue/20">v2.4</span>
-          </span>
-        </div>
+        <span class="font-semibold text-sm tracking-tight text-apple-textPrimary dark:text-white">Movie Recap Studio</span>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-gray-600 dark:text-gray-300">
-        <a href="#workflow" class="hover:text-apple-blue transition-colors">Workflow</a>
+      <!-- Center Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-[13px] font-normal text-apple-textSecondary dark:text-gray-300">
+        <a href="#overview" class="hover:text-apple-blue transition-colors">Overview</a>
         <a href="#downloads" class="hover:text-apple-blue transition-colors">Downloads</a>
-        <a href="#how-it-works" class="hover:text-apple-blue transition-colors">How It Works</a>
-        <a href="#reviews" class="hover:text-apple-blue transition-colors">Creators</a>
+        <a href="#try-it" class="hover:text-apple-blue transition-colors font-medium text-apple-blue">Try Demo</a>
         <a href="#pricing" class="hover:text-apple-blue transition-colors">Pricing</a>
-        <a href="#faq" class="hover:text-apple-blue transition-colors">FAQ</a>
+        <a href="#reviews" class="hover:text-apple-blue transition-colors">Reviews</a>
+        <a href="#feedback" class="hover:text-apple-blue transition-colors">Feedback</a>
       </nav>
 
-      <!-- Nav Actions (Theme Toggle, GitHub, CTA) -->
-      <div class="flex items-center space-x-3">
-        <!-- Theme Toggle Button -->
-        <button id="theme-toggle" type="button" aria-label="Toggle Dark/Light Mode" class="p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-white/10 transition-colors flex items-center justify-center">
-          <i id="theme-icon-sun" data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
-          <i id="theme-icon-moon" data-lucide="moon" class="w-5 h-5 block dark:hidden text-indigo-600"></i>
+      <!-- Right Action & Theme Toggle -->
+      <div class="flex items-center space-x-4">
+        <button id="theme-btn" type="button" aria-label="Toggle theme" class="w-8 h-8 rounded-full flex items-center justify-center text-apple-textSecondary hover:text-apple-blue dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
 
-        <!-- GitHub Release Link -->
-        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-apple-borderLight dark:border-apple-borderDark hover:border-gray-400 dark:hover:border-gray-500 bg-apple-surfaceLight dark:bg-apple-cardDark text-gray-700 dark:text-gray-300 transition-all hover:scale-[1.02]">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub</span>
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 ml-0.5"></span>
+        <a href="#downloads" class="apple-btn inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-medium bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-sm shadow-apple-blue/30">
+          Get Started
         </a>
-
-        <!-- Download CTA Button -->
-        <a href="#downloads" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-apple-blue to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-md shadow-apple-blue/30 hover:shadow-apple-blue/50 transition-all hover:scale-[1.03] active:scale-[0.98]">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Get Free</span>
-        </a>
-
-        <!-- Mobile Hamburger Toggle -->
-        <button id="mobile-menu-toggle" type="button" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-white/10 transition-colors">
-          <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
       </div>
 
-    </div>
-
-    <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-5 space-y-2 border-t border-apple-borderLight dark:border-apple-borderDark bg-white/95 dark:bg-apple-dark/95 backdrop-blur-xl">
-      <a href="#workflow" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">Workflow</a>
-      <a href="#downloads" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">Downloads</a>
-      <a href="#how-it-works" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">How It Works</a>
-      <a href="#reviews" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">Creators</a>
-      <a href="#pricing" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">Pricing</a>
-      <a href="#faq" class="block py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-apple-blue mobile-link">FAQ</a>
     </div>
   </header>
+
   <!-- Hero Section -->
-  <main class="flex-grow pt-28 pb-16 sm:pt-36 sm:pb-24 relative z-10">
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <main class="flex-grow">
+    <section id="overview" class="pt-24 pb-20 px-6 max-w-5xl mx-auto text-center">
       
-      <!-- Announcement Pill Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium border border-apple-blue/30 bg-apple-blue/10 text-apple-blue dark:bg-apple-blue/15 dark:text-blue-400 mb-8 backdrop-blur-md shadow-sm hover:border-apple-blue/50 transition-all cursor-default">
-        <span class="inline-block w-2 h-2 rounded-full bg-apple-blue animate-pulse"></span>
-        <span>v2.4.0 Universal Release · 100% Free & Open Source</span>
-        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      <!-- Apple Clean Pill -->
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-apple-blue/10 text-apple-blue border border-apple-blue/20 text-xs font-medium mb-8">
+        <span>Movie Recap Studio v2.4</span>
+        <span class="text-apple-blue/40">•</span>
+        <span>100% Free Open Suite</span>
       </div>
 
-      <!-- Main Headline -->
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6">
-        <span class="apple-gradient-text block">Turn Full Films into</span>
-        <span class="accent-gradient-text block">Viral Recaps in Minutes.</span>
+      <!-- Hero Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-apple-textPrimary dark:text-white leading-[1.08] mb-6">
+        Turn any movie into <br class="hidden sm:inline">
+        <span class="text-apple-blue">viral recaps</span> in minutes.
       </h1>
 
-      <!-- Subtitle Description -->
-      <p class="max-w-3xl mx-auto text-lg sm:text-xl text-apple-textMuted dark:text-gray-400 font-normal leading-relaxed mb-10">
-        The ultimate studio system designed for YouTube & TikTok recap creators. Ingest entire movie SRT subtitles, generate high-retention 3-sentence hooks, align voiceover audio waveforms, and export millisecond-precise cut timestamps.
+      <!-- Minimal Subtitle -->
+      <p class="text-lg sm:text-xl text-apple-textSecondary dark:text-gray-400 font-normal max-w-2xl mx-auto leading-relaxed mb-10">
+        AI subtitle analysis, high-retention narration scripts, and one-click scene synchronization for YouTube and social creators.
       </p>
 
-      <!-- Hero Call-to-Actions -->
+      <!-- CTA Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#downloads" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-base font-semibold text-white bg-gradient-to-r from-apple-blue via-indigo-600 to-apple-purple hover:opacity-95 shadow-lg shadow-apple-blue/30 hover:shadow-apple-blue/50 hover:scale-[1.02] active:scale-[0.98] transition-all">
-          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        <a href="#downloads" class="apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-apple-float flex items-center justify-center space-x-2">
           <span>Download Free Suite</span>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
         </a>
-        <a href="#workflow" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl text-base font-semibold text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:bg-gray-200/70 dark:hover:bg-apple-surfaceDark hover:scale-[1.02] active:scale-[0.98] transition-all">
-          <i data-lucide="play-circle" class="w-5 h-5 text-apple-blue"></i>
-          <span>Interactive Workflow</span>
+
+        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="apple-btn w-full sm:w-auto px-7 py-3 rounded-full text-sm font-medium bg-white dark:bg-apple-darkCard hover:bg-gray-50 dark:hover:bg-zinc-800 text-apple-textPrimary dark:text-white border border-apple-borderLight/80 dark:border-apple-darkBorder flex items-center justify-center space-x-2">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>View on GitHub</span>
         </a>
       </div>
 
-      <!-- Metrics Stat Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-6 border-t border-apple-borderLight/80 dark:border-apple-borderDark/60">
-        <div class="p-4 rounded-2xl bg-white/40 dark:bg-apple-cardDark/40 backdrop-blur-sm border border-apple-borderLight/50 dark:border-apple-borderDark/40">
-          <div class="text-2xl sm:text-3xl font-extrabold accent-gradient-text">10x</div>
-          <div class="text-xs sm:text-sm text-apple-textMuted mt-1">Faster Production</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/40 dark:bg-apple-cardDark/40 backdrop-blur-sm border border-apple-borderLight/50 dark:border-apple-borderDark/40">
-          <div class="text-2xl sm:text-3xl font-extrabold text-apple-blue">100%</div>
-          <div class="text-xs sm:text-sm text-apple-textMuted mt-1">SRT Beat Accuracy</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/40 dark:bg-apple-cardDark/40 backdrop-blur-sm border border-apple-borderLight/50 dark:border-apple-borderDark/40">
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-500">0–15s</div>
-          <div class="text-xs sm:text-sm text-apple-textMuted mt-1">Anti-Scroll Hooks</div>
-        </div>
-        <div class="p-4 rounded-2xl bg-white/40 dark:bg-apple-cardDark/40 backdrop-blur-sm border border-apple-borderLight/50 dark:border-apple-borderDark/40">
-          <div class="text-2xl sm:text-3xl font-extrabold text-purple-500">$0 Free</div>
-          <div class="text-xs sm:text-sm text-apple-textMuted mt-1">Open Source MIT</div>
-        </div>
-      </div>
-
-    </section>
-    <!-- Interactive Workflow Showcase -->
-    <section id="workflow" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 sm:mt-32">
-      <div class="text-center mb-10">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Architectural Blueprint</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Flawless End-to-End Workflow</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">From raw film subtitle stream to synchronized timeline ranges ready for direct video cutting.</p>
-      </div>
-
-      <!-- macOS Hardware Styled Showcase Container -->
-      <div class="relative rounded-3xl p-1 sm:p-2 bg-gradient-to-b from-gray-200 via-gray-300/40 to-transparent dark:from-apple-borderDark/80 dark:via-apple-surfaceDark/40 dark:to-transparent shadow-apple-light dark:shadow-apple-card">
-        
-        <div class="rounded-[22px] overflow-hidden bg-white dark:bg-apple-dark border border-apple-borderLight dark:border-apple-borderDark/70">
+      <!-- Apple Keynote Centerpiece Showcase Box with Soft Blue Ambient Shadow -->
+      <div class="relative max-w-4xl mx-auto rounded-3xl p-1 bg-gradient-to-b from-apple-blue/30 via-apple-borderLight/30 to-transparent shadow-apple-card">
+        <div class="rounded-[22px] bg-white dark:bg-apple-darkCard p-8 sm:p-12 border border-apple-borderLight/50 dark:border-apple-darkBorder text-left">
           
-          <!-- macOS Window Titlebar -->
-          <div class="h-10 px-4 bg-gray-100/80 dark:bg-apple-cardDark/80 border-b border-apple-borderLight dark:border-apple-borderDark flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-              <span class="w-3 h-3 rounded-full bg-rose-500/90 inline-block shadow-sm"></span>
-              <span class="w-3 h-3 rounded-full bg-amber-500/90 inline-block shadow-sm"></span>
-              <span class="w-3 h-3 rounded-full bg-emerald-500/90 inline-block shadow-sm"></span>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-8 border-b border-apple-borderLight/40 dark:border-apple-darkBorder/40 gap-4">
+            <div>
+              <span class="text-xs font-semibold text-apple-blue uppercase tracking-wider">Automated Workflow</span>
+              <h2 class="text-2xl font-bold text-apple-textPrimary dark:text-white mt-1">From Subtitles to Finished Edit</h2>
             </div>
-            <div class="text-xs font-mono text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
-              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-apple-blue"></i>
-              <span>movie-recap-studio-pipeline.workflow</span>
-            </div>
-            <div class="w-12"></div>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40">
+              Zero Manual Scrubbing
+            </span>
           </div>
 
-          <!-- Embedded Workflow Graphic with interactive zoom/modal hint -->
-          <div class="relative p-2 sm:p-6 bg-gradient-to-b from-gray-50 to-gray-100/50 dark:from-apple-dark dark:to-apple-black flex items-center justify-center">
-            <img src="workflow.png" alt="Movie Recap Studio End-to-End Architecture Workflow" class="w-full h-auto max-h-[580px] object-contain rounded-xl shadow-md border border-apple-borderLight/60 dark:border-apple-borderDark/50 hover:scale-[1.01] transition-transform duration-300">
-          </div>
-
-          <!-- Interactive Workflow Phase Highlights -->
-          <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-apple-borderLight dark:divide-apple-borderDark bg-white dark:bg-apple-cardDark border-t border-apple-borderLight dark:border-apple-borderDark text-left">
-            <div class="p-5 hover:bg-gray-50 dark:hover:bg-apple-surfaceDark/50 transition-colors">
-              <div class="flex items-center gap-2 text-apple-blue font-semibold text-xs tracking-wide uppercase mb-1">
-                <span class="w-5 h-5 rounded-full bg-apple-blue/10 dark:bg-apple-blue/20 flex items-center justify-center text-[11px]">1</span>
-                <span>SRT Analysis</span>
-              </div>
-              <p class="text-xs text-apple-textMuted dark:text-gray-400 leading-relaxed">Extracts characters, acts, plot turning points, and timestamps from complete SRT files.</p>
+          <!-- 3 Step Highlights -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-full bg-apple-blue/10 text-apple-blue flex items-center justify-center text-xs font-semibold">1</div>
+              <h3 class="font-semibold text-base text-apple-textPrimary dark:text-white">SRT Story Ingestion</h3>
+              <p class="text-sm text-apple-textSecondary dark:text-gray-400 leading-relaxed">
+                Drop your movie subtitle file into Claude or ChatGPT. The AI parses story beats without hallucinations.
+              </p>
             </div>
 
-            <div class="p-5 hover:bg-gray-50 dark:hover:bg-apple-surfaceDark/50 transition-colors">
-              <div class="flex items-center gap-2 text-apple-purple font-semibold text-xs tracking-wide uppercase mb-1">
-                <span class="w-5 h-5 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-[11px]">2</span>
-                <span>Viral Hook Engine</span>
-              </div>
-              <p class="text-xs text-apple-textMuted dark:text-gray-400 leading-relaxed">Generates a high-tension 3-sentence hook (0-15s) with 135-145 wpm retention pacing.</p>
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-full bg-apple-blue/10 text-apple-blue flex items-center justify-center text-xs font-semibold">2</div>
+              <h3 class="font-semibold text-base text-apple-textPrimary dark:text-white">Viral Hook Narration</h3>
+              <p class="text-sm text-apple-textSecondary dark:text-gray-400 leading-relaxed">
+                Generates high-retention narration in English or Hindustani with the iconic 3-sentence curiosity hook.
+              </p>
             </div>
 
-            <div class="p-5 hover:bg-gray-50 dark:hover:bg-apple-surfaceDark/50 transition-colors">
-              <div class="flex items-center gap-2 text-cyan-500 font-semibold text-xs tracking-wide uppercase mb-1">
-                <span class="w-5 h-5 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center text-[11px]">3</span>
-                <span>Audio Alignment</span>
-              </div>
-              <p class="text-xs text-apple-textMuted dark:text-gray-400 leading-relaxed">Analyzes spoken TTS audio cadence and matches speech timecodes to subtitle events.</p>
-            </div>
-
-            <div class="p-5 hover:bg-gray-50 dark:hover:bg-apple-surfaceDark/50 transition-colors">
-              <div class="flex items-center gap-2 text-emerald-500 font-semibold text-xs tracking-wide uppercase mb-1">
-                <span class="w-5 h-5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-[11px]">4</span>
-                <span>Cut Timestamps</span>
-              </div>
-              <p class="text-xs text-apple-textMuted dark:text-gray-400 leading-relaxed">Produces pristine cut ranges ready for Movie Recap desktop/mobile slicing.</p>
+            <div class="space-y-2">
+              <div class="w-8 h-8 rounded-full bg-apple-blue/10 text-apple-blue flex items-center justify-center text-xs font-semibold">3</div>
+              <h3 class="font-semibold text-base text-apple-textPrimary dark:text-white">1-Click Auto Assembly</h3>
+              <p class="text-sm text-apple-textSecondary dark:text-gray-400 leading-relaxed">
+                Movie Recap desktop app trims clips, automatically deletes dead pauses (>0.3s), and syncs voiceover.
+              </p>
             </div>
           </div>
 
         </div>
       </div>
+
     </section>
-    <!-- Core Downloads Hub -->
-    <section id="downloads" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 sm:mt-32">
-      <div class="text-center mb-14">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Multi-Platform Ecosystem</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Core Downloads Hub</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">Equip your production workflow with the universal agent skill or standalone desktop & mobile companion editors.</p>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        
-        <!-- Card 1: AI Agent Skill (.zip) -->
-        <div class="spotlight-card rounded-3xl p-7 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-blue/50 dark:hover:border-apple-blue/50 shadow-apple-light dark:shadow-apple-card hover:shadow-glow-blue transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-apple-blue via-indigo-600 to-apple-purple flex items-center justify-center text-white shadow-md shadow-apple-blue/20 group-hover:scale-105 transition-transform">
-                <i data-lucide="bot" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-apple-blue/10 dark:bg-apple-blue/20 text-apple-blue border border-apple-blue/20">Universal Skill</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Universal AI Agent Skill</h3>
-            <p class="text-xs font-mono text-apple-textMuted mb-4">movie-recap-studio-claude-skill.zip • v2.4.0</p>
-            <p class="text-sm text-apple-textMuted dark:text-gray-400 mb-6 leading-relaxed">
-              Drop into Claude Code, Gemini CLI, OpenAI ChatGPT, or Codex. Ingests full movie SRTs, creates viral 3-sentence hooks, and maps spoken audio to film timecodes.
-            </p>
-
-            <ul class="space-y-2.5 text-xs text-gray-600 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-4">
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Cross-agent spec (.agents, .claude, .gemini)</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Story & viral hook retention engine</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>TTS waveform-to-SRT timestamp mapper</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Lightweight (15 KB), zero dependencies</span>
-              </li>
-            </ul>
-          </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-apple-blue to-indigo-600 hover:opacity-95 shadow-md shadow-apple-blue/25 hover:scale-[1.02] active:scale-[0.98] transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download Skill ZIP (.zip)</span>
-          </a>
-        </div>
-
-        <!-- Card 2: Windows Desktop App (.exe) -->
-        <div class="spotlight-card rounded-3xl p-7 bg-white dark:bg-apple-cardDark border-2 border-apple-blue/40 dark:border-apple-blue/50 shadow-apple-light dark:shadow-apple-card hover:shadow-glow-blue transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-          <div class="absolute top-0 right-0 bg-gradient-to-l from-apple-blue to-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl tracking-wider uppercase">
-            Workstation
-          </div>
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                <i data-lucide="laptop" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">Windows x64</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Movie Recap for Windows</h3>
-            <p class="text-xs font-mono text-apple-textMuted mb-4">MovieRecap-Setup.exe • v2.4.0</p>
-            <p class="text-sm text-apple-textMuted dark:text-gray-400 mb-6 leading-relaxed">
-              Native high-throughput editing software for Windows. Paste timestamp ranges directly from the skill, preview multi-track audio, and batch slice scenes at GPU speeds.
-            </p>
-
-            <ul class="space-y-2.5 text-xs text-gray-600 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-4">
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Direct timestamp paste & auto-trim</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Hardware GPU accelerated video slicing</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Multi-track voiceover & subtitle timeline</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Supports 4K, 1080p MKV, MP4, WebM</span>
-              </li>
-            </ul>
-          </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:opacity-95 shadow-md shadow-blue-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download for Windows (.exe)</span>
-          </a>
-        </div>
-
-        <!-- Card 3: Android Mobile App (.apk) -->
-        <div class="spotlight-card rounded-3xl p-7 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-emerald-500/50 dark:hover:border-emerald-500/50 shadow-apple-light dark:shadow-apple-card hover:shadow-glow-purple transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <i data-lucide="smartphone" class="w-6 h-6"></i>
-              </div>
-              <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Android APK</span>
-            </div>
-
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Movie Recap for Android</h3>
-            <p class="text-xs font-mono text-apple-textMuted mb-4">MovieRecap.apk • v2.4.0</p>
-            <p class="text-sm text-apple-textMuted dark:text-gray-400 mb-6 leading-relaxed">
-              Create and inspect short-form viral recaps on the move. Built for fast 9:16 TikTok, Reels, and YouTube Shorts extraction with instant preview.
-            </p>
-
-            <ul class="space-y-2.5 text-xs text-gray-600 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-4">
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>9:16 Vertical crop & auto-framing</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>On-device timestamp preview player</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Direct export to YouTube Shorts & Reels</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
-                <span>Ultra-lightweight APK for Android 8.0+</span>
-              </li>
-            </ul>
-          </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 shadow-md shadow-emerald-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download APK (.apk)</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-    <!-- How It Works Step-by-Step Section -->
-    <section id="how-it-works" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 sm:mt-36">
+    <!-- Downloads Hub Section (3 Core Options) -->
+    <section id="downloads" class="py-24 px-6 max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Autonomous Pipeline</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">How It Works in 4 Steps</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">From raw subtitle file to viral recap video ready for publishing.</p>
+        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Instant Access</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-apple-textPrimary dark:text-white">Download the Complete Suite</p>
+        <p class="mt-3 text-base text-apple-textSecondary dark:text-gray-400 max-w-lg mx-auto">Choose your platform below. Everything is open source, clean, and 100% free.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         
-        <!-- Step 1 -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-blue/50 dark:hover:border-apple-blue/50 transition-all duration-300 relative group overflow-hidden shadow-apple-light dark:shadow-apple-card">
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue border border-apple-blue/20">Step 01</span>
-            <span class="text-xs text-apple-textMuted flex items-center gap-1"><i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i> &lt; 5s parsing</span>
+        <!-- Card 1: AI Skill Package -->
+        <div class="apple-card-hover rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-apple-blue/10 text-apple-blue flex items-center justify-center mb-6">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-medium text-apple-blue">Universal Package</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary dark:text-white mt-1 mb-2">Agent Skill ZIP</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 leading-relaxed mb-6">
+              Runs in Claude, ChatGPT, and Gemini. Analyze SRTs and generate retention scripts directly in chat.
+            </p>
+            <div class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-2 mb-8">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>Version 2.4.0 (Latest)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>Works on Free & Pro AI plans</span>
+              </div>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Story & Subtitle Ingestion</h3>
-          <p class="text-sm font-medium text-apple-blue mb-3">AI reads and structures the entire film in seconds</p>
-          <p class="text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed mb-6">
-            Drop your raw movie subtitle file (.srt) into Claude, ChatGPT, or Gemini. The skill parses chronological dialogue beats, detects character motivations and turning points, and suggests 2–3 focused storytelling angles.
-          </p>
-          <div class="pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60 flex flex-wrap gap-2 text-[11px] font-medium text-gray-600 dark:text-gray-300">
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">1,500+ SRT lines</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Plot twist detection</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Zero fluff</span>
-          </div>
+          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-apple-textPrimary dark:text-white transition-colors">
+            Download Skill (.zip)
+          </a>
         </div>
 
-        <!-- Step 2 -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-purple/50 dark:hover:border-apple-purple/50 transition-all duration-300 relative group overflow-hidden shadow-apple-light dark:shadow-apple-card">
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-apple-purple/10 text-apple-purple border border-apple-purple/20">Step 02</span>
-            <span class="text-xs text-apple-textMuted flex items-center gap-1"><i data-lucide="flame" class="w-3.5 h-3.5 text-rose-500"></i> 70%+ retention</span>
+        <!-- Card 2: Desktop Windows (.exe) - Featured -->
+        <div class="apple-card-hover rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue flex flex-col justify-between shadow-apple-float relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-apple-blue text-white shadow-sm">
+            Recommended
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Retention Narration Scripting</h3>
-          <p class="text-sm font-medium text-apple-purple mb-3">Engineered for 70%+ audience watch time</p>
-          <p class="text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed mb-6">
-            The AI writes a transformational script using the proprietary 3-Sentence Curiosity Hook (Curiosity + Extreme Stakes + Dilemma). Every beat maintains a punchy 135–145 wpm cadence with natural suspense connectors.
-          </p>
-          <div class="pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60 flex flex-wrap gap-2 text-[11px] font-medium text-gray-600 dark:text-gray-300">
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">0–15s Hook Formula</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">English & Hindi/Urdu</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Anti-Scroll Pacing</span>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-apple-blue text-white flex items-center justify-center mb-6 shadow-md shadow-apple-blue/30">
+              <i data-lucide="monitor" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-medium text-apple-blue">Windows 10 / 11</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary dark:text-white mt-1 mb-2">Desktop App</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 leading-relaxed mb-6">
+              Paste timestamps, auto-strip dead silence pauses (>0.3s), and export video with GPU speed.
+            </p>
+            <div class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-2 mb-8">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>Installer (.exe)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>Hardware acceleration</span>
+              </div>
+            </div>
           </div>
+          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-sm transition-colors">
+            Download for Windows (.exe)
+          </a>
         </div>
 
-        <!-- Step 3 -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 relative group overflow-hidden shadow-apple-light dark:shadow-apple-card">
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">Step 03</span>
-            <span class="text-xs text-apple-textMuted flex items-center gap-1"><i data-lucide="activity" class="w-3.5 h-3.5 text-cyan-500"></i> Sub-100ms sync</span>
+        <!-- Card 3: Mobile Android (.apk) -->
+        <div class="apple-card-hover rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-apple-blue/10 text-apple-blue flex items-center justify-center mb-6">
+              <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-medium text-apple-blue">Android 8.0+</span>
+            <h3 class="text-xl font-bold text-apple-textPrimary dark:text-white mt-1 mb-2">Mobile Companion</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 leading-relaxed mb-6">
+              Designed for mobile creators producing vertical Shorts, TikToks, and Instagram Reels anywhere.
+            </p>
+            <div class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-2 mb-8">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>Direct APK installation</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-apple-blue"></i>
+                <span>9:16 vertical video support</span>
+              </div>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Audio Calibration & Scene Sync</h3>
-          <p class="text-sm font-medium text-cyan-600 dark:text-cyan-400 mb-3">Dialogue-grounded frame-accurate cut marks</p>
-          <p class="text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed mb-6">
-            Generate your voiceover with ElevenLabs, Edge-TTS, or OpenAI audio. The agent analyzes actual spoken audio timing and re-reads the movie SRT to output frame-accurate source timestamp ranges for every spoken line.
-          </p>
-          <div class="pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60 flex flex-wrap gap-2 text-[11px] font-medium text-gray-600 dark:text-gray-300">
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Real Audio As Truth</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Zero Hallucinations</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Clean Timecode List</span>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-300 relative group overflow-hidden shadow-apple-light dark:shadow-apple-card">
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">Step 04</span>
-            <span class="text-xs text-apple-textMuted flex items-center gap-1"><i data-lucide="scissors" class="w-3.5 h-3.5 text-emerald-500"></i> Auto &gt;0.3s cut</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1-Click Assembly & Silence Removal</h3>
-          <p class="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-3">Render master video in Windows or Android app</p>
-          <p class="text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed mb-6">
-            Paste the timestamp list into the Movie Recap app. It trims the clips, automatically strips out dead pauses over 0.3s for rapid momentum, replaces film audio with your voiceover, and exports 1080p or 4K video.
-          </p>
-          <div class="pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60 flex flex-wrap gap-2 text-[11px] font-medium text-gray-600 dark:text-gray-300">
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">1-Click Clipboard Paste</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">Dead Pause Stripper</span>
-            <span class="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-apple-surfaceDark">GPU NVENC Export</span>
-          </div>
+          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-apple-textPrimary dark:text-white transition-colors">
+            Download Android (.apk)
+          </a>
         </div>
 
       </div>
     </section>
-    <!-- Feature Comparison Matrix -->
-    <section id="comparison" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 sm:mt-36">
-      <div class="text-center mb-14">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Competitive Edge</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Why Movie Recap Studio Outperforms Everything Else</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">Traditional editing takes 8+ hours. Generic AI tools hallucinate fake stock clips. We deliver authentic cinema precision.</p>
-      </div>
 
-      <div class="rounded-3xl overflow-hidden border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark shadow-apple-light dark:shadow-apple-card">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-sm">
-            <thead>
-              <tr class="border-b border-apple-borderLight dark:border-apple-borderDark bg-gray-50/80 dark:bg-apple-surfaceDark/70 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                <th class="py-4 px-6">Capability</th>
-                <th class="py-4 px-6">Manual Editing</th>
-                <th class="py-4 px-6">Generic AI Tools</th>
-                <th class="py-4 px-6 text-apple-blue bg-apple-blue/5 dark:bg-apple-blue/10">Movie Recap Studio</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-apple-borderLight dark:divide-apple-borderDark/60 text-xs sm:text-sm">
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Script Creation Time</td>
-                <td class="py-4 px-6 text-apple-textMuted">4–6 hours of tedious note-taking</td>
-                <td class="py-4 px-6 text-apple-textMuted">Generic summaries with made-up facts</td>
-                <td class="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-apple-blue/5 dark:bg-apple-blue/10">&lt; 3 mins (Grounded in movie SRT)</td>
-              </tr>
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Visual Scene Accuracy</td>
-                <td class="py-4 px-6 text-apple-textMuted">Manual scrubbing across 2 hours</td>
-                <td class="py-4 px-6 text-apple-textMuted">Random unrelated stock clips</td>
-                <td class="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-apple-blue/5 dark:bg-apple-blue/10">Exact frame-accurate movie timestamps</td>
-              </tr>
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Dead Pause Removal</td>
-                <td class="py-4 px-6 text-apple-textMuted">Painful manual ripple editing</td>
-                <td class="py-4 px-6 text-apple-textMuted">Unnatural robotic cadence</td>
-                <td class="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-apple-blue/5 dark:bg-apple-blue/10">Auto cut &gt;0.3s dead pauses instantly</td>
-              </tr>
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Copyright Protection</td>
-                <td class="py-4 px-6 text-apple-textMuted">High risk of audio bleed & long clips</td>
-                <td class="py-4 px-6 text-apple-textMuted">Risk of unlicensed stock assets</td>
-                <td class="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-apple-blue/5 dark:bg-apple-blue/10">Transformational Fair Use (Auto-muted audio)</td>
-              </tr>
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Platform Flexibility</td>
-                <td class="py-4 px-6 text-apple-textMuted">Tied to heavy $300+/yr desktop NLEs</td>
-                <td class="py-4 px-6 text-apple-textMuted">Locked in closed web SaaS dashboards</td>
-                <td class="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-apple-blue/5 dark:bg-apple-blue/10">Universal Skill + Windows + Android</td>
-              </tr>
-              <tr class="hover:bg-gray-50/50 dark:hover:bg-apple-surfaceDark/30">
-                <td class="py-4 px-6 font-semibold text-gray-900 dark:text-white">Cost & Subscription</td>
-                <td class="py-4 px-6 text-apple-textMuted">Expensive software licenses</td>
-                <td class="py-4 px-6 text-apple-textMuted">$30–$100/mo recurring tokens</td>
-                <td class="py-4 px-6 font-bold text-apple-blue bg-apple-blue/5 dark:bg-apple-blue/10">100% Free & Open Source ($0 forever)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    <!-- Creator Reviews & Testimonials Section -->
-    <section id="reviews" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 sm:mt-36">
+    <!-- 3-Tier Free Pricing Section -->
+    
+    <!-- Interactive Try It Out & Creator Feedback Section -->
+    <section id="try-it" class="py-24 px-6 max-w-5xl mx-auto border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40">
       <div class="text-center mb-16">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Creator Community</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Trusted by Top Video Creators</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">From 100K to 1M+ subscriber channels, creators use Movie Recap Studio to accelerate production and boost viewer retention.</p>
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-apple-blue/10 text-apple-blue text-xs font-semibold mb-3">
+          <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+          <span>Interactive Preview</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-apple-textPrimary dark:text-white tracking-tight">Try Movie Recap Studio Live</h2>
+        <p class="mt-3 text-base text-apple-textSecondary dark:text-gray-400 max-w-xl mx-auto">
+          Test the viral hook generator and scene timestamp matcher instantly right here before downloading.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Playground Card Container -->
+      <div class="rounded-3xl p-1 bg-gradient-to-b from-apple-blue/20 via-apple-borderLight/20 to-transparent shadow-apple-card mb-16">
+        <div class="rounded-[22px] bg-white dark:bg-apple-darkCard p-6 sm:p-10 border border-apple-borderLight/60 dark:border-apple-darkBorder">
+          
+          <!-- Playground Controls -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-8 border-b border-apple-borderLight/40 dark:border-apple-darkBorder/40">
+            
+            <!-- Movie Selection -->
+            <div>
+              <label for="demo-movie" class="block text-xs font-semibold text-apple-textPrimary dark:text-white uppercase tracking-wider mb-2">1. Select Sample Film</label>
+              <select id="demo-movie" class="w-full px-4 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-zinc-900 border border-apple-borderLight/70 dark:border-apple-darkBorder text-apple-textPrimary dark:text-white focus:outline-none focus:border-apple-blue transition-colors">
+                <option value="shawshank">The Shawshank Redemption (Drama / Mystery)</option>
+                <option value="inception">Inception (Sci-Fi / Thriller)</option>
+                <option value="interstellar">Interstellar (Sci-Fi / Emotion)</option>
+              </select>
+            </div>
+
+            <!-- Language Selection -->
+            <div>
+              <label for="demo-lang" class="block text-xs font-semibold text-apple-textPrimary dark:text-white uppercase tracking-wider mb-2">2. Narration Language</label>
+              <select id="demo-lang" class="w-full px-4 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-zinc-900 border border-apple-borderLight/70 dark:border-apple-darkBorder text-apple-textPrimary dark:text-white focus:outline-none focus:border-apple-blue transition-colors">
+                <option value="hindustani">Hindustani (Hindi-Urdu Conversational)</option>
+                <option value="english">English (Global Pacing)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Trigger Button -->
+          <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-apple-textSecondary dark:text-gray-400 flex items-center space-x-2">
+              <i data-lucide="zap" class="w-4 h-4 text-amber-500"></i>
+              <span>Grounded in actual SRT dialogue — 0 hallucinations.</span>
+            </div>
+
+            <button id="demo-generate-btn" type="button" class="apple-btn w-full sm:w-auto px-6 py-2.5 rounded-full text-xs font-semibold bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-sm shadow-apple-blue/30 flex items-center justify-center space-x-2">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Generate Viral Hook & Cut Ranges</span>
+            </button>
+          </div>
+
+          <!-- Live Output Window -->
+          <div id="demo-output-container" class="mt-8 pt-8 border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40">
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold uppercase tracking-wider text-apple-blue flex items-center space-x-1.5">
+                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                <span>Generated Output Preview</span>
+              </span>
+              <button id="copy-demo-output" type="button" class="text-xs text-apple-textSecondary hover:text-apple-blue flex items-center space-x-1 transition-colors">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="copy-status-text">Copy Script & Timestamps</span>
+              </button>
+            </div>
+
+            <!-- Terminal-style Preview Box -->
+            <div class="rounded-2xl p-5 bg-gray-50 dark:bg-black/60 border border-apple-borderLight/60 dark:border-apple-darkBorder font-mono text-xs text-apple-textPrimary dark:text-gray-200 leading-relaxed overflow-x-auto space-y-4">
+              <div>
+                <span class="text-apple-textSecondary dark:text-gray-500 block mb-1"># 1. Spoken Retention Narration (First 15s Hook):</span>
+                <p id="demo-hook-text" class="font-sans text-sm font-medium text-apple-textPrimary dark:text-white leading-normal">
+                  "कहानी शुरू होती है एक ऐसे सीधे-साधे बैंकर से, जिसे अपनी पत्नी के कत्ल के झूठे इल्ज़ाम में दो उम्रकैद की सज़ा सुना दी गई, जो उसने कभी किया ही नहीं था..."
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40">
+                <span class="text-apple-textSecondary dark:text-gray-500 block mb-1"># 2. Movie Recap Cutting Ranges (Import into App):</span>
+                <pre id="demo-timestamp-text" class="text-emerald-600 dark:text-emerald-400 font-mono text-xs">00:00:24 - 00:00:29
+00:01:05 - 00:01:10
+00:02:40 - 00:02:46
+00:04:12 - 00:04:18</pre>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Creator Feedback Sub-Section -->
+      <div id="feedback" class="rounded-3xl p-8 sm:p-12 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder shadow-apple-soft">
         
-        <!-- Review 1: Alex Rivera -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-blue/50 dark:hover:border-apple-blue/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-apple-blue/10 text-apple-blue">YouTube Longform</span>
-            </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "I used to spend 8 hours scrubbing timelines to find scenes that matched my voiceover. Movie Recap Studio cut that to 15 minutes. Our channel retention jumped from 41% to 67% in our very first week."
-            </p>
+        <div class="max-w-2xl mx-auto text-center mb-8">
+          <div class="w-10 h-10 rounded-full bg-apple-blue/10 text-apple-blue flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="message-square" class="w-5 h-5"></i>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Alex Rivera" class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
-            <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">Alex Rivera</div>
-              <div class="text-[11px] text-apple-textMuted">CinemaRewind • 480K Subs</div>
-            </div>
-          </div>
+          <h3 class="text-2xl font-bold text-apple-textPrimary dark:text-white">Give Your Feedback & Suggestions</h3>
+          <p class="text-xs sm:text-sm text-apple-textSecondary dark:text-gray-400 mt-2">
+            Your feedback directly shapes our next updates. Tell us what you loved or what new feature you want next.
+          </p>
         </div>
 
-        <!-- Review 2: Zoya Malik -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-purple/50 dark:hover:border-apple-purple/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-apple-purple/10 text-apple-purple">Hindi/Urdu Recaps</span>
+        <!-- Feedback Form -->
+        <form id="creator-feedback-form" class="max-w-xl mx-auto space-y-5">
+          
+          <!-- Rating Stars -->
+          <div class="flex flex-col items-center justify-center space-y-2 pb-2">
+            <label class="text-xs font-semibold text-apple-textSecondary dark:text-gray-400 uppercase tracking-wider">Your Rating</label>
+            <div id="star-rating" class="flex items-center space-x-1.5 cursor-pointer">
+              <i data-star="1" data-lucide="star" class="w-6 h-6 text-amber-400 fill-amber-400 hover:scale-110 transition-transform"></i>
+              <i data-star="2" data-lucide="star" class="w-6 h-6 text-amber-400 fill-amber-400 hover:scale-110 transition-transform"></i>
+              <i data-star="3" data-lucide="star" class="w-6 h-6 text-amber-400 fill-amber-400 hover:scale-110 transition-transform"></i>
+              <i data-star="4" data-lucide="star" class="w-6 h-6 text-amber-400 fill-amber-400 hover:scale-110 transition-transform"></i>
+              <i data-star="5" data-lucide="star" class="w-6 h-6 text-amber-400 fill-amber-400 hover:scale-110 transition-transform"></i>
             </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "The Hindi/Urdu storytelling flow is exceptional. It captures suspense perfectly without sounding like a robotic translation. The Windows app auto-deleting dead pauses alone saved my editor 20 hours a month."
-            </p>
+            <input type="hidden" id="selected-rating" value="5">
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" alt="Zoya Malik" class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
-            <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">Zoya Malik</div>
-              <div class="text-[11px] text-apple-textMuted">FilmVerse Hindi • 820K Subs</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Review 3: Marcus Vance -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">Thriller Recaps</span>
-            </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "The biggest superpower is that it reads the actual SRT file. There are no hallucinations, no fake scenes that don't exist in the film. When it gives you a timestamp, the visual is right there."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Marcus Vance" class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">Marcus Vance</div>
-              <div class="text-[11px] text-apple-textMuted">PlotPulse Recaps • 290K Subs</div>
+              <label for="feedback-name" class="block text-xs font-medium text-apple-textSecondary dark:text-gray-400 mb-1">Your Name</label>
+              <input type="text" id="feedback-name" required placeholder="e.g. Kamran Ali" class="w-full px-4 py-2.5 rounded-xl text-xs bg-gray-50 dark:bg-zinc-900 border border-apple-borderLight/70 dark:border-apple-darkBorder text-apple-textPrimary dark:text-white focus:outline-none focus:border-apple-blue transition-colors">
             </div>
-          </div>
-        </div>
 
-        <!-- Review 4: Elena Rostova -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Vertical Shorts</span>
-            </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "The Android app is fantastic for daily Shorts. I drop timestamps in, it trims clips with 9:16 framing, and I publish three videos a day straight from my phone. Incredible that this is 100% free."
-            </p>
-          </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Elena Rostova" class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
             <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">Elena Rostova</div>
-              <div class="text-[11px] text-apple-textMuted">ShortCuts Cinema • 410K TikTok</div>
+              <label for="feedback-channel" class="block text-xs font-medium text-apple-textSecondary dark:text-gray-400 mb-1">Channel / Handle (Optional)</label>
+              <input type="text" id="feedback-channel" placeholder="e.g. @CineRecaps" class="w-full px-4 py-2.5 rounded-xl text-xs bg-gray-50 dark:bg-zinc-900 border border-apple-borderLight/70 dark:border-apple-darkBorder text-apple-textPrimary dark:text-white focus:outline-none focus:border-apple-blue transition-colors">
             </div>
           </div>
-        </div>
 
-        <!-- Review 5: David K. -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Mystery & Docs</span>
-            </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "Every other recap tool charges $50/mo for a handful of credits and delivers terrible generic stock videos. Movie Recap Studio is open source, works inside Claude, and gives total control over real footage."
-            </p>
+            <label for="feedback-message" class="block text-xs font-medium text-apple-textSecondary dark:text-gray-400 mb-1">Your Feedback or Feature Request</label>
+            <textarea id="feedback-message" required rows="3" placeholder="What features should we add next? Any feedback on the tool or skill?" class="w-full px-4 py-2.5 rounded-xl text-xs bg-gray-50 dark:bg-zinc-900 border border-apple-borderLight/70 dark:border-apple-darkBorder text-apple-textPrimary dark:text-white focus:outline-none focus:border-apple-blue transition-colors"></textarea>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="David K." class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
-            <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">David K.</div>
-              <div class="text-[11px] text-apple-textMuted">Mystery Box Stories • 650K Subs</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Review 6: Tariq Mahmood -->
-        <div class="spotlight-card rounded-3xl p-6 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-rose-500/50 dark:hover:border-rose-500/50 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex text-amber-400 gap-1 text-sm">
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-              </div>
-              <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400">Daily Production</span>
-            </div>
-            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic mb-6">
-              "The combination of the Claude skill and Windows desktop app is lightning in a bottle. We went from releasing 2 recaps a week to daily high-retention uploads with zero burnout."
-            </p>
+          <!-- Submit Button -->
+          <div class="text-center pt-2">
+            <button type="submit" class="apple-btn px-8 py-2.5 rounded-full text-xs font-semibold bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-apple-float inline-flex items-center space-x-2">
+              <span>Submit Feedback</span>
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-apple-borderLight dark:border-apple-borderDark/60">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100&auto=format&fit=crop&q=80" alt="Tariq Mahmood" class="w-10 h-10 rounded-full object-cover border border-apple-borderLight dark:border-apple-borderDark">
-            <div>
-              <div class="text-xs font-bold text-gray-900 dark:text-white">Tariq Mahmood</div>
-              <div class="text-[11px] text-apple-textMuted">CineShorts Global • 195K Subs</div>
-            </div>
+
+        </form>
+
+        <!-- Feedback Success State Card (Hidden by default) -->
+        <div id="feedback-success-card" class="hidden max-w-md mx-auto text-center py-6">
+          <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="check-circle" class="w-6 h-6"></i>
           </div>
+          <h4 class="text-base font-bold text-apple-textPrimary dark:text-white">Thank You for Your Feedback!</h4>
+          <p class="text-xs text-apple-textSecondary dark:text-gray-400 mt-1.5 leading-relaxed">
+            Your review and suggestions have been received. We review community requests weekly to improve Movie Recap Studio.
+          </p>
+          <button type="button" id="feedback-reset-btn" class="mt-4 text-xs font-semibold text-apple-blue hover:underline">Submit Another Response</button>
         </div>
 
       </div>
+
     </section>
-    <!-- 3-Tier Pricing Section -->
-    <section id="pricing" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 sm:mt-36">
-      <div class="text-center mb-12">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">100% Free & Open Source</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Transparent Community Pricing</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400 max-w-2xl mx-auto">No subscriptions, no credits, no paywalls. Built for creators by creators.</p>
-        
-        <!-- Launch Special Banner -->
-        <div class="inline-flex items-center gap-2 mt-5 px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-          <span>v2.4.0 Public Launch Special: All Pro & Studio Features are 100% Free Forever</span>
-        </div>
+<section id="pricing" class="py-24 px-6 max-w-5xl mx-auto border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Transparent Access</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-apple-textPrimary dark:text-white">Simple, Free Plans</p>
+        <p class="mt-3 text-base text-apple-textSecondary dark:text-gray-400 max-w-lg mx-auto">
+          All tiers are currently provided at $0 for our community launch. No credit cards or tokens needed.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         
-        <!-- Tier 1: Starter -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-apple-blue/40 dark:hover:border-apple-blue/40 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
+        <!-- Starter Tier -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gray-100 dark:bg-apple-surfaceDark text-gray-700 dark:text-gray-300">Open Source Core</span>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Starter</h3>
-            <p class="text-xs text-apple-textMuted mb-6 leading-relaxed">Essential for solo creators and hobbyists learning the AI movie recap production workflow.</p>
-            
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white">$0</span>
-              <span class="text-xs text-apple-textMuted font-medium">/ Forever Free</span>
-            </div>
-
-            <ul class="space-y-3 text-xs text-gray-700 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-6">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Universal AI Agent Skill for Claude, ChatGPT & Gemini</span>
+            <h3 class="text-lg font-bold text-apple-textPrimary dark:text-white">Starter</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 mt-1 mb-6">For hobbyists and beginner creators</p>
+            <div class="text-3xl font-extrabold text-apple-textPrimary dark:text-white mb-6">$0 <span class="text-xs font-normal text-apple-textSecondary">/ free</span></div>
+            <ul class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-3 mb-8">
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Universal Agent Skill</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Full SRT subtitle story analysis & chapter indexing</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Full SRT analysis engine</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Viral 3-Sentence Curiosity Hook formula</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Frame-accurate timestamp ranges output</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>MIT Open Source License</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Viral hook templates</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-apple-surfaceDark hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download Skill ZIP</span>
+          <a href="#downloads" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-apple-textPrimary dark:text-white transition-colors">
+            Get Starter Free
           </a>
         </div>
 
-        <!-- Tier 2: Pro Creator (Featured Apple Card) -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border-2 border-apple-blue shadow-apple-light dark:shadow-glow-blue transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-apple-blue via-indigo-600 to-apple-purple text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
-            Most Popular • Free Launch
+        <!-- Pro Creator Tier -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-apple-darkCard border-2 border-apple-blue flex flex-col justify-between shadow-apple-float relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-apple-blue text-white">
+            Most Popular
           </div>
           <div>
-            <div class="flex items-center justify-between mb-4 mt-2">
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-apple-blue/15 text-apple-blue border border-apple-blue/30">Studio Workstation</span>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Pro Creator</h3>
-            <p class="text-xs text-apple-textMuted mb-6 leading-relaxed">For serious YouTube & Shorts creators who need maximum editing speed, GPU acceleration, and audio sync.</p>
-            
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl sm:text-5xl font-extrabold text-apple-blue">$0</span>
-              <span class="text-xs text-apple-textMuted line-through font-medium">$29/mo</span>
-              <span class="text-xs text-emerald-500 font-semibold">100% Free Special</span>
-            </div>
-
-            <ul class="space-y-3 text-xs text-gray-700 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-6">
-              <li class="flex items-start gap-2.5 font-medium text-gray-900 dark:text-white">
-                <i data-lucide="check" class="w-4 h-4 text-apple-blue flex-shrink-0 mt-0.5"></i>
-                <span>Everything in Starter included</span>
+            <h3 class="text-lg font-bold text-apple-textPrimary dark:text-white">Pro Creator</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 mt-1 mb-6">For YouTube & Shorts channels</p>
+            <div class="text-3xl font-extrabold text-apple-blue mb-6">$0 <span class="text-xs font-normal text-apple-textSecondary line-through">$29</span> <span class="text-xs font-normal text-emerald-500">Free Special</span></div>
+            <ul class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-3 mb-8">
+              <li class="flex items-center space-x-2 font-medium text-apple-textPrimary dark:text-white">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Everything in Starter</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Movie Recap Windows Desktop Application (.exe)</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Windows Desktop App (.exe)</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Auto-Silence Stripper cuts dead pauses &gt;0.3s</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Auto-cut silence (>0.3s)</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>1-Click Clipboard timestamp range importer</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Hardware-accelerated GPU export (NVENC / QuickSync)</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>16:9 Longform & 9:16 Shorts export presets</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Hindustani & English hooks</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-apple-blue via-indigo-600 to-apple-purple hover:opacity-95 shadow-md shadow-apple-blue/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download Windows Suite</span>
+          <a href="#downloads" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-apple-blue hover:bg-apple-hoverBlue text-white shadow-sm transition-colors">
+            Get Pro Free
           </a>
         </div>
 
-        <!-- Tier 3: Studio Agency -->
-        <div class="spotlight-card rounded-3xl p-8 bg-white dark:bg-apple-cardDark border border-apple-borderLight dark:border-apple-borderDark hover:border-purple-500/40 dark:hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between shadow-apple-light dark:shadow-apple-card">
+        <!-- Studio Agency Tier -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-apple-darkCard border border-apple-borderLight/70 dark:border-apple-darkBorder flex flex-col justify-between shadow-apple-soft">
           <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">Full Suite Access</span>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Studio Agency</h3>
-            <p class="text-xs text-apple-textMuted mb-6 leading-relaxed">For multi-channel teams, editing agencies, and daily vertical Shorts content machines.</p>
-            
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl sm:text-5xl font-extrabold text-purple-500">$0</span>
-              <span class="text-xs text-apple-textMuted line-through font-medium">$99/mo</span>
-              <span class="text-xs text-emerald-500 font-semibold">100% Free Special</span>
-            </div>
-
-            <ul class="space-y-3 text-xs text-gray-700 dark:text-gray-300 mb-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 pt-6">
-              <li class="flex items-start gap-2.5 font-medium text-gray-900 dark:text-white">
-                <i data-lucide="check" class="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5"></i>
-                <span>Everything in Pro Creator included</span>
+            <h3 class="text-lg font-bold text-apple-textPrimary dark:text-white">Studio</h3>
+            <p class="text-xs text-apple-textSecondary dark:text-gray-400 mt-1 mb-6">For teams and production suites</p>
+            <div class="text-3xl font-extrabold text-apple-textPrimary dark:text-white mb-6">$0 <span class="text-xs font-normal text-apple-textSecondary line-through">$99</span> <span class="text-xs font-normal text-emerald-500">Free Special</span></div>
+            <ul class="text-xs text-apple-textSecondary dark:text-gray-400 space-y-3 mb-8">
+              <li class="flex items-center space-x-2 font-medium text-apple-textPrimary dark:text-white">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Everything in Pro</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Movie Recap Android Mobile APK (.apk)</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Android Mobile App (.apk)</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Mobile-first vertical cutting for TikTok & Shorts</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Multi-channel workflow</span>
               </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Multi-channel batch production workflow</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
-                <span>Commercial usage with zero royalty obligations</span>
+              <li class="flex items-center space-x-2">
+                <i data-lucide="check" class="w-4 h-4 text-apple-blue"></i>
+                <span>Full commercial license</span>
               </li>
             </ul>
           </div>
-
-          <a href="https://github.com/trykamran/movie-recap-studio/releases" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-apple-surfaceDark hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
-            <i data-lucide="layers" class="w-4 h-4"></i>
-            <span>Get Full Suite (All Releases)</span>
+          <a href="#downloads" class="apple-btn w-full py-2.5 rounded-full text-xs font-semibold text-center bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-apple-textPrimary dark:text-white transition-colors">
+            Get Studio Free
           </a>
         </div>
 
       </div>
     </section>
-    <!-- Interactive FAQ Accordion Section -->
-    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 sm:mt-36">
-      <div class="text-center mb-14">
-        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Got Questions?</h2>
-        <p class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Frequently Asked Questions</p>
-        <p class="mt-3 text-base text-apple-textMuted dark:text-gray-400">Everything you need to know about the skill, companion apps, and licensing.</p>
+
+    <!-- Clean Creator Reviews Section -->
+    <section id="reviews" class="py-24 px-6 max-w-5xl mx-auto border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40">
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase tracking-widest text-apple-blue font-semibold mb-2">Creator Feedback</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-apple-textPrimary dark:text-white">Loved by Video Editors</p>
       </div>
 
-      <div class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- FAQ 1 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">What is an Agent Skill and how does it integrate with Claude or ChatGPT?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            An Agent Skill is a standardized open package containing instructions, workflows, and templates that AI assistants use to perform specialized tasks. You download the ZIP package from our Releases page and upload it in Claude (Customize → Skills) or ChatGPT (Explore GPTs → Create a GPT). Once installed, typing <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-apple-surfaceDark font-mono text-apple-blue text-xs">/movie-recap-studio</code> or asking the assistant to analyze an SRT file instantly launches the full recap production workflow.
+        <div class="rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+          <p class="text-xs text-apple-textSecondary dark:text-gray-300 leading-relaxed mb-6">
+            "Finding scene timestamps used to take half a day. Movie Recap Studio handles the sync automatically in minutes. Watch time jumped to 65% on our very first video."
+          </p>
+          <div class="border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40 pt-4">
+            <div class="text-xs font-semibold text-apple-textPrimary dark:text-white">Alex Rivera</div>
+            <div class="text-[11px] text-apple-textSecondary">CinemaRewind • 480K Subs</div>
           </div>
         </div>
 
-        <!-- FAQ 2 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">Do I need the companion desktop or mobile app to use the Agent Skill?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            No. The AI Agent Skill is completely standalone. It parses subtitles, writes viral narration, and calculates timestamp cutting ranges directly inside your AI chat. You can manually paste those timestamp ranges in any video editor like Premiere Pro, DaVinci Resolve, or CapCut. However, using the companion Movie Recap Windows or Android app automates the cutting and silence removal in one click.
+        <div class="rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+          <p class="text-xs text-apple-textSecondary dark:text-gray-300 leading-relaxed mb-6">
+            "The Hindustani hook formula sounds natural and keeps Indian and Pakistani audiences engaged right from sentence one. Auto-cut silence in the desktop app is brilliant."
+          </p>
+          <div class="border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40 pt-4">
+            <div class="text-xs font-semibold text-apple-textPrimary dark:text-white">Zoya Malik</div>
+            <div class="text-[11px] text-apple-textSecondary">FilmVerse Hindi • 820K Subs</div>
           </div>
         </div>
 
-        <!-- FAQ 3 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">How does Movie Recap Studio protect my channel from YouTube copyright claims?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            Movie recaps fall under Fair Use when they are transformational commentary. Movie Recap Studio ensures compliance by: (1) Replacing all original movie audio with your original TTS narration, (2) Generating rapid scene changes that avoid long continuous clips, and (3) Writing analytical, story-driven commentary rather than raw script reproduction.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">How does the auto silence removal (&gt;0.3s) work?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            High-retention video requires fast, energetic pacing. Most TTS engines leave natural 0.5s–1.0s breath pauses between sentences. The Movie Recap companion app scans your TTS audio file, identifies any silence longer than 0.3 seconds, and ripples the timeline to eliminate dead air while keeping video scene transitions perfectly synchronized.
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">Is Movie Recap Studio really 100% free?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            Yes! The core Agent Skill and companion editing applications are released under the MIT Open Source License. There are no monthly subscriptions, hidden tokens, or watermarks. You can build a 7-figure YouTube channel using these tools without paying us a penny.
-          </div>
-        </div>
-
-        <!-- FAQ 6 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">What languages and narration styles are supported?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            The AI Skill natively crafts narration in English and Hindi/Urdu (romanized Latin script). It can adapt the emotional tone to suspense thriller, comedy, emotional drama, horror, or fast-paced action based on your channel's unique voice.
-          </div>
-        </div>
-
-        <!-- FAQ 7 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">What video and subtitle file formats are supported?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            The AI Skill works with standard SubRip (.srt) files in UTF-8 or ANSI encoding. The Windows and Android companion apps support all common video containers including MP4, MKV, MOV, and WebM, encoded with H.264 (AVC), H.265 (HEVC), VP9, and AV1.
-          </div>
-        </div>
-
-        <!-- FAQ 8 -->
-        <div class="faq-item rounded-2xl border border-apple-borderLight dark:border-apple-borderDark bg-white dark:bg-apple-cardDark overflow-hidden transition-all duration-300">
-          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-gray-900 dark:text-white hover:text-apple-blue transition-colors">
-            <span class="text-sm sm:text-base">Can I produce vertical 9:16 videos for YouTube Shorts and TikTok?</span>
-            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-apple-textMuted flex-shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content hidden px-6 pb-6 text-xs sm:text-sm text-apple-textMuted dark:text-gray-400 leading-relaxed border-t border-apple-borderLight/60 dark:border-apple-borderDark/60 pt-4">
-            Yes! Both the skill and companion applications feature dedicated 9:16 vertical modes. The skill crafts punchy 60-second scripts with immediate hooks, and the companion apps offer 9:16 center-cut and blurred background pillar-box presets.
+        <div class="rounded-3xl p-6 bg-white dark:bg-apple-darkCard border border-apple-borderLight/60 dark:border-apple-darkBorder shadow-apple-soft flex flex-col justify-between">
+          <p class="text-xs text-apple-textSecondary dark:text-gray-300 leading-relaxed mb-6">
+            "The Android APK lets me produce three vertical movie recaps a day directly from my phone. Everything is clean, fast, and completely free."
+          </p>
+          <div class="border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40 pt-4">
+            <div class="text-xs font-semibold text-apple-textPrimary dark:text-white">Elena Rostova</div>
+            <div class="text-[11px] text-apple-textSecondary">ShortCuts Cinema • 410K TikTok</div>
           </div>
         </div>
 
       </div>
     </section>
+
   </main>
-  <!-- Apple Keynote Footer -->
-  <footer class="mt-28 border-t border-apple-borderLight dark:border-apple-borderDark/80 bg-white/50 dark:bg-apple-cardDark/50 backdrop-blur-xl transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-        
-        <!-- Brand Info -->
-        <div class="space-y-4">
-          <div class="flex items-center space-x-2.5">
-            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-apple-blue via-indigo-600 to-apple-purple flex items-center justify-center text-white shadow-md shadow-apple-blue/20">
-              <i data-lucide="clapperboard" class="w-4 h-4"></i>
-            </div>
-            <span class="font-bold text-lg tracking-tight text-gray-900 dark:text-white">Movie Recap Studio</span>
-          </div>
-          <p class="text-xs text-apple-textMuted dark:text-gray-400 leading-relaxed">
-            Empowering the next generation of independent video creators with open AI agent intelligence and precision editing tools.
-          </p>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>All Systems Operational • v2.4.0</span>
-          </div>
-        </div>
 
-        <!-- Downloads Column -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Downloads</h4>
-          <ul class="space-y-2.5 text-xs text-apple-textMuted dark:text-gray-400">
-            <li><a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip" class="hover:text-apple-blue transition-colors">Universal Agent Skill (.zip)</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe" class="hover:text-apple-blue transition-colors">Windows Desktop App (.exe)</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk" class="hover:text-apple-blue transition-colors">Android Mobile App (.apk)</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/releases" class="hover:text-apple-blue transition-colors">All GitHub Releases</a></li>
-          </ul>
-        </div>
-
-        <!-- Resources Column -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Documentation</h4>
-          <ul class="space-y-2.5 text-xs text-apple-textMuted dark:text-gray-400">
-            <li><a href="https://github.com/trykamran/movie-recap-studio/tree/main/docs" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Documentation Hub</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Architecture Guide</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/blob/main/docs/INSTALLATION.md" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Installation Manual</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Changelog & History</a></li>
-          </ul>
-        </div>
-
-        <!-- Community Column -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-gray-900 dark:text-white mb-4">Open Source</h4>
-          <ul class="space-y-2.5 text-xs text-apple-textMuted dark:text-gray-400">
-            <li><a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">GitHub Repository</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/issues" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Report an Issue</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">Contributing Guide</a></li>
-            <li><a href="https://github.com/trykamran/movie-recap-studio/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">MIT License</a></li>
-          </ul>
-        </div>
-
+  <!-- Apple Minimal Footer -->
+  <footer class="py-12 px-6 border-t border-apple-borderLight/40 dark:border-apple-darkBorder/40 text-center text-xs text-apple-textSecondary dark:text-gray-500">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>Movie Recap Studio • MIT Open Source License</div>
+      <div class="flex items-center space-x-6">
+        <a href="#overview" class="hover:text-apple-blue transition-colors">Overview</a>
+        <a href="#downloads" class="hover:text-apple-blue transition-colors">Downloads</a>
+        <a href="#pricing" class="hover:text-apple-blue transition-colors">Pricing</a>
+        <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">GitHub</a>
       </div>
-
-      <!-- Bottom Bar -->
-      <div class="pt-8 border-t border-apple-borderLight dark:border-apple-borderDark/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-apple-textMuted">
-        <div>© 2026 Movie Recap Studio Contributors. Released under the MIT License.</div>
-        <div class="flex items-center space-x-6">
-          <a href="#workflow" class="hover:text-apple-blue transition-colors">Workflow</a>
-          <a href="#downloads" class="hover:text-apple-blue transition-colors">Downloads</a>
-          <a href="#pricing" class="hover:text-apple-blue transition-colors">Pricing</a>
-          <a href="https://github.com/trykamran/movie-recap-studio" target="_blank" rel="noopener noreferrer" class="hover:text-apple-blue transition-colors">GitHub</a>
-        </div>
-      </div>
-
     </div>
   </footer>
-  <!-- Apple Keynote Interactive Engine -->
+
+  <!-- Light/Dark Mode Toggle & Lucide Engine -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Initialize Lucide Icons
       if (window.lucide) {
         lucide.createIcons();
       }
 
-      // 2. Dark/Light Mode Toggle Engine
-      const themeToggle = document.getElementById('theme-toggle');
-      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById('theme-btn');
+      const themeIcon = document.getElementById('theme-icon');
+      const html = document.documentElement;
 
-      const applyTheme = (theme) => {
-        if (theme === 'light') {
-          htmlEl.classList.remove('dark');
+      function updateTheme(dark) {
+        if (dark) {
+          html.classList.add('dark');
+          themeIcon.setAttribute('data-lucide', 'sun');
         } else {
-          htmlEl.classList.add('dark');
+          html.classList.remove('dark');
+          themeIcon.setAttribute('data-lucide', 'moon');
         }
-        localStorage.setItem('theme', theme);
-        if (window.lucide) {
-          lucide.createIcons();
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Check saved preference, default to clean light mode
+      const isDark = localStorage.getItem('theme') === 'dark';
+      updateTheme(isDark);
+
+      themeBtn?.addEventListener('click', () => {
+        const nextDark = !html.classList.contains('dark');
+        localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+        updateTheme(nextDark);
+      });
+
+      // 7. Interactive Live Demo Generator Logic
+      const demoData = {
+        shawshank: {
+          hindustani: {
+            hook: "कहानी शुरू होती है एक ऐसे सीधे-साधे बैंकर से, जिसे अपनी पत्नी के कत्ल के झूठे इल्ज़ाम में दो उम्रकैद की सज़ा सुना दी गई, जो उसने कभी किया ही नहीं था...",
+            ranges: "00:00:24 - 00:00:29\n00:01:05 - 00:01:10\n00:02:40 - 00:02:46\n00:04:12 - 00:04:18"
+          },
+          english: {
+            hook: "The story begins with a quiet banker who is suddenly sentenced to two consecutive life terms for a brutal double murder he never committed...",
+            ranges: "00:00:24 - 00:00:29\n00:01:05 - 00:01:10\n00:02:40 - 00:02:46\n00:04:12 - 00:04:18"
+          }
+        },
+        inception: {
+          hindustani: {
+            hook: "कहानी शुरू होती है एक ऐसे शातिर चोर से, जो लोगों की जेब नहीं, बल्कि उनके दिमाग में घुसकर उनके सबसे गहरे राज़ और सपने चुराता है...",
+            ranges: "00:01:15 - 00:01:21\n00:03:04 - 00:03:09\n00:05:30 - 00:05:36\n00:08:44 - 00:08:50"
+          },
+          english: {
+            hook: "The story begins with an elite subconscious extractor who steals high-value corporate secrets directly from people's minds while they sleep...",
+            ranges: "00:01:15 - 00:01:21\n00:03:04 - 00:03:09\n00:05:30 - 00:05:36\n00:08:44 - 00:08:50"
+          }
+        },
+        interstellar: {
+          hindustani: {
+            hook: "कहानी शुरू होती है एक ऐसे बेबस पिता से, जिसे अपने बच्चों को हमेशा के लिए पीछे छोड़ना पड़ा ताकि वह इंसानियत को भुखमरी और खात्मे से बचा सके...",
+            ranges: "00:02:10 - 00:02:16\n00:04:45 - 00:04:52\n00:07:20 - 00:07:27\n00:11:05 - 00:11:12"
+          },
+          english: {
+            hook: "The story begins with a former pilot who is forced to abandon his beloved children on a dying Earth to search for humanity's last hope among the stars...",
+            ranges: "00:02:10 - 00:02:16\n00:04:45 - 00:04:52\n00:07:20 - 00:07:27\n00:11:05 - 00:11:12"
+          }
         }
       };
 
-      // Check stored or system preference (Dark keynote theme default)
-      const storedTheme = localStorage.getItem('theme');
-      if (storedTheme) {
-        applyTheme(storedTheme);
-      } else {
-        applyTheme('dark'); // Default to Apple Keynote Dark
+      const demoMovieSelect = document.getElementById('demo-movie');
+      const demoLangSelect = document.getElementById('demo-lang');
+      const demoGenerateBtn = document.getElementById('demo-generate-btn');
+      const demoHookText = document.getElementById('demo-hook-text');
+      const demoTimestampText = document.getElementById('demo-timestamp-text');
+      const copyBtn = document.getElementById('copy-demo-output');
+      const copyStatusText = document.getElementById('copy-status-text');
+
+      function updateDemo() {
+        const movie = demoMovieSelect?.value || 'shawshank';
+        const lang = demoLangSelect?.value || 'hindustani';
+        const selected = demoData[movie][lang];
+        if (demoHookText && demoTimestampText) {
+          demoHookText.textContent = selected.hook;
+          demoTimestampText.textContent = selected.ranges;
+        }
       }
 
-      themeToggle?.addEventListener('click', () => {
-        const isDark = htmlEl.classList.contains('dark');
-        applyTheme(isDark ? 'light' : 'dark');
+      demoGenerateBtn?.addEventListener('click', () => {
+        updateDemo();
+        demoGenerateBtn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Generated!</span>`;
+        if (window.lucide) lucide.createIcons();
+        setTimeout(() => {
+          demoGenerateBtn.innerHTML = `<i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>Generate Viral Hook & Cut Ranges</span>`;
+          if (window.lucide) lucide.createIcons();
+        }, 1500);
       });
 
-      // 3. Mobile Navigation Menu Toggle
-      const mobileToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileToggle?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('hidden');
-      });
+      demoMovieSelect?.addEventListener('change', updateDemo);
+      demoLangSelect?.addEventListener('change', updateDemo);
 
-      // Close mobile menu on click of any nav link
-      document.querySelectorAll('.mobile-link').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu?.classList.add('hidden');
+      copyBtn?.addEventListener('click', () => {
+        const fullText = (demoHookText?.textContent || '') + '\n\n' + (demoTimestampText?.textContent || '');
+        navigator.clipboard.writeText(fullText).then(() => {
+          if (copyStatusText) copyStatusText.textContent = 'Copied to Clipboard!';
+          setTimeout(() => {
+            if (copyStatusText) copyStatusText.textContent = 'Copy Script & Timestamps';
+          }, 2000);
         });
       });
 
-      // 4. Interactive FAQ Accordion
-      const faqTriggers = document.querySelectorAll('.faq-trigger');
-      faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-          const item = trigger.closest('.faq-item');
-          const content = item?.querySelector('.faq-content');
-          const icon = item?.querySelector('.faq-icon');
-          const isExpanded = !content?.classList.contains('hidden');
+      // 8. Creator Feedback Star Rating & Form Handler
+      const stars = document.querySelectorAll('#star-rating i');
+      const ratingInput = document.getElementById('selected-rating');
+      const feedbackForm = document.getElementById('creator-feedback-form');
+      const feedbackSuccess = document.getElementById('feedback-success-card');
+      const feedbackResetBtn = document.getElementById('feedback-reset-btn');
 
-          // Close all other FAQs for accordion behavior
-          document.querySelectorAll('.faq-item').forEach(otherItem => {
-            if (otherItem !== item) {
-              otherItem.querySelector('.faq-content')?.classList.add('hidden');
-              otherItem.querySelector('.faq-icon')?.classList.remove('rotate-180');
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const val = parseInt(star.getAttribute('data-star') || '5', 10);
+          if (ratingInput) ratingInput.value = val;
+          stars.forEach((s, idx) => {
+            if (idx < val) {
+              s.classList.add('fill-amber-400', 'text-amber-400');
+              s.classList.remove('text-gray-300', 'dark:text-gray-600', 'fill-transparent');
+            } else {
+              s.classList.remove('fill-amber-400', 'text-amber-400');
+              s.classList.add('text-gray-300', 'dark:text-gray-600', 'fill-transparent');
             }
           });
-
-          // Toggle current
-          if (isExpanded) {
-            content?.classList.add('hidden');
-            icon?.classList.remove('rotate-180');
-          } else {
-            content?.classList.remove('hidden');
-            icon?.classList.add('rotate-180');
-          }
         });
       });
 
-      // 5. Apple Spotlight Cursor Hover Glow on Cards
-      const cards = document.querySelectorAll('.spotlight-card');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
+      feedbackForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const feedbackObj = {
+          name: document.getElementById('feedback-name')?.value,
+          channel: document.getElementById('feedback-channel')?.value,
+          message: document.getElementById('feedback-message')?.value,
+          rating: ratingInput?.value,
+          date: new Date().toISOString()
+        };
+        // Save to localStorage
+        const existing = JSON.parse(localStorage.getItem('mrs_creator_feedback') || '[]');
+        existing.push(feedbackObj);
+        localStorage.setItem('mrs_creator_feedback', JSON.stringify(existing));
+
+        // Switch to success card
+        feedbackForm.classList.add('hidden');
+        feedbackSuccess?.classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
       });
 
-      // 6. IntersectionObserver Scroll Reveal
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersectObserver || entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-            entry.target.classList.remove('opacity-0', 'translate-y-6');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('section').forEach(sec => {
-        sec.classList.add('transition-all', 'duration-700', 'ease-out');
-        revealObserver.observe(sec);
+      feedbackResetBtn?.addEventListener('click', () => {
+        feedbackForm?.reset();
+        feedbackForm?.classList.remove('hidden');
+        feedbackSuccess?.classList.add('hidden');
       });
+
     });
   </script>
+
 </body>
 </html>
