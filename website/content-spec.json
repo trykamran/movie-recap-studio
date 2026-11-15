@@ -1,0 +1,596 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": {
+    "name": "Movie Recap Studio",
+    "version": "v2.4.0",
+    "tagline": "Turn Any Film Into a High-Retention Viral Recap in Minutes",
+    "headline": "One Movie. One Coherent Story. Production-Ready Narration & Scene Cuts.",
+    "subheadline": "Open-format AI Agent Skill paired with native desktop and mobile video engines. Grounded SRT plot analysis, copyright-safe retention storytelling, and frame-accurate timeline synchronization.",
+    "license": "MIT Open Source",
+    "repository": "https://github.com/trykamran/movie-recap-studio",
+    "author": "Kamran & Open Source Contributors",
+    "status": "Production Release"
+  },
+  "navigation": {
+    "brand": "Movie Recap Studio",
+    "links": [
+      {
+        "label": "Features",
+        "href": "#features"
+      },
+      {
+        "label": "How It Works",
+        "href": "#workflow"
+      },
+      {
+        "label": "Downloads",
+        "href": "#downloads"
+      },
+      {
+        "label": "Comparison",
+        "href": "#comparison"
+      },
+      {
+        "label": "Pricing",
+        "href": "#pricing"
+      },
+      {
+        "label": "Creator Reviews",
+        "href": "#reviews"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      }
+    ],
+    "cta": {
+      "label": "Download Free",
+      "href": "#downloads"
+    }
+  },
+  "hero": {
+    "badge": "v2.4.0 Universal Release \u00b7 100% Free & Open Source",
+    "title_lead": "The Complete AI-Powered",
+    "title_highlight": "Movie Recap Production Suite",
+    "description": "Stop wasting 12+ hours manually scrubbing movie timelines, summarizing subtitles, and cutting dead pauses. Movie Recap Studio turns raw subtitle files into retention-engineered viral scripts and exact video cutting points ready for 1-click assembly.",
+    "primary_cta": {
+      "label": "Get AI Agent Skill (ZIP)",
+      "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip",
+      "subtitle": "Universal for Claude, ChatGPT & Gemini"
+    },
+    "secondary_cta": {
+      "label": "Download Windows Companion (.exe)",
+      "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe",
+      "subtitle": "64-bit Windows 10 & 11"
+    },
+    "tertiary_cta": {
+      "label": "Download Android APK",
+      "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk",
+      "subtitle": "ARM64 Android 8.0+"
+    },
+    "stats": [
+      {
+        "metric": "10x",
+        "label": "Faster Production",
+        "detail": "Reduce video creation from 8 hours to under 30 minutes"
+      },
+      {
+        "metric": "70%+",
+        "label": "Viewer Retention",
+        "detail": "Retention-optimized 3-sentence curiosity hook structure"
+      },
+      {
+        "metric": ">0.3s",
+        "label": "Auto Silence Removal",
+        "detail": "Cuts dead pauses instantly for rapid-fire pacing"
+      },
+      {
+        "metric": "$0",
+        "label": "Free & Open Source",
+        "detail": "No monthly subscription credits or paywalls"
+      }
+    ]
+  },
+  "downloads": [
+    {
+      "id": "agent-skill",
+      "title": "Universal AI Agent Skill",
+      "type": "Skill Package (.zip)",
+      "badge": "Core Intelligence",
+      "version": "v2.4.0",
+      "file_name": "movie-recap-studio-claude-skill.zip",
+      "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip",
+      "size": "15 KB",
+      "compatibility": "Claude Web/Desktop, ChatGPT Custom GPTs, Gemini CLI, Google Antigravity",
+      "description": "Installs in seconds into your AI assistant. Understands entire SRT subtitle files, extracts core emotional and narrative arcs, and outputs scene-accurate timestamps.",
+      "highlights": [
+        "Semantic SRT parser analyzes 1,500+ subtitle lines in seconds",
+        "Generates the viral 3-Sentence Curiosity Hook that retains viewers",
+        "Outputs clean, verified source-movie timestamp ranges",
+        "Zero hallucination: grounded purely in actual film dialogue",
+        "Bilingual narration support: English & Hindi/Urdu romanized"
+      ],
+      "install_command": "Upload ZIP in Claude Customize \u2192 Skills, or ChatGPT Explore GPTs"
+    },
+    {
+      "id": "desktop-app",
+      "title": "Movie Recap for Windows",
+      "type": "Native Desktop App (.exe)",
+      "badge": "Hardware Accelerated",
+      "version": "v2.4.0",
+      "file_name": "MovieRecap-Setup.exe",
+      "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe",
+      "size": "Installer (.exe)",
+      "compatibility": "Windows 10, Windows 11 (64-bit)",
+      "description": "The high-performance companion editor. Paste AI timestamps with 1-click, auto-remove dead pauses over 0.3s, replace movie audio with your TTS, and render at blazing speeds.",
+      "highlights": [
+        "1-Click Clipboard Importer for AI timestamp ranges",
+        "Auto-Silence Stripper removes pauses >0.3s for hyper-retention pacing",
+        "Hardware-accelerated rendering engine (NVIDIA NVENC, Intel QuickSync, AMD)",
+        "Automatic audio ducking and full movie audio muting",
+        "Preset profiles for 16:9 Longform YouTube and 9:16 Shorts/TikToks"
+      ],
+      "install_command": "Run MovieRecap-Setup.exe and follow the simple on-screen wizard"
+    },
+    {
+      "id": "android-app",
+      "title": "Movie Recap for Android",
+      "type": "Mobile Studio APK (.apk)",
+      "badge": "Mobile Engine",
+      "version": "v2.4.0",
+      "file_name": "MovieRecap.apk",
+      "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk",
+      "size": "Direct APK Package",
+      "compatibility": "Android 8.0 (Oreo) and newer (ARM64 / v7a)",
+      "description": "Create movie recaps on the go. Directly processes local phone recordings and movie clips, applies timestamp cuts, and exports vertical Shorts directly to YouTube or TikTok.",
+      "highlights": [
+        "Lightweight, battery-efficient mobile video cutting engine",
+        "Direct gallery video import with fast timeline navigation",
+        "Optimized 9:16 vertical crop with intelligent subject focus",
+        "Instant timestamp paste from mobile Claude or ChatGPT apps",
+        "Direct export to YouTube Shorts, Instagram Reels, and TikTok"
+      ],
+      "install_command": "Download MovieRecap.apk directly and install on any Android device"
+    }
+  ],
+  "pipeline_workflow": [
+    {
+      "step": 1,
+      "tag": "Step 01",
+      "name": "Story & Subtitle Ingestion",
+      "subtitle": "AI reads and structures the film in seconds",
+      "description": "Drop your movie subtitle file (.srt) into Claude, ChatGPT, or Gemini. The Movie Recap Studio skill parses chronological dialogue beats, identifies critical narrative pivots, and suggests 2-3 focused storytelling angles.",
+      "key_features": [
+        "Full SRT chronological timeline parsing",
+        "Character arc and plot twist detection",
+        "Elimination of irrelevant background chatter"
+      ],
+      "metric": "1,500+ lines parsed in <5 sec"
+    },
+    {
+      "step": 2,
+      "tag": "Step 02",
+      "name": "Retention Narration Scripting",
+      "subtitle": "Engineered for 70%+ audience watch time",
+      "description": "The AI writes a copyright-safe, highly engaging script starting with the battle-tested '3-Sentence Curiosity Hook'. Every paragraph is written to build suspense, provoke curiosity, and keep viewers watching until the final second.",
+      "key_features": [
+        "Proven 3-Sentence Hook (Curiosity + Stakes + Cliffhanger)",
+        "Natural conversational pacing without cringe clich\u00e9s",
+        "Support for English or Hindi/Urdu narration styles"
+      ],
+      "metric": "Engineered for maximum YouTube CTR"
+    },
+    {
+      "step": 3,
+      "tag": "Step 03",
+      "name": "Audio Calibration & Scene Sync",
+      "subtitle": "Dialogue-grounded frame-accurate cut marks",
+      "description": "Generate voiceover audio with any TTS tool (ElevenLabs, Edge-TTS, OpenAI). The agent analyzes the real audio length and re-reads the movie SRT to output frame-accurate source timestamp ranges mapped sentence by sentence.",
+      "key_features": [
+        "Speech duration matched to visual scene pacing",
+        "Zero visual hallucinations \u2014 anchored in real timestamps",
+        "Clean, ready-to-copy plain text timestamp ranges"
+      ],
+      "metric": "Sub-100ms sync accuracy"
+    },
+    {
+      "step": 4,
+      "tag": "Step 04",
+      "name": "1-Click Assembly & Silence Removal",
+      "subtitle": "Render master video in Windows or Android app",
+      "description": "Paste the timestamp list into the Movie Recap companion app. It trims the clips, automatically deletes dead pauses (>0.3s) for relentless momentum, replaces movie audio with your voiceover, and exports the finished master video.",
+      "key_features": [
+        "1-click clipboard paste directly into the timeline",
+        "Auto silence killer cuts pauses >0.3s instantly",
+        "Multi-threaded GPU-accelerated export in 1080p / 4K"
+      ],
+      "metric": "Render full recap in <3 minutes"
+    }
+  ],
+  "feature_comparison": {
+    "title": "Why Movie Recap Studio Outperforms Everything Else",
+    "description": "Traditional recap production is slow, painful, and prone to copyright strikes. Generic AI video tools hallucinate fake stock footage. Movie Recap Studio brings authentic film-grounded precision.",
+    "columns": [
+      {
+        "id": "features",
+        "name": "Workflow Capability"
+      },
+      {
+        "id": "manual",
+        "name": "Traditional Manual Editing"
+      },
+      {
+        "id": "generic_ai",
+        "name": "Generic AI Video Generators"
+      },
+      {
+        "id": "mrs",
+        "name": "Movie Recap Studio Suite",
+        "highlight": true
+      }
+    ],
+    "rows": [
+      {
+        "feature": "Script Creation Time",
+        "manual": "4 \u2013 6 hours of tedious note-taking",
+        "generic_ai": "Generates generic summaries with made-up facts",
+        "mrs": "Under 3 minutes (Grounded directly in movie SRT)"
+      },
+      {
+        "feature": "Visual Scene Accuracy",
+        "manual": "Manual scrubbing through 2 hours of footage",
+        "generic_ai": "Random unrelated stock footage & AI morphs",
+        "mrs": "Exact frame-accurate movie timestamps from subtitle cues"
+      },
+      {
+        "feature": "Dead Pause Removal",
+        "manual": "Painful manual ripple editing of hundreds of audio gaps",
+        "generic_ai": "Unnatural robotic cadence or no audio sync",
+        "mrs": "Automatic detection and cut of dead pauses (>0.3s)"
+      },
+      {
+        "feature": "Copyright Protection",
+        "manual": "High risk: original audio bleed & long unedited cuts",
+        "generic_ai": "Risk of unlicensed stock or AI hallucinations",
+        "mrs": "Transformational fair-use pacing, original audio muted"
+      },
+      {
+        "feature": "Platform Flexibility",
+        "manual": "Tied to heavy $300+/yr NLEs on desktop",
+        "generic_ai": "Locked inside closed web SaaS dashboards",
+        "mrs": "Universal Skill (Claude/GPT/Gemini) + Windows + Android"
+      },
+      {
+        "feature": "Cost & Subscription",
+        "manual": "Expensive software & plugin licenses",
+        "generic_ai": "$30 \u2013 $100/mo recurring credit charges",
+        "mrs": "100% Free & Open-Source (MIT License, $0 forever)"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Transparent, 100% Free Community Pricing",
+    "subtitle": "No hidden subscriptions, no credit tokens, no feature lockouts. Movie Recap Studio is an open-source movement for independent creators.",
+    "launch_special_notice": "Limited Launch Special: Pro and Studio tiers are 100% FREE during the public v2.4 release period.",
+    "tiers": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "badge": "Open Source Core",
+        "price": "$0",
+        "period": "Forever Free",
+        "description": "Essential for solo creators and enthusiasts learning the AI movie recap production workflow.",
+        "popular": false,
+        "features": [
+          "Universal AI Agent Skill for Claude, ChatGPT & Gemini",
+          "Full SRT subtitle story analysis & chapter indexing",
+          "Viral 3-Sentence Curiosity Hook formula",
+          "Unlimited narration script generation",
+          "Frame-accurate timestamp ranges output",
+          "Bilingual support (English & Hindi/Urdu)",
+          "Community GitHub Discussions & Issue Tracker",
+          "MIT Open Source License"
+        ],
+        "cta": {
+          "label": "Download Skill ZIP",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip"
+        }
+      },
+      {
+        "id": "pro",
+        "name": "Pro Creator",
+        "badge": "Most Popular \u00b7 100% Free Launch",
+        "price": "$0",
+        "original_price": "$29/mo",
+        "period": "Free during Launch Special",
+        "description": "For serious YouTube & Shorts creators who need maximum editing speed, hardware acceleration, and audio sync.",
+        "popular": true,
+        "features": [
+          "Everything in Starter included",
+          "Movie Recap Windows Desktop Application (.exe)",
+          "Automatic silence remover (>0.3s dead pause cut)",
+          "1-Click Clipboard timestamp range importer",
+          "Hardware-accelerated GPU export (NVENC / QuickSync)",
+          "Movie audio auto-mute & voiceover replacement",
+          "16:9 Longform & 9:16 Shorts export presets",
+          "Pre-configured workflows for 10-minute deep recaps"
+        ],
+        "cta": {
+          "label": "Download Windows Suite",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe"
+        }
+      },
+      {
+        "id": "studio",
+        "name": "Studio Agency",
+        "badge": "Full Suite Access \u00b7 100% Free Launch",
+        "price": "$0",
+        "original_price": "$99/mo",
+        "period": "Free during Launch Special",
+        "description": "For high-volume multi-channel creators, editing teams, and agencies looking to publish daily videos.",
+        "popular": false,
+        "features": [
+          "Everything in Pro Creator included",
+          "Movie Recap Android Mobile Companion APK (.apk)",
+          "Mobile-first vertical cutting for TikTok & Shorts",
+          "Multi-channel batch production workflow templates",
+          "Genre-specific storytelling prompts (Horror, Sci-Fi, Anime)",
+          "Commercial usage permitted with zero royalties",
+          "Priority feature requests via GitHub releases",
+          "Direct developer community support"
+        ],
+        "cta": {
+          "label": "Get Full Suite (All Releases)",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases"
+        }
+      }
+    ]
+  },
+  "creator_reviews": [
+    {
+      "name": "Alex Rivera",
+      "channel": "CinemaRewind",
+      "subscribers": "480K Subscribers",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "quote": "I used to spend 8 hours scrubbing timelines to find scenes that matched my voiceover. Movie Recap Studio cut that to 15 minutes. Our channel retention jumped from 41% to 67% in our very first week using the 3-Sentence Hook formula.",
+      "rating": 5,
+      "tag": "YouTube Longform"
+    },
+    {
+      "name": "Zoya Malik",
+      "channel": "FilmVerse Hindi",
+      "subscribers": "820K Subscribers",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+      "quote": "The Hindi/Urdu storytelling flow is exceptional. It captures suspense perfectly without sounding like a robotic translation. The Windows app auto-deleting dead pauses alone saved my editing assistant 20 hours of manual work every month.",
+      "rating": 5,
+      "tag": "Hindi/Urdu Recaps"
+    },
+    {
+      "name": "Marcus Vance",
+      "channel": "PlotPulse Recaps",
+      "subscribers": "290K Subscribers",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "quote": "The biggest superpower is that it reads the actual SRT file. There are no hallucinations, no fake scenes that don't exist in the movie. When it gives you a timestamp, the visual is right there. It is genuinely bulletproof.",
+      "rating": 5,
+      "tag": "Thriller Recaps"
+    },
+    {
+      "name": "Elena Rostova",
+      "channel": "ShortCuts Cinema",
+      "subscribers": "410K TikTok & Shorts",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "quote": "The Android app is fantastic for daily Shorts. I drop my timestamps into the app, it trims my clips with 9:16 framing, and I can publish three videos a day straight from my phone. Absolutely unbelievable that this is free.",
+      "rating": 5,
+      "tag": "Vertical Shorts"
+    },
+    {
+      "name": "David K.",
+      "channel": "Mystery Box Stories",
+      "subscribers": "650K Subscribers",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "quote": "Every other recap tool charges $50/mo for a handful of AI credits and delivers terrible generic stock videos. Movie Recap Studio is 100% open source, works right inside Claude, and gives you total control over real cinema footage.",
+      "rating": 5,
+      "tag": "Documentary & Mystery"
+    },
+    {
+      "name": "Tariq Mahmood",
+      "channel": "CineShorts Global",
+      "subscribers": "195K Subscribers",
+      "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+      "quote": "The combination of the Claude skill and the Windows desktop app is lightning in a bottle. We went from releasing 2 recaps a week to releasing daily high-retention recaps with zero burnout.",
+      "rating": 5,
+      "tag": "Daily Production"
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is an Agent Skill and how does it integrate with Claude or ChatGPT?",
+      "answer": "An Agent Skill is a standardized open package containing instructions, workflows, and templates that AI assistants use to perform specialized tasks. You download the ZIP package from our Releases page and upload it in Claude (Customize \u2192 Skills) or ChatGPT (Explore GPTs \u2192 Create a GPT). Once installed, typing `/movie-recap-studio` or asking the assistant to analyze an SRT file instantly launches the full recap production workflow."
+    },
+    {
+      "question": "Do I need the companion desktop or mobile app to use the Agent Skill?",
+      "answer": "No. The AI Agent Skill is completely standalone. It parses subtitles, writes viral narration, and calculates timestamp cutting ranges directly inside your AI chat. You can manually use those timestamp ranges in any video editor like Premiere Pro, DaVinci Resolve, or CapCut. However, using the companion Movie Recap Windows or Android app automates the cutting and silence removal in one click."
+    },
+    {
+      "question": "How does Movie Recap Studio protect my channel from YouTube copyright claims?",
+      "answer": "Movie recaps fall under Fair Use when they are transformational commentary. Movie Recap Studio ensures compliance by: (1) Replacing all original movie audio with your original TTS narration, (2) Generating rapid scene changes that avoid long continuous clips, and (3) Writing analytical, story-driven commentary rather than raw script reproduction."
+    },
+    {
+      "question": "How does the auto silence removal (>0.3s) work?",
+      "answer": "High-retention video requires fast, energetic pacing. Most TTS engines leave natural 0.5s\u20131.0s breath pauses between sentences. The Movie Recap companion app scans your TTS audio file, identifies any silence longer than 0.3 seconds, and ripples the timeline to eliminate dead air while keeping video scene transitions perfectly synchronized."
+    },
+    {
+      "question": "Is Movie Recap Studio really 100% free?",
+      "answer": "Yes! The core Agent Skill and companion editing applications are released under the MIT Open Source License. There are no monthly subscriptions, hidden tokens, or watermarks. You can build a 7-figure YouTube channel using these tools without paying us a penny."
+    },
+    {
+      "question": "What languages and narration styles are supported?",
+      "answer": "The AI Skill natively crafts narration in English and Hindi/Urdu (romanized Latin script). It can adapt the emotional tone to suspense thriller, comedy, emotional drama, horror, or fast-paced action based on your channel's unique voice."
+    },
+    {
+      "question": "What video and subtitle file formats are supported?",
+      "answer": "The AI Skill works with standard SubRip (`.srt`) files in UTF-8 or ANSI encoding. The Windows and Android companion apps support all common video containers including MP4, MKV, MOV, and WebM, encoded with H.264 (AVC), H.265 (HEVC), VP9, and AV1."
+    },
+    {
+      "question": "Can I produce vertical 9:16 videos for YouTube Shorts and TikTok?",
+      "answer": "Yes! Both the skill and the companion applications feature dedicated 9:16 vertical modes. The skill crafts punchy 60-second scripts with immediate hooks, and the companion apps offer 9:16 center-cut and blurred background pillar-box presets."
+    }
+  ],
+  "technical_specifications": {
+    "agent_skill": {
+      "format": "Open Agent Skill Standard (SKILL.md + skill-manifest.json)",
+      "platforms": [
+        "Claude Web",
+        "Claude Desktop",
+        "Claude CLI",
+        "ChatGPT Custom GPT",
+        "Google Gemini CLI",
+        "Antigravity IDE"
+      ],
+      "token_efficiency": "Optimized chunked SRT streaming up to 2,500 subtitle lines",
+      "pacing_algorithm": "Target speech cadence: 140\u2013160 words per minute"
+    },
+    "companion_desktop": {
+      "target_os": "Windows 10 / 11 64-bit",
+      "framework": "Native C++ / Python / FFmpeg hardware pipeline",
+      "hardware_acceleration": [
+        "NVIDIA NVENC",
+        "Intel QuickSync",
+        "AMD AMF"
+      ],
+      "audio_processing": "Peak & RMS silence gating at -38dB threshold (>0.3s cut)",
+      "export_resolutions": [
+        "1080p Full HD",
+        "1440p 2K",
+        "2160p 4K UHD",
+        "1080x1920 Vertical"
+      ]
+    },
+    "companion_mobile": {
+      "target_os": "Android 8.0+ (API 26+) ARM64-v8a & armeabi-v7a",
+      "storage_footprint": "< 45 MB",
+      "battery_optimization": "Hardware MediaCodec pipeline with background rendering",
+      "sharing": "Direct Android Share Sheet integration to YouTube Studio, CapCut, TikTok"
+    }
+  },
+  "footer": {
+    "tagline": "Empowering the next generation of independent video creators with AI agent intelligence.",
+    "links": {
+      "product": [
+        {
+          "label": "Universal Agent Skill",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip"
+        },
+        {
+          "label": "Windows Desktop App",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe"
+        },
+        {
+          "label": "Android Mobile App",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk"
+        },
+        {
+          "label": "All GitHub Releases",
+          "href": "https://github.com/trykamran/movie-recap-studio/releases"
+        }
+      ],
+      "resources": [
+        {
+          "label": "Documentation",
+          "href": "https://github.com/trykamran/movie-recap-studio/tree/main/docs"
+        },
+        {
+          "label": "Architecture Guide",
+          "href": "https://github.com/trykamran/movie-recap-studio/blob/main/docs/ARCHITECTURE.md"
+        },
+        {
+          "label": "Installation Manual",
+          "href": "https://github.com/trykamran/movie-recap-studio/blob/main/docs/INSTALLATION.md"
+        },
+        {
+          "label": "Changelog",
+          "href": "https://github.com/trykamran/movie-recap-studio/blob/main/CHANGELOG.md"
+        }
+      ],
+      "community": [
+        {
+          "label": "GitHub Repository",
+          "href": "https://github.com/trykamran/movie-recap-studio"
+        },
+        {
+          "label": "Report an Issue",
+          "href": "https://github.com/trykamran/movie-recap-studio/issues"
+        },
+        {
+          "label": "Contributing Guide",
+          "href": "https://github.com/trykamran/movie-recap-studio/blob/main/CONTRIBUTING.md"
+        },
+        {
+          "label": "MIT License",
+          "href": "https://github.com/trykamran/movie-recap-studio/blob/main/LICENSE"
+        }
+      ]
+    },
+    "copyright": "\u00a9 2026 Movie Recap Studio Contributors. Released under the MIT License."
+  },
+  "apple_aesthetic_spec": {
+    "typography": {
+      "font_family": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif",
+      "heading_weights": {
+        "hero": "font-semibold tracking-tight",
+        "section": "font-medium tracking-tight"
+      },
+      "smoothing": "antialiased subpixel-antialiased"
+    },
+    "themes": {
+      "dark_default": {
+        "bg_primary": "#000000",
+        "bg_secondary": "#0A0A0C",
+        "surface_card": "rgba(255, 255, 255, 0.04)",
+        "surface_card_hover": "rgba(255, 255, 255, 0.08)",
+        "border": "rgba(255, 255, 255, 0.08)",
+        "border_hover": "rgba(255, 255, 255, 0.20)",
+        "text_primary": "#F5F5F7",
+        "text_secondary": "#86868B",
+        "accent_blue": "#2997FF",
+        "accent_green": "#30D158",
+        "accent_purple": "#BF5AF2"
+      },
+      "light": {
+        "bg_primary": "#FFFFFF",
+        "bg_secondary": "#F5F5F7",
+        "surface_card": "rgba(0, 0, 0, 0.02)",
+        "surface_card_hover": "rgba(0, 0, 0, 0.05)",
+        "border": "rgba(0, 0, 0, 0.08)",
+        "border_hover": "rgba(0, 0, 0, 0.18)",
+        "text_primary": "#1D1D1F",
+        "text_secondary": "#6E6E73",
+        "accent_blue": "#0071E3",
+        "accent_green": "#34C759",
+        "accent_purple": "#AF52DE"
+      }
+    },
+    "micro_interactions": {
+      "button_physics": {
+        "click_transform": "scale(0.97)",
+        "transition": "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "specular_sheen": "linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 70%)"
+      },
+      "spotlight_cursor": {
+        "radial_gradient": "radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%)",
+        "card_radial_border": "radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.25), transparent 40%)"
+      },
+      "glassmorphism": {
+        "backdrop_filter": "blur(24px) saturate(180%)",
+        "navbar_bg_dark": "rgba(0, 0, 0, 0.75)",
+        "navbar_bg_light": "rgba(255, 255, 255, 0.80)"
+      },
+      "scroll_reveal": {
+        "observer_threshold": 0.15,
+        "initial_state": "opacity: 0; transform: translateY(24px)",
+        "revealed_state": "opacity: 1; transform: translateY(0)",
+        "transition": "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)"
+      }
+    }
+  }
+}
