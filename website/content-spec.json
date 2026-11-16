@@ -16,40 +16,38 @@
     }
   },
   "navigation": {
-    "brand": "Movie Recap Studio",
+    "type": "apple_3d_floating_pill_dock",
+    "behavior": "always_expanded",
+    "position": "fixed top-6 left-1/2 -translate-x-1/2 z-50",
+    "styling": {
+      "backdrop": "frosted glass blur(24px) saturate(180%)",
+      "border": "3D specular rim highlight (1px border border-white/15 dark:border-white/10)",
+      "shadow": "soft floating drop-shadow-2xl"
+    },
     "links": [
       {
-        "label": "Features",
-        "href": "#features"
+        "id": "overview",
+        "label": "Overview",
+        "href": "#overview"
       },
       {
-        "label": "How It Works",
+        "id": "workflow",
+        "label": "Workflow",
         "href": "#workflow"
       },
       {
-        "label": "Downloads",
-        "href": "#downloads"
-      },
-      {
-        "label": "Comparison",
-        "href": "#comparison"
-      },
-      {
+        "id": "pricing",
         "label": "Pricing",
         "href": "#pricing"
       },
       {
-        "label": "Creator Reviews",
-        "href": "#reviews"
-      },
-      {
-        "label": "FAQ",
-        "href": "#faq"
+        "id": "feedback",
+        "label": "Feedback",
+        "href": "#feedback"
       }
     ],
-    "cta": {
-      "label": "Download Free",
-      "href": "#downloads"
+    "scroll_spy": {
+      "active_indicator": "dynamic sliding pill or highlighted active state tracking current viewport section"
     }
   },
   "hero": {
@@ -770,6 +768,67 @@
           "Direct export to YouTube Shorts, Instagram Reels, and TikTok"
         ],
         "install_command": "Download MovieRecap.apk directly and install on any Android device"
+      }
+    ]
+  },
+  "pricing_and_downloads": {
+    "pattern": "21st.dev SquishyCard pattern (3-column animated row)",
+    "title": "Claim Your Lifetime Studio Access",
+    "subtitle": "Download the complete AI video production suite free during our early launch window.",
+    "cards": [
+      {
+        "id": "windows-app",
+        "title": "Windows Desktop App",
+        "file_type": ".EXE Standalone",
+        "logo": "Windows / Monitor icon",
+        "theme": "Blue / Indigo gradient",
+        "background": "Squishy morphing SVG blob background with spring physics",
+        "price": "$0",
+        "price_badge": "Free Early Launch",
+        "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap-Setup.exe",
+        "features": [
+          "Hardware-accelerated video rendering (NVENC/QuickSync)",
+          "Automatic silence removal (>0.3s dead pauses)",
+          "1-click AI timestamp list pasting & cut",
+          "Full movie audio auto-mute & voiceover sync",
+          "1080p & 4K UHD 60fps export"
+        ]
+      },
+      {
+        "id": "android-app",
+        "title": "Android Mobile App",
+        "file_type": ".APK Package",
+        "logo": "Android / Smartphone icon",
+        "theme": "Emerald / Teal gradient",
+        "background": "Squishy morphing SVG blob background with spring physics",
+        "price": "$0",
+        "price_badge": "Free Early Launch",
+        "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecap.apk",
+        "features": [
+          "Direct mobile video timeline editing",
+          "9:16 vertical crop optimized for Shorts / TikTok",
+          "Local phone gallery clip processing",
+          "Instant AI timestamp clipboard import",
+          "Lightweight, battery-efficient engine"
+        ]
+      },
+      {
+        "id": "agent-skill",
+        "title": "Universal Agent Skill",
+        "file_type": ".ZIP Package",
+        "logo": "Claude / AI Sparkle icon",
+        "theme": "Purple / Violet gradient",
+        "background": "Squishy morphing SVG blob background with spring physics",
+        "price": "$0",
+        "price_badge": "Free Early Launch",
+        "download_url": "https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/movie-recap-studio-claude-skill.zip",
+        "features": [
+          "Full SRT subtitle plot analysis & character arcs",
+          "Viral 3-Sentence Curiosity Hook generator",
+          "Ground-truth frame-accurate timestamp ranges",
+          "Bilingual narration (English & Hindi/Urdu)",
+          "Claude, ChatGPT, Gemini & Antigravity compatible"
+        ]
       }
     ]
   }

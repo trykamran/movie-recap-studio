@@ -175,102 +175,106 @@
     .apple-btn:hover::after {
       transform: translateX(650%) rotate(25deg);
     }
-    /* 3D Adaptive Navigation Pill (PillBase) Skeuomorphic Architecture */
-    .nav-3d-pill {
+    /* Apple 3D Rounded Navigation Dock */
+    .apple-3d-dock {
       position: relative;
       border-radius: 9999px;
       height: 48px;
-      width: 140px;
-      background: linear-gradient(135deg, #fcfcfd 0%, #f8f8fa 15%, #f3f4f6 30%, #eeeff2 45%, #e9eaed 60%, #e4e5e8 75%, #dee0e3 90%, #e2e3e6 100%);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.10), 0 16px 32px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.12), inset 0 2px 1px rgba(255,255,255,0.7), inset 0 -2px 6px rgba(0,0,0,0.10), inset 2px 2px 8px rgba(0,0,0,0.08), inset -2px 2px 8px rgba(0,0,0,0.07), inset 0 0 1px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 245, 247, 0.82) 50%, rgba(235, 236, 240, 0.85) 100%);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08), 0 14px 30px rgba(0,0,0,0.06), inset 0 2px 1px rgba(255,255,255,0.9), inset 0 -2px 4px rgba(0,0,0,0.06);
       overflow: hidden;
-      transition: width 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease-out;
-      cursor: pointer;
     }
-    .nav-3d-pill.is-expanded {
-      width: 480px;
-      max-width: calc(100vw - 32px);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08), 0 6px 12px rgba(0,0,0,0.12), 0 12px 24px rgba(0,0,0,0.14), 0 24px 48px rgba(0,0,0,0.10), inset 0 2px 2px rgba(255,255,255,0.8), inset 0 -3px 8px rgba(0,0,0,0.12), inset 3px 3px 8px rgba(0,0,0,0.10), inset -3px 3px 8px rgba(0,0,0,0.09), inset 0 -1px 2px rgba(0,0,0,0.08);
+    .dark .apple-3d-dock {
+      background: linear-gradient(135deg, rgba(30, 30, 34, 0.90) 0%, rgba(22, 22, 26, 0.88) 50%, rgba(16, 16, 18, 0.92) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4), 0 16px 36px rgba(0,0,0,0.3), inset 0 1.5px 1px rgba(255,255,255,0.2), inset 0 -2px 6px rgba(0,0,0,0.45);
     }
-    .dark .nav-3d-pill {
-      background: linear-gradient(135deg, #2a2a2e 0%, #242428 15%, #1f1f23 30%, #1b1b1e 45%, #17171a 60%, #141416 75%, #101012 90%, #121215 100%);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.35), 0 12px 24px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.25), inset 0 -2px 6px rgba(0,0,0,0.4), inset 0 0 1px rgba(255,255,255,0.15);
+    .dock-3d-ridge {
+      position: absolute; left: 0; right: 0; top: 0; height: 1.5px;
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 15%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.95) 85%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
     }
-    .dark .nav-3d-pill.is-expanded {
-      box-shadow: 0 6px 16px rgba(0,0,0,0.45), 0 18px 36px rgba(0,0,0,0.35), inset 0 1.5px 1.5px rgba(255,255,255,0.3), inset 0 -3px 8px rgba(0,0,0,0.5);
-    }
-    .nav-3d-ridge {
-      position: absolute; left: 0; right: 0; top: 0; height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 5%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0.95) 95%, rgba(255,255,255,0) 100%);
-      filter: blur(0.3px); pointer-events: none;
-    }
-    .nav-3d-hemisphere {
-      position: absolute; left: 0; right: 0; top: 0; height: 55%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 30%, rgba(255,255,255,0.10) 60%, rgba(255,255,255,0) 100%);
+    .dock-3d-hemisphere {
+      position: absolute; left: 0; right: 0; top: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
       border-radius: 9999px; pointer-events: none;
     }
-    .nav-3d-directional {
+    .dock-3d-inner-glow {
       position: absolute; inset: 0; border-radius: 9999px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.20) 20%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0) 65%);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.25);
       pointer-events: none;
     }
-    .nav-3d-gloss {
-      position: absolute; left: 15%; top: 16%; width: 60px; height: 14px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0.10) 70%, rgba(255,255,255,0) 100%);
-      filter: blur(4px); transform: rotate(-12deg); pointer-events: none; transition: all 0.3s ease;
+    .dock-nav-btn {
+      font-size: 13.5px; font-weight: 550; color: #52525b; letter-spacing: 0.25px; padding: 6px 15px;
+      border-radius: 9999px; transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1); white-space: nowrap;
+      background: transparent; border: none; cursor: pointer; position: relative; z-index: 10;
     }
-    .nav-3d-pill.is-expanded .nav-3d-gloss { left: 18%; width: 140px; }
-    .nav-3d-gloss-sec {
-      position: absolute; right: 22%; top: 20%; width: 80px; height: 10px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0) 100%);
-      filter: blur(3px); transform: rotate(8deg); pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+    .dark .dock-nav-btn { color: #a1a1aa; }
+    .dock-nav-btn:hover { color: #09090b; transform: translateY(-1px); }
+    .dark .dock-nav-btn:hover { color: #ffffff; }
+    .dock-nav-btn.dock-nav-btn-active {
+      color: #09090b; font-weight: 650;
+      background: rgba(0, 0, 0, 0.07);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 1px rgba(255,255,255,0.8);
+      transform: translateY(-0.5px);
     }
-    .nav-3d-pill.is-expanded .nav-3d-gloss-sec { opacity: 1; }
-    .nav-3d-bottom-shadow {
-      position: absolute; inset-x: 0; bottom: 0; height: 50%;
-      background: linear-gradient(0deg, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.08) 25%, rgba(0,0,0,0.03) 50%, rgba(0,0,0,0) 100%);
-      border-bottom-left-radius: 9999px; border-bottom-right-radius: 9999px; pointer-events: none;
+    .dark .dock-nav-btn.dock-nav-btn-active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.18);
     }
-    .nav-3d-inner-glow {
-      position: absolute; inset: 0; border-radius: 9999px;
-      box-shadow: inset 0 0 40px rgba(255,255,255,0.22), inset 0 0 0 0.5px rgba(0,0,0,0.10);
+
+    /* 21st.dev Squishy Card Pure GPU Animations */
+    .squishy-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+    .squishy-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.35);
+    }
+    .squishy-bg-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+      z-index: 0;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .nav-pill-text-tactile {
-      font-size: 14px; font-weight: 650; color: #1a1a1a; letter-spacing: 0.35px; white-space: nowrap;
-      text-shadow: 0 1px 0 rgba(0,0,0,0.25), 0 -1px 0 rgba(255,255,255,0.8), 1px 1px 0 rgba(0,0,0,0.12);
+    .squishy-card:hover .squishy-bg-svg {
+      transform: scale(1.4);
     }
-    .dark .nav-pill-text-tactile {
-      color: #f5f5f7; text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 -1px 0 rgba(255,255,255,0.15);
+    .squishy-circle {
+      transform-origin: 160px 114px;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
     }
-    .nav-pill-btn {
-      font-size: 13.5px; font-weight: 550; color: #656565; letter-spacing: 0.3px; padding: 6px 14px;
-      border-radius: 9999px; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); white-space: nowrap;
-      background: transparent; border: none; cursor: pointer;
-      text-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 -1px 0 rgba(255,255,255,0.6);
+    .squishy-card:hover .squishy-circle {
+      transform: translateY(-25px) scaleY(0.5);
     }
-    .dark .nav-pill-btn { color: #a1a1aa; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-    .nav-pill-btn:hover { color: #111111; transform: translateY(-1px); }
-    .dark .nav-pill-btn:hover { color: #ffffff; }
-    .nav-pill-btn.nav-pill-btn-active {
-      color: #000000; font-weight: 700; transform: translateY(-1px);
-      text-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 -1px 0 rgba(255,255,255,0.85);
+    .squishy-ellipse {
+      transform-origin: 160px 265px;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
     }
-    .dark .nav-pill-btn.nav-pill-btn-active {
-      color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.7), 0 0 12px rgba(255,255,255,0.2);
+    .squishy-card:hover .squishy-ellipse {
+      transform: translateY(-25px) scaleY(2.25);
     }
-    .nav-pill-collapsed-view {
-      opacity: 1; transform: scale(1); transition: opacity 0.2s ease, transform 0.2s ease;
+    .squishy-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .nav-3d-pill.is-expanded .nav-pill-collapsed-view {
-      opacity: 0; transform: scale(0.9); pointer-events: none; position: absolute;
+    .squishy-btn:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
     }
-    .nav-pill-expanded-view {
-      opacity: 0; pointer-events: none; transition: opacity 0.25s ease 0.08s;
-      display: flex; align-items: center; justify-content: space-evenly; width: 100%;
-    }
-    .nav-3d-pill.is-expanded .nav-pill-expanded-view {
-      opacity: 1; pointer-events: auto;
+    .squishy-btn:active {
+      transform: scale(0.97) translateY(0);
     }
     .apple-btn:hover {
       transform: translateY(-1.5px) scale(1.015);
@@ -441,37 +445,20 @@
   <!-- Interactive Cursor Glow (Apple Keynote Aesthetic) -->
   <div id="cursor-glow" class="hidden sm:block"></div>
 
-  <!-- Floating 3D Adaptive Navigation Pill (Pure Island - No Header Bar) -->
+  <!-- Floating 3D Apple Navigation Dock (Always Expanded, Pure Island) -->
   <div class="fixed top-5 sm:top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
-    <nav id="nav-3d-pill" class="nav-3d-pill flex items-center justify-center select-none" aria-label="Floating Navigation">
-      <!-- Primary top edge ridge - ultra bright -->
-      <div class="nav-3d-ridge"></div>
-      
-      <!-- Top hemisphere light catch -->
-      <div class="nav-3d-hemisphere"></div>
-      
-      <!-- Directional light - top left -->
-      <div class="nav-3d-directional"></div>
-      
-      <!-- Premium gloss reflections -->
-      <div class="nav-3d-gloss"></div>
-      <div class="nav-3d-gloss-sec"></div>
-      
-      <!-- Bottom curvature & shadows -->
-      <div class="nav-3d-bottom-shadow"></div>
-      <div class="nav-3d-inner-glow"></div>
+    <nav id="nav-apple-dock" class="apple-3d-dock flex items-center justify-center px-2 py-1 select-none" aria-label="Main Navigation">
+      <!-- 3D Specular Light & Bevel Layers -->
+      <div class="dock-3d-ridge"></div>
+      <div class="dock-3d-hemisphere"></div>
+      <div class="dock-3d-inner-glow"></div>
 
-      <!-- Content: Collapsed State (Active Section Label) -->
-      <div id="nav-pill-collapsed" class="nav-pill-collapsed-view flex items-center justify-center px-5 h-full">
-        <span id="nav-pill-active-label" class="nav-pill-text-tactile">Overview</span>
-      </div>
-
-      <!-- Content: Expanded State (All Section Buttons) -->
-      <div id="nav-pill-expanded" class="nav-pill-expanded-view px-4 h-full">
-        <button type="button" class="nav-pill-btn nav-pill-btn-active" data-section="overview">Overview</button>
-        <button type="button" class="nav-pill-btn" data-section="workflow">Workflow</button>
-        <button type="button" class="nav-pill-btn" data-section="pricing">Pricing</button>
-        <button type="button" class="nav-pill-btn" data-section="reviews">Feedback</button>
+      <!-- Permanently Visible Section Buttons -->
+      <div class="relative z-10 flex items-center gap-1 sm:gap-2 px-1">
+        <button type="button" class="dock-nav-btn dock-nav-btn-active" data-section="overview">Overview</button>
+        <button type="button" class="dock-nav-btn" data-section="workflow">Workflow</button>
+        <button type="button" class="dock-nav-btn" data-section="pricing">Pricing</button>
+        <button type="button" class="dock-nav-btn" data-section="reviews">Feedback</button>
       </div>
     </nav>
   </div>
@@ -760,12 +747,10 @@
 
     
 
-    <!-- 3-Tier Free Pricing Section (Accurately Tailored) -->
-        <!-- Interactive Single-Plan Pricing Section (Exact 21st.dev UI Layout Style) -->
-        <!-- UI Layout Exact Pricing Section 2 (Ported from 21st.dev Component) -->
+    <!-- 3-Tier Free Pricing Section (21st.dev Squishy Cards Row) -->
     <section id="pricing" class="py-20 px-4 w-full mx-auto relative apple-reveal overflow-hidden">
       
-      <!-- Radial Ambient Mesh Background from React Component -->
+      <!-- Radial Ambient Mesh Background -->
       <div class="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-20"
         style="background: radial-gradient(125% 125% at 50% 90%, transparent 40%, #0071e3 100%);">
       </div>
@@ -773,171 +758,209 @@
       <div class="max-w-6xl mx-auto relative z-10">
         
         <!-- Header -->
-        <div class="max-w-4xl mx-auto text-center mb-16">
-          <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-semibold mb-4">
-            <svg class="h-4 w-4 text-blue-500 fill-blue-500 mr-1.5" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            <span>Time to connect</span>
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800 text-apple-blue dark:text-blue-400 text-xs font-semibold mb-4">
+            <svg class="h-4 w-4 text-apple-blue fill-apple-blue mr-1.5" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>Early-Bird 100% Free Access</span>
           </div>
 
           <h2 class="md:text-5xl sm:text-4xl text-3xl font-bold text-apple-textPrimary dark:text-white mb-4 leading-[120%] tracking-tight">
-            Claim Your Lifetime Studio Access
+            Claim Your Free Studio Suite
           </h2>
 
-          <p class="text-base sm:text-xl text-apple-textSecondary dark:text-gray-400 font-normal">
-            Zero monthly subscriptions. Download the complete creator suite free during our early-bird launch.
+          <p class="text-base sm:text-lg text-apple-textSecondary dark:text-gray-400 font-normal">
+            Zero subscriptions or recurring fees. Choose your preferred platform below and download immediately.
           </p>
         </div>
 
-        <!-- Product Features & Pricing Switcher Card -->
-        <div class="rounded-[32px] p-6 sm:p-12 bg-white/80 dark:bg-apple-darkCard/90 backdrop-blur-xl border border-apple-borderLight/80 dark:border-apple-darkBorder shadow-apple-card">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            
-            <!-- Left Column: What's inside Checklist -->
-            <div>
-              <h3 class="text-2xl sm:text-3xl font-bold text-apple-textPrimary dark:text-white mb-6">
-                What's inside
-              </h3>
-
-              <div class="space-y-4">
-                
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200 font-medium">Windows Desktop App (.exe) standalone with FFmpeg</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200 font-medium">Android Mobile App (.apk) for 9:16 vertical shorts</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Claude & ChatGPT Prompt Skill (.zip) package</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Grounded subtitle parser (0 hallucinations)</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">3-sentence viral curiosity hook formula (English & Urdu)</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Automated silence stripping (&gt;0.3s dead pause removal)</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Multi-language Edge-TTS narration sync</span>
-                </div>
-
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-blue-500 shadow-md shadow-blue-500/50 rounded-full flex items-center justify-center mr-3 shrink-0">
-                    <svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
-                  </div>
-                  <span class="text-sm text-apple-textPrimary dark:text-gray-200">Commercial YouTube & TikTok monetization rights</span>
-                </div>
-
+        <!-- 3 Squishy Cards Row (Left to Right: .EXE, .APK, .ZIP) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
+          
+          <!-- Card 1: Windows Desktop App (.exe) -->
+          <div class="squishy-card relative min-h-[490px] bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 p-7 sm:p-8 flex flex-col justify-between text-white border border-blue-400/30">
+            <div class="relative z-10">
+              <!-- Top Badge with Official Windows Icon -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center space-x-1.5 rounded-full bg-white/25 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                  <!-- Official Windows 4-Pane SVG Logo -->
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 87.3 87.3">
+                    <path d="M0 12.402l35.687-4.86.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.016 45.728zm4.326-39.027L87.314 0v41.527l-47.318.376zm47.329 45.451l-.011 41.539-47.318-6.676-.041-34.48z"/>
+                  </svg>
+                  <span>Windows .EXE</span>
+                </span>
+                <span class="text-[11px] font-bold uppercase tracking-wider bg-white text-blue-700 px-2 py-0.5 rounded-full shadow-sm">Popular</span>
               </div>
+
+              <!-- Price Heading with Strikethrough -->
+              <div class="my-3">
+                <div class="flex items-baseline space-x-2">
+                  <span class="font-mono text-5xl sm:text-6xl font-black leading-none tracking-tight">$0</span>
+                  <span class="text-sm font-semibold opacity-85">/ Forever</span>
+                </div>
+                <div class="mt-1 flex items-center space-x-2">
+                  <span class="line-through text-blue-200/80 text-sm font-semibold">$299 Original</span>
+                  <span class="text-[10px] font-bold uppercase bg-emerald-400/20 text-emerald-200 px-2 py-0.5 rounded border border-emerald-400/30">100% Free</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-blue-100/90 leading-relaxed mb-6">
+                Native Windows desktop application with standalone FFmpeg, multi-threaded clip cutting, and instant audio-video sync.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-blue-50/95 font-medium mb-6">
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Standalone installer with bundled FFmpeg</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Silence remover (&gt;0.3s dead-gap trimmer)</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Edge-TTS multi-voice narration synthesizer</span>
+                </li>
+              </ul>
             </div>
 
-            <!-- Right Column: Interactive Switches & Pricing Calculation -->
-            <div class="space-y-8">
-              
-              <!-- Switch 1: Software & Engine Updates -->
-              <div>
-                <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
-                  Software & Engine Updates
-                </h4>
-                <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
-                  One-time download, continuous AI & FFmpeg engine updates delivered locally
-                </p>
-                
-                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
-                  <!-- The Animated Gliding Black Pill -->
-                  <div id="sliding-pill-updates" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
+            <!-- Download Button -->
+            <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecapStudio-Setup-v2.4.0.exe" class="squishy-btn relative z-20 block w-full rounded-xl border-2 border-white bg-white py-3 text-center font-mono text-xs sm:text-sm font-black uppercase tracking-wider text-neutral-900 backdrop-blur shadow-md">
+              Download .EXE
+            </a>
 
-                  <button type="button" id="switch-updates-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
-                    Standard (1 Year)
-                  </button>
-                  <button type="button" id="switch-updates-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
-                    Lifetime (Forever)
-                  </button>
-                </div>
-              </div>
-
-              <!-- Switch 2: License & Monetization Scope -->
-              <div>
-                <h4 class="font-semibold text-apple-textPrimary dark:text-white mb-1 text-base">
-                  License & Monetization Scope
-                </h4>
-                <p class="text-xs text-apple-textSecondary dark:text-gray-400 mb-2.5">
-                  Select Agency / Studio if you operate multi-channel networks or an editing agency
-                </p>
-                
-                <div class="relative z-10 w-full flex rounded-full bg-neutral-100 dark:bg-zinc-800/80 border border-gray-200 dark:border-zinc-700 p-1 overflow-hidden">
-                  <!-- The Animated Gliding Black Pill -->
-                  <div id="sliding-pill-license" class="sliding-pill-indicator absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full border-4 border-black dark:border-zinc-700 bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 shadow-md shadow-black/40 pointer-events-none z-0"></div>
-
-                  <button type="button" id="switch-license-0" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white">
-                    Solo Creator
-                  </button>
-                  <button type="button" id="switch-license-1" class="relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white">
-                    Agency / Studio
-                  </button>
-                </div>
-              </div>
-
-              <!-- Pricing Display & Purchase Button -->
-              <div class="text-center grid grid-cols-1 sm:grid-cols-2 items-center gap-4 pt-2">
-                
-                <!-- Price Display with Strikethrough & Free Launch -->
-                <div class="flex items-center justify-center sm:justify-start">
-                  <span class="text-4xl sm:text-5xl font-extrabold text-apple-textPrimary dark:text-white tracking-tight">
-                    $0
-                  </span>
-                  
-                  <div class="ml-3 text-left">
-                    <div class="relative inline-flex items-center">
-                      <span id="price-strikethrough" class="text-xl sm:text-2xl text-gray-400 dark:text-gray-500 font-semibold relative inline-flex items-center">
-                        $<span id="dynamic-val">98</span>
-                        <!-- Explicit visible strikethrough cut line -->
-                        <span class="absolute -left-1 -right-1 top-1/2 -translate-y-1/2 h-[2.5px] bg-neutral-800 dark:bg-neutral-200 pointer-events-none rounded-full z-20"></span>
-                      </span>
-                    </div>
-                    <span class="block text-[10px] font-bold uppercase tracking-wider text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 w-max mt-0.5">
-                      Launch Free
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Big Glossy Purchase / Download Button -->
-                <button type="button" class="trigger-download-modal purchase-glow-btn text-white text-base sm:text-lg font-semibold h-12 sm:h-14 w-full rounded-full inline-flex items-center justify-center space-x-2"><span>Download Free Suite</span><i data-lucide="download" class="w-4 h-4"></i></button>
-
-              </div>
-
-            </div>
-
+            <!-- Morphing Squishy SVG Background -->
+            <svg class="squishy-bg-svg" viewBox="0 0 320 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="squishy-circle" cx="160.5" cy="114.5" r="101.5" fill="#172554"/>
+              <ellipse class="squishy-ellipse" cx="160.5" cy="265.5" rx="101.5" ry="43.5" fill="#172554"/>
+            </svg>
           </div>
+
+          <!-- Card 2: Android Mobile App (.apk) -->
+          <div class="squishy-card relative min-h-[490px] bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-800 p-7 sm:p-8 flex flex-col justify-between text-white border border-emerald-400/30">
+            <div class="relative z-10">
+              <!-- Top Badge with Official Android Bugdroid Icon -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center space-x-1.5 rounded-full bg-white/25 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                  <!-- Official Android Bugdroid SVG Logo -->
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v6c0 .83.67 1.5 1.5 1.5S5 16.33 5 15.5v-6C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.72 1.24 12.88 1.05 12 1.05c-.88 0-1.72.19-2.64.58L7.88.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.3 1.3C6.73 3.32 5.5 5.24 5.5 7.45h13c0-2.21-1.23-4.13-2.97-5.29zM9 5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+                  </svg>
+                  <span>Android .APK</span>
+                </span>
+                <span class="text-[11px] font-bold uppercase tracking-wider bg-white text-emerald-800 px-2 py-0.5 rounded-full shadow-sm">Mobile</span>
+              </div>
+
+              <!-- Price Heading with Strikethrough -->
+              <div class="my-3">
+                <div class="flex items-baseline space-x-2">
+                  <span class="font-mono text-5xl sm:text-6xl font-black leading-none tracking-tight">$0</span>
+                  <span class="text-sm font-semibold opacity-85">/ Forever</span>
+                </div>
+                <div class="mt-1 flex items-center space-x-2">
+                  <span class="line-through text-emerald-200/80 text-sm font-semibold">$159 Original</span>
+                  <span class="text-[10px] font-bold uppercase bg-emerald-300/30 text-emerald-100 px-2 py-0.5 rounded border border-emerald-300/40">100% Free</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-emerald-100/90 leading-relaxed mb-6">
+                Mobile companion app designed for quick vertical 9:16 cuts, TikTok story recaps, and on-the-go video trimming.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-emerald-50/95 font-medium mb-6">
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Direct sideloadable Android package</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>9:16 vertical shorts aspect crop</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Lightweight GPU acceleration on mobile</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Download Button -->
+            <a href="https://github.com/trykamran/movie-recap-studio/releases/download/v2.4.0/MovieRecapStudio-v2.4.0.apk" class="squishy-btn relative z-20 block w-full rounded-xl border-2 border-white bg-white py-3 text-center font-mono text-xs sm:text-sm font-black uppercase tracking-wider text-neutral-900 backdrop-blur shadow-md">
+              Download .APK
+            </a>
+
+            <!-- Morphing Squishy SVG Background -->
+            <svg class="squishy-bg-svg" viewBox="0 0 320 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="squishy-circle" cx="160.5" cy="114.5" r="101.5" fill="#064e3b"/>
+              <ellipse class="squishy-ellipse" cx="160.5" cy="265.5" rx="101.5" ry="43.5" fill="#064e3b"/>
+            </svg>
+          </div>
+
+          <!-- Card 3: Claude & ChatGPT AI Skill (.zip) -->
+          <div class="squishy-card relative min-h-[490px] bg-gradient-to-br from-purple-600 via-fuchsia-600 to-purple-900 p-7 sm:p-8 flex flex-col justify-between text-white border border-purple-400/30">
+            <div class="relative z-10">
+              <!-- Top Badge with Official Claude/AI Sparkle Icon -->
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center space-x-1.5 rounded-full bg-white/25 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
+                  <!-- Official Claude / AI Sparkle Star SVG Logo -->
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/>
+                  </svg>
+                  <span>AI Prompt .ZIP</span>
+                </span>
+                <span class="text-[11px] font-bold uppercase tracking-wider bg-white text-purple-800 px-2 py-0.5 rounded-full shadow-sm">AI Skill</span>
+              </div>
+
+              <!-- Price Heading with Strikethrough -->
+              <div class="my-3">
+                <div class="flex items-baseline space-x-2">
+                  <span class="font-mono text-5xl sm:text-6xl font-black leading-none tracking-tight">$0</span>
+                  <span class="text-sm font-semibold opacity-85">/ Forever</span>
+                </div>
+                <div class="mt-1 flex items-center space-x-2">
+                  <span class="line-through text-purple-200/80 text-sm font-semibold">$400 Original</span>
+                  <span class="text-[10px] font-bold uppercase bg-purple-300/30 text-purple-100 px-2 py-0.5 rounded border border-purple-300/40">100% Free</span>
+                </div>
+              </div>
+
+              <p class="text-xs text-purple-100/90 leading-relaxed mb-6">
+                Complete AI prompt system and JSON schemas for Claude Projects and Custom GPTs to turn raw SRT subtitles into viral scripts.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-purple-50/95 font-medium mb-6">
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Grounded 0-hallucination subtitle parser</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>3-sentence viral retention hook template</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg class="w-3.5 h-3.5 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Scene timeline synchronization JSON schema</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Download Button -->
+            <a href="https://github.com/trykamran/movie-recap-studio/archive/refs/tags/v2.4.0.zip" class="squishy-btn relative z-20 block w-full rounded-xl border-2 border-white bg-white py-3 text-center font-mono text-xs sm:text-sm font-black uppercase tracking-wider text-neutral-900 backdrop-blur shadow-md">
+              Download .ZIP
+            </a>
+
+            <!-- Morphing Squishy SVG Background -->
+            <svg class="squishy-bg-svg" viewBox="0 0 320 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="squishy-circle" cx="160.5" cy="114.5" r="101.5" fill="#3b0764"/>
+              <ellipse class="squishy-ellipse" cx="160.5" cy="265.5" rx="101.5" ry="43.5" fill="#3b0764"/>
+            </svg>
+          </div>
+
         </div>
+
+      </div>
+
+    </section>
 
       </div>
 
@@ -1155,66 +1178,34 @@
         updateTheme(nextDark);
       });
 
-      // 2b. 3D Adaptive Navigation Pill (PillBase) Controller
-      const navPill = document.getElementById('nav-3d-pill');
-      const activeLabelEl = document.getElementById('nav-pill-active-label');
-      const navButtons = document.querySelectorAll('.nav-pill-btn');
-      let pillHoverTimeout = null;
+      // 2b. Apple 3D Rounded Navigation Dock Controller
+      const dockButtons = document.querySelectorAll('.dock-nav-btn');
 
-      const navSectionMap = {
-        overview: 'Overview',
-        workflow: 'Workflow',
-        pricing: 'Pricing',
-        reviews: 'Feedback'
-      };
-
-      if (navPill) {
-        navPill.addEventListener('mouseenter', () => {
-          if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
-          navPill.classList.add('is-expanded');
+      dockButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-section');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+          dockButtons.forEach(b => b.classList.toggle('dock-nav-btn-active', b === btn));
         });
+      });
 
-        navPill.addEventListener('mouseleave', () => {
-          if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
-          pillHoverTimeout = setTimeout(() => {
-            navPill.classList.remove('is-expanded');
-          }, 600);
-        });
-
-        navButtons.forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = btn.getAttribute('data-section');
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-              targetEl.scrollIntoView({ behavior: 'smooth' });
-            }
-            if (activeLabelEl && navSectionMap[targetId]) {
-              activeLabelEl.textContent = navSectionMap[targetId];
-            }
-            navButtons.forEach(b => b.classList.toggle('nav-pill-btn-active', b === btn));
-            if (pillHoverTimeout) clearTimeout(pillHoverTimeout);
-            navPill.classList.remove('is-expanded');
-          });
-        });
-
-        function updateActiveSectionByScroll() {
-          const scrollPos = window.scrollY + 220;
-          const sectionIds = ['reviews', 'pricing', 'workflow', 'overview'];
-          for (const id of sectionIds) {
-            const el = document.getElementById(id);
-            if (el && el.offsetTop <= scrollPos) {
-              if (activeLabelEl && activeLabelEl.textContent !== navSectionMap[id]) {
-                activeLabelEl.textContent = navSectionMap[id];
-              }
-              navButtons.forEach(b => b.classList.toggle('nav-pill-btn-active', b.getAttribute('data-section') === id));
-              break;
-            }
+      function updateActiveSectionByScroll() {
+        const scrollPos = window.scrollY + 220;
+        const sectionIds = ['reviews', 'pricing', 'workflow', 'overview'];
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollPos) {
+            dockButtons.forEach(b => b.classList.toggle('dock-nav-btn-active', b.getAttribute('data-section') === id));
+            break;
           }
         }
-        window.addEventListener('scroll', updateActiveSectionByScroll, { passive: true });
-        updateActiveSectionByScroll();
       }
+      window.addEventListener('scroll', updateActiveSectionByScroll, { passive: true });
+      updateActiveSectionByScroll();
 
       // 3. 60fps Apple Keynote Ambient Cursor Spotlight (GPU LERP)
       const glow = document.getElementById('cursor-glow');
@@ -1357,87 +1348,7 @@
         if (window.lucide) lucide.createIcons();
       });
     
-      // UI Layout Pricing Switcher Logic with Gliding Pill & NumberFlow UpReveal
-      let isUpdates = false;
-      let isCorporate = false;
 
-      const pillUpdates = document.getElementById('sliding-pill-updates');
-      const pillLicense = document.getElementById('sliding-pill-license');
-      const btnUpdates0 = document.getElementById('switch-updates-0');
-      const btnUpdates1 = document.getElementById('switch-updates-1');
-      const btnLicense0 = document.getElementById('switch-license-0');
-      const btnLicense1 = document.getElementById('switch-license-1');
-      const dynamicVal = document.getElementById('dynamic-val');
-
-      function calculatePrice() {
-        if (!isUpdates && !isCorporate) return 98;
-        if (isUpdates && !isCorporate) return 400;
-        if (!isUpdates && isCorporate) return 159;
-        if (isUpdates && isCorporate) return 650;
-        return 98;
-      }
-
-      function animateNumberFlow(container, newNumber) {
-        if (!container) return;
-        const strVal = String(newNumber);
-        container.innerHTML = '';
-        strVal.split('').forEach((char, index) => {
-          const charWrapper = document.createElement('span');
-          charWrapper.className = 'number-flow-char';
-          const digitSpan = document.createElement('span');
-          digitSpan.className = 'number-flow-digit';
-          digitSpan.textContent = char;
-          digitSpan.style.animationDelay = `${index * 45}ms`;
-          charWrapper.appendChild(digitSpan);
-          container.appendChild(charWrapper);
-        });
-      }
-
-      function updatePricingDisplay() {
-        const val = calculatePrice();
-        animateNumberFlow(dynamicVal, val);
-      }
-
-      // Initialize default number flow rendering
-      animateNumberFlow(dynamicVal, 98);
-
-      // Switch 1: Access to updates (3 Months vs Forever)
-      btnUpdates0?.addEventListener('click', () => {
-        if (!isUpdates) return;
-        isUpdates = false;
-        if (pillUpdates) pillUpdates.style.transform = 'translateX(0%)';
-        btnUpdates0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
-        btnUpdates1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
-        updatePricingDisplay();
-      });
-
-      btnUpdates1?.addEventListener('click', () => {
-        if (isUpdates) return;
-        isUpdates = true;
-        if (pillUpdates) pillUpdates.style.transform = 'translateX(100%)';
-        btnUpdates1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
-        btnUpdates0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
-        updatePricingDisplay();
-      });
-
-      // Switch 2: Lifetime license (Personal vs Corporate)
-      btnLicense0?.addEventListener('click', () => {
-        if (!isCorporate) return;
-        isCorporate = false;
-        if (pillLicense) pillLicense.style.transform = 'translateX(0%)';
-        btnLicense0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
-        btnLicense1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
-        updatePricingDisplay();
-      });
-
-      btnLicense1?.addEventListener('click', () => {
-        if (isCorporate) return;
-        isCorporate = true;
-        if (pillLicense) pillLicense.style.transform = 'translateX(100%)';
-        btnLicense1.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-white';
-        btnLicense0.className = 'relative z-10 w-1/2 sm:h-14 h-10 rounded-full sm:px-6 px-3 sm:py-2 py-1 text-xs sm:text-sm font-semibold transition-colors duration-200 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white';
-        updatePricingDisplay();
-      });
 
 
       // Download Modal Logic
