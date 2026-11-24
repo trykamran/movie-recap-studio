@@ -1,0 +1,155 @@
+/* Apple Dual-Theme Glassmorphism Studio Styling */
+:root {
+  --apple-blue: #0071e3;
+  --apple-hover-blue: #0077ed;
+  --bg-color: #fbfbfd;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --input-bg: rgba(245, 245, 247, 0.9);
+  --input-border: rgba(0, 0, 0, 0.12);
+}
+
+html.dark {
+  --bg-color: #000000;
+  --text-primary: #f5f5f7;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --card-bg: rgba(22, 22, 23, 0.82);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --input-bg: rgba(0, 0, 0, 0.65);
+  --input-border: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+  letter-spacing: -0.015em;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glassmorphism Containers */
+.studio-glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 20px;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.studio-input {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+}
+.studio-input:focus {
+  border-color: #0071e3;
+  outline: none;
+}
+
+.studio-card-active {
+  border-color: #0071e3 !important;
+  box-shadow: 0 0 25px rgba(0, 113, 227, 0.28) !important;
+}
+
+.glow-btn {
+  background: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
+  box-shadow: 0 4px 20px rgba(0, 113, 227, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0, 113, 227, 0.5);
+}
+
+/* Theme Toggle Button */
+.theme-switch-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(125, 125, 125, 0.1);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.theme-switch-btn:hover {
+  background: rgba(0, 113, 227, 0.15);
+  color: #0071e3;
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}
+
+/* Dual theme text, card, and input adapters */
+html:not(.dark) .text-white\/60,
+html:not(.dark) .text-white\/50,
+html:not(.dark) .text-white\/70,
+html:not(.dark) .text-white\/40 {
+  color: #6e6e73 !important;
+}
+
+html:not(.dark) .text-white {
+  color: #1d1d1f !important;
+}
+
+html:not(.dark) .border-white\/10,
+html:not(.dark) .border-white\/15,
+html:not(.dark) .border-white\/20,
+html:not(.dark) .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .bg-white\/5,
+html:not(.dark) .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .bg-white\/10:hover,
+html:not(.dark) .bg-white\/15:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .bg-black\/60,
+html:not(.dark) .bg-black\/80,
+html:not(.dark) .bg-black\/30 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #1d1d1f !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
+  color: #1d1d1f !important;
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
