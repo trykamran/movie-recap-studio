@@ -151,10 +151,100 @@
     closeSettings();
   });
 
-  // Show One-Time Onboarding Modal ONLY for brand-new browser sessions
-  if (localStorage.getItem('recap_onboarded') !== 'true' && !state.keys.aiApiKey) {
-    setTimeout(openSettings, 350);
-  }
+  // AI onboarding paused while testing direct movie links
+  // Direct Movie Link Tester Logic
+  const directLinkTester = document.getElementById('directLinkTester');
+  const btnToggleFullPipeline = document.getElementById('btnToggleFullPipeline');
+  const quickTestUrl = document.getElementById('quickTestUrl');
+  const quickStartSec = document.getElementById('quickStartSec');
+  const quickEndSec = document.getElementById('quickEndSec');
+  const btnRunLinkTest = document.getElementById('btnRunLinkTest');
+  const linkDiagnosticBox = document.getElementById('linkDiagnosticBox');
+  const diagStatusBadge = document.getElementById('diagStatusBadge');
+  const diagDetailsText = document.getElementById('diagDetailsText');
+  const quickPlayerWrap = document.getElementById('quickPlayerWrap');
+  const quickTestPlayer = document.getElementById('quickTestPlayer');
+  const btnQuickDownload = document.getElementById('btnQuickDownload');
+
+  btnToggleFullPipeline?.addEventListener('click', () => {
+    directLinkTester.classList.add('hidden');
+    wizardContainer.classList.remove('hidden');
+  });
+
+  btnRunLinkTest?.addEventListener('click', async () => {
+    const url = quickTestUrl.value.trim();
+    if (!url) {
+      alert('Please paste a movie link first.');
+      return;
+    }
+
+    const start = parseFloat(quickStartSec.value) || 0;
+    const end = parseFloat(quickEndSec.value) || 25;
+
+    linkDiagnosticBox.classList.remove('hidden');
+    quickPlayerWrap.classList.remove('hidden');
+    diagStatusBadge.textContent = 'Testing Stream & CORS...';
+    diagStatusBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#0071e3]/20 text-[#2997ff]';
+    diagDetailsText.textContent = 'Checking whether this host allows direct in-browser streaming and partial byte-range downloads...';
+
+    // Load video into player (HLS or MP4)
+    if (url.includes('.m3u8') && window.Hls && Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(url);
+      hls.attachMedia(quickTestPlayer);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        quickTestPlayer.currentTime = start;
+        quickTestPlayer.play().catch(() => {});
+      });
+    } else {
+      quickTestPlayer.src = url;
+      quickTestPlayer.currentTime = start;
+      quickTestPlayer.play().catch(() => {});
+    }
+
+    // Stop automatically at end time for timestamp preview
+    const onCheckEnd = () => {
+      if (quickTestPlayer.currentTime >= end) {
+        quickTestPlayer.pause();
+        quickTestPlayer.removeEventListener('timeupdate', onCheckEnd);
+      }
+    };
+    quickTestPlayer.addEventListener('timeupdate', onCheckEnd);
+
+    // Probe CORS & Range support
+    try {
+      const resp = await fetch(url, {
+        method: 'GET',
+        headers: { Range: 'bytes=0-65535' },
+        mode: 'cors'
+      });
+      if (resp.ok || resp.status === 206) {
+        diagStatusBadge.textContent = 'CORS & Range Download Supported';
+        diagStatusBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-400';
+        diagDetailsText.textContent = `Success (HTTP ${resp.status})! This link supports direct in-browser streaming AND partial timestamp downloading.`;
+      } else {
+        diagStatusBadge.textContent = `HTTP ${resp.status} — Playback Only`;
+        diagStatusBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-400';
+        diagDetailsText.textContent = `Server returned HTTP ${resp.status}. Video may play in player, or may require direct browser download.`;
+      }
+    } catch (err) {
+      diagStatusBadge.textContent = 'CORS Blocked by Host';
+      diagStatusBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-rose-500/20 text-rose-400';
+      diagDetailsText.textContent = 'This website blocks cross-origin JavaScript downloads (CORS). If the video plays above, your browser can stream it, otherwise use a direct CDN .mp4/.m3u8 link.';
+    }
+  });
+
+  btnQuickDownload?.addEventListener('click', () => {
+    const url = quickTestUrl.value.trim();
+    if (!url) return;
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.download = 'movie_clip_test.mp4';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
 
   // Mobile Menu Toggle
   const studioMobileBtn = document.getElementById('studio-mobile-btn');
