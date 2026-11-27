@@ -445,31 +445,60 @@
   <!-- Interactive Cursor Glow (Apple Keynote Aesthetic) -->
   <div id="cursor-glow" class="hidden sm:block"></div>
 
-  <!-- Floating 3D Apple Navigation Dock (Always Expanded, Pure Island) -->
-  <div class="fixed top-5 sm:top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto">
-    <nav id="nav-apple-dock" class="apple-3d-dock flex items-center justify-center px-2 py-1 select-none" aria-label="Main Navigation">
-      <!-- 3D Specular Light & Bevel Layers -->
-      <div class="dock-3d-ridge"></div>
-      <div class="dock-3d-hemisphere"></div>
-      <div class="dock-3d-inner-glow"></div>
+  <!-- Professional Sleek Frosted Glass Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl bg-white/75 dark:bg-zinc-900/80 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm transition-all">
+      
+      <!-- Left: Logo & Brand -->
+      <a href="#overview" class="flex items-center gap-2.5 hover:opacity-85 transition">
+        <img src="assets/app-logo.png" alt="Logo" class="w-8 h-8 rounded-lg shadow-sm">
+        <span class="font-bold text-sm sm:text-base tracking-tight text-zinc-900 dark:text-white">
+          Movie Recap <span class="text-[#0071e3]">Studio</span>
+        </span>
+      </a>
 
-      <!-- Permanently Visible Section Buttons -->
-      <div class="relative z-10 flex items-center gap-1 sm:gap-2 px-1">
-        <button type="button" class="dock-nav-btn dock-nav-btn-active" data-section="overview">Overview</button>
-        <button type="button" class="dock-nav-btn" data-section="workflow">Workflow</button>
-        <button type="button" class="dock-nav-btn" data-section="pricing">Pricing</button>
-        <button type="button" class="dock-nav-btn" data-section="reviews">Feedback</button>
-        <a href="studio.html" class="dock-nav-btn text-[#0071e3] font-semibold flex items-center gap-1 hover:text-[#2997ff] transition">
-          <span>Web Studio</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-[#0071e3] animate-pulse"></span>
-        </a>
-        <div class="w-[1px] h-4 bg-gray-300 dark:bg-white/15 my-auto mx-0.5"></div>
-        <button type="button" id="theme-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-apple-blue dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all cursor-pointer" aria-label="Toggle Theme" title="Switch Light/Dark Mode">
+      <!-- Center: Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 sm:gap-2">
+        <button type="button" class="dock-nav-btn text-xs font-semibold px-3 py-1.5 rounded-full text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition" data-section="overview">Overview</button>
+        <button type="button" class="dock-nav-btn text-xs font-semibold px-3 py-1.5 rounded-full text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition" data-section="workflow">Workflow</button>
+        <button type="button" class="dock-nav-btn text-xs font-semibold px-3 py-1.5 rounded-full text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition" data-section="pricing">Pricing</button>
+        <button type="button" class="dock-nav-btn text-xs font-semibold px-3 py-1.5 rounded-full text-zinc-600 dark:text-zinc-300 hover:text-black dark:hover:text-white transition" data-section="reviews">Feedback</button>
+      </nav>
+
+      <!-- Right: Controls & CTA -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-btn" class="w-8 h-8 rounded-full flex items-center justify-center text-zinc-600 dark:text-zinc-300 hover:text-[#0071e3] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition cursor-pointer" aria-label="Toggle Theme" title="Switch Theme">
           <i id="theme-icon" data-lucide="sun" class="w-4 h-4 transition-transform duration-300"></i>
         </button>
+
+        <!-- Primary CTA: Try Web Studio (Desktop) -->
+        <a href="studio.html" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-xs font-semibold shadow-sm transition">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Try Web Studio</span>
+        </a>
+
+        <!-- Mobile 3-Lines Hamburger Menu Button -->
+        <button type="button" id="mobile-menu-btn" class="md:hidden w-8 h-8 rounded-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" aria-label="Toggle Mobile Menu">
+          <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
-    </nav>
-  </div>
+    </div>
+
+    <!-- Mobile Dropdown Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-xl transition-all">
+      <div class="flex flex-col space-y-2">
+        <button type="button" class="mobile-nav-link text-left px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" data-section="overview">Overview</button>
+        <button type="button" class="mobile-nav-link text-left px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" data-section="workflow">Workflow</button>
+        <button type="button" class="mobile-nav-link text-left px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" data-section="pricing">Pricing</button>
+        <button type="button" class="mobile-nav-link text-left px-3 py-2 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" data-section="reviews">Feedback</button>
+        <a href="studio.html" class="flex items-center justify-center gap-2 mt-2 px-4 py-2.5 rounded-xl bg-[#0071e3] text-white text-sm font-semibold shadow-md transition">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Try Web Studio (Free)</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- Main Content Flow -->
   <main class="flex-grow">
@@ -1195,8 +1224,33 @@
         updateTheme(nextDark);
       });
 
-      // 2b. Apple 3D Rounded Navigation Dock Controller
+      // 2b. Navigation Links & Mobile Drawer Controller
       const dockButtons = document.querySelectorAll('.dock-nav-btn');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+      mobileMenuBtn?.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (mobileMenuIcon) {
+          mobileMenuIcon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+          if (window.lucide) lucide.createIcons();
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('data-section');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+          mobileMenu.classList.add('hidden');
+          if (mobileMenuIcon) {
+            mobileMenuIcon.setAttribute('data-lucide', 'menu');
+            if (window.lucide) lucide.createIcons();
+          }
+        });
+      });
 
       dockButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {

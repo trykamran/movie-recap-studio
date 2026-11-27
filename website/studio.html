@@ -12,15 +12,13 @@
 </head>
 <body class="antialiased selection:bg-[#0071e3] selection:text-white transition-colors duration-300">
 
-  <!-- Top Apple Nav -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between studio-glass px-4 sm:px-6 py-3">
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-2.5 hover:opacity-85 transition">
-          <img src="assets/app-logo.png" alt="Logo" class="w-8 h-8 rounded-lg shadow-sm">
-          <span class="font-semibold text-sm sm:text-base tracking-tight">Movie Recap <span class="text-[#0071e3]">Studio Web</span></span>
-        </a>
-      </div>
+  <!-- Top Clean Frosted Glass Nav (Mobile Responsive) -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 transition-all">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl bg-white/75 dark:bg-zinc-900/80 backdrop-blur-md border border-black/5 dark:border-white/10 shadow-sm">
+      <a href="index.html" class="flex items-center gap-2.5 hover:opacity-85 transition">
+        <img src="assets/app-logo.png" alt="Logo" class="w-8 h-8 rounded-lg shadow-sm">
+        <span class="font-bold text-sm sm:text-base tracking-tight">Movie Recap <span class="text-[#0071e3]">Studio</span></span>
+      </a>
 
       <div class="flex items-center gap-2 sm:gap-3">
         <!-- Persistent Theme Toggle -->
@@ -30,148 +28,186 @@
 
         <button id="btnSettings" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-xs font-medium transition border border-black/10 dark:border-white/10">
           <i data-lucide="key" class="w-3.5 h-3.5 text-[#0071e3]"></i>
-          <span>API Keys</span>
+          <span class="hidden sm:inline">API Settings</span>
         </button>
-        <a href="index.html" class="px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/20 text-xs font-semibold text-[#0071e3] dark:text-[#2997ff] transition">
+        <a href="index.html" class="hidden sm:inline-flex px-3.5 py-1.5 rounded-full bg-[#0071e3]/10 hover:bg-[#0071e3]/20 text-xs font-semibold text-[#0071e3] dark:text-[#2997ff] transition">
           Home
         </a>
+        <!-- Mobile 3-Lines Hamburger -->
+        <button type="button" id="studio-mobile-btn" class="sm:hidden w-8 h-8 rounded-lg flex items-center justify-center text-zinc-700 dark:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/10 transition" aria-label="Menu">
+          <i id="studio-mobile-icon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="studio-mobile-menu" class="hidden sm:hidden max-w-6xl mx-auto mt-2 p-3 rounded-2xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-xl space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10 transition">← Back to Home</a>
+      <button id="btnMobileSettings" class="w-full text-left px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10 transition flex items-center gap-2">
+        <i data-lucide="key" class="w-4 h-4 text-[#0071e3]"></i> API Settings
+      </button>
     </div>
   </header>
 
   <!-- Main Container -->
-  <main class="pt-28 pb-16 px-4 max-w-6xl mx-auto">
+  <main class="pt-24 sm:pt-28 pb-16 px-4 max-w-6xl mx-auto">
     <!-- HERO BANNER -->
-    <div class="text-center mb-10">
+    <div class="text-center mb-8">
       <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#0071e3]/10 text-[#2997ff] border border-[#0071e3]/20 mb-3">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> 100% Client-Side • 0 Server Cost • Private
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> 100% Client-Side • Timestamp-Only Fetch • 0 Server Cost
       </span>
-      <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
-        Craft Viral Recaps <span class="text-[#2997ff]">Directly In-Browser</span>
+      <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-2">
+        Movie Recap <span class="text-[#2997ff]">Web Editor</span>
       </h1>
-      <p class="text-sm md:text-base text-white/60 max-w-2xl mx-auto">
-        Analyze subtitles, generate voiceovers with Cartesia, cut exact cinematic clips, and export ready-to-share MP4s without any backend servers.
+      <p class="text-xs sm:text-sm text-white/60 max-w-2xl mx-auto">
+        Upload SRT ➔ Generate AI Script ➔ Sync Your Voice Duration ➔ Fetch Only Scene Timestamps ➔ Preview &amp; Render.
       </p>
     </div>
 
-    <!-- WIZARD STEP CONTAINER -->
-    <div id="wizardContainer" class="studio-glass p-6 md:p-8 mb-8 border border-white/10 transition-all">
-      <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+    <!-- 4-STEP PIPELINE STEPPER -->
+    <div id="wizardContainer" class="studio-glass p-5 sm:p-8 mb-8 border border-white/10 transition-all">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-6 gap-3">
         <div>
-          <h2 class="text-lg font-semibold flex items-center gap-2">
+          <h2 class="text-base sm:text-lg font-semibold flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-[#0071e3] text-white flex items-center justify-center text-xs font-bold" id="wizardStepNumber">1</span>
-            <span id="wizardStepTitle">Choose Your Video Source</span>
+            <span id="wizardStepTitle">Upload Movie Subtitles (.SRT)</span>
           </h2>
-          <p class="text-xs text-white/50 mt-0.5" id="wizardStepSubtitle">Select how you want to provide your movie or video.</p>
+          <p class="text-xs text-white/50 mt-0.5" id="wizardStepSubtitle">Start with your subtitle file so AI can analyze the story and write your script.</p>
         </div>
-        <div class="flex gap-1.5">
-          <div class="w-2.5 h-2.5 rounded-full bg-[#0071e3]" id="dotStep1"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-white/20" id="dotStep2"></div>
-          <div class="w-2.5 h-2.5 rounded-full bg-white/20" id="dotStep3"></div>
-        </div>
-      </div>
-
-      <!-- WIZARD STEP 1: VIDEO SOURCE -->
-      <div id="stepVideoSource" class="grid md:grid-cols-2 gap-4">
-        <!-- Option 1A: MovieBox / Direct Link -->
-        <div id="cardChoiceLink" class="studio-glass p-5 cursor-pointer hover:border-[#0071e3]/60 transition border border-white/10 rounded-xl flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-[#0071e3]/20 flex items-center justify-center text-[#2997ff] mb-3">
-              <i data-lucide="link" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-semibold text-base mb-1">Movie Link (MovieBox / Direct URL)</h3>
-            <p class="text-xs text-white/60 mb-4">Paste MovieBox video link or direct MP4/stream URL to process directly.</p>
-          </div>
-          <div class="space-y-2">
-            <input type="url" id="movieUrlInput" placeholder="https://moviebox.com/watch/... or direct .mp4 link" 
-                   class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/15 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]">
-            <button id="btnSelectLink" class="w-full py-2 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-medium transition flex items-center justify-center gap-1.5">
-              <span>Use This Link</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Option 1B: Upload Downloaded File -->
-        <div id="cardChoiceFile" class="studio-glass p-5 cursor-pointer hover:border-[#0071e3]/60 transition border border-white/10 rounded-xl flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3">
-              <i data-lucide="upload" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-semibold text-base mb-1">Upload Downloaded Movie</h3>
-            <p class="text-xs text-white/60 mb-4">Drop your downloaded video file from PC/Phone. Runs 100% locally with 0 CORS issues.</p>
-          </div>
-          <div>
-            <input type="file" id="videoFileInput" accept="video/mp4,video/mkv,video/webm" class="hidden">
-            <button id="btnTriggerFile" class="w-full py-2.5 rounded-lg bg-[#0071e3] hover:bg-[#0077ed] text-xs font-semibold text-white transition flex items-center justify-center gap-1.5 shadow-lg shadow-[#0071e3]/20">
-              <i data-lucide="file-video" class="w-4 h-4"></i>
-              <span>Select Video File</span>
-            </button>
-            <p id="selectedVideoName" class="text-[11px] text-white/40 text-center mt-2 truncate">No file chosen yet</p>
-          </div>
+        <div class="flex items-center gap-2 text-[11px]">
+          <span class="px-2 py-0.5 rounded-full bg-[#0071e3] text-white font-semibold" id="pillStep1">1. SRT</span>
+          <span class="px-2 py-0.5 rounded-full bg-white/10 text-white/50" id="pillStep2">2. Voice</span>
+          <span class="px-2 py-0.5 rounded-full bg-white/10 text-white/50" id="pillStep3">3. Link</span>
+          <span class="px-2 py-0.5 rounded-full bg-white/10 text-white/50" id="pillStep4">4. Preview</span>
         </div>
       </div>
 
-      <!-- WIZARD STEP 2: SRT SUBTITLE UPLOAD (Hidden initially) -->
-      <div id="stepSubtitles" class="hidden space-y-4">
-        <div class="border-2 border-dashed border-white/20 hover:border-[#0071e3] rounded-2xl p-8 text-center cursor-pointer transition bg-black/30" id="srtDropzone">
+      <!-- STEP 1: SRT SUBTITLE UPLOAD & AI SCRIPT -->
+      <div id="stepSrtUpload" class="space-y-4">
+        <div class="border-2 border-dashed border-white/20 hover:border-[#0071e3] rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition bg-black/30" id="srtDropzone">
           <input type="file" id="srtFileInput" accept=".srt,.vtt" class="hidden">
           <div class="w-12 h-12 rounded-2xl bg-[#0071e3]/20 flex items-center justify-center text-[#2997ff] mx-auto mb-3">
             <i data-lucide="subtitles" class="w-6 h-6"></i>
           </div>
           <h4 class="font-semibold text-base mb-1">Drop your .SRT Subtitle File Here</h4>
-          <p class="text-xs text-white/50 mb-4">Or click to browse from your device</p>
+          <p class="text-xs text-white/50 mb-4">AI analyzes your subtitles to craft the viral recap script &amp; exact scene timestamps</p>
           <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-xs font-medium text-white/90">Browse SRT File</span>
         </div>
-        <div id="srtFileStatus" class="hidden p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <i data-lucide="check-circle" class="w-4 h-4"></i>
-            <span id="srtLoadedInfo">Subtitle loaded successfully!</span>
+
+        <div id="srtFileStatus" class="hidden space-y-3">
+          <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span id="srtLoadedInfo">Subtitle loaded!</span>
+            </div>
+            <button id="btnWizardGenerateScript" class="px-3.5 py-1.5 rounded-lg bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold transition flex items-center gap-1.5">
+              <i data-lucide="wand-2" class="w-3.5 h-3.5"></i> Analyze SRT &amp; Generate Script
+            </button>
           </div>
-          <button id="btnProceedToVoice" class="px-3 py-1 rounded-lg bg-emerald-500 text-black font-semibold hover:bg-emerald-400 transition">
-            Continue to Voice Step →
-          </button>
+
+          <div id="wizardScriptBox" class="hidden space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-semibold text-white/80">Generated Recap Script (Record your voice from this script)</span>
+              <button id="btnCopyWizardScript" class="text-[#2997ff] hover:underline flex items-center gap-1">
+                <i data-lucide="copy" class="w-3 h-3"></i> Copy Script
+              </button>
+            </div>
+            <textarea id="txtWizardScript" rows="4" class="w-full p-3 rounded-xl bg-black/60 border border-white/15 text-xs text-white focus:outline-none focus:border-[#0071e3]"></textarea>
+            <div class="flex justify-end">
+              <button id="btnGoToVoiceStep" class="px-5 py-2 rounded-xl glow-btn text-xs font-semibold text-white transition flex items-center gap-1.5">
+                <span>Next: Upload Your Voice</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- WIZARD STEP 3: VOICEOVER PREFERENCE (Hidden initially) -->
-      <div id="stepVoiceChoice" class="hidden space-y-4">
-        <div class="grid md:grid-cols-3 gap-4">
-          <!-- Option A: Cartesia TTS -->
-          <div class="studio-glass p-5 border border-white/10 rounded-xl cursor-pointer hover:border-[#0071e3] transition voice-option" data-mode="cartesia">
-            <div class="w-10 h-10 rounded-xl bg-[#0071e3]/20 flex items-center justify-center text-[#2997ff] mb-3">
-              <i data-lucide="mic" class="w-5 h-5"></i>
+      <!-- STEP 2: UPLOAD YOUR VOICE & AUTO-DURATION SYNC (NO TTS) -->
+      <div id="stepVoiceUpload" class="hidden space-y-4">
+        <div class="border-2 border-dashed border-amber-500/30 hover:border-amber-400 rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition bg-black/30" id="voiceDropzone">
+          <input type="file" id="wizardVoiceInput" accept="audio/*" class="hidden">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 flex items-center justify-center text-amber-400 mx-auto mb-3">
+            <i data-lucide="mic" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-semibold text-base mb-1">Upload Your Recorded Voiceover (.mp3 / .wav / .m4a)</h4>
+          <p class="text-xs text-white/50 mb-4">We check your exact audio duration and auto-match every scene timestamp to your voice</p>
+          <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 text-xs font-medium text-amber-300">Select Audio File</span>
+        </div>
+
+        <div id="voiceSyncStatus" class="hidden p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
+          <div class="flex items-center justify-between text-amber-300 font-semibold">
+            <span id="voiceFileNameLbl">voiceover.mp3</span>
+            <span id="voiceDurationLbl">Duration: 00:00</span>
+          </div>
+          <p class="text-white/60" id="voiceSyncSummary">Matched scenes and balanced timestamps to fit your voiceover duration.</p>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button id="btnBackToSrtStep" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-white/70 transition">← Back</button>
+          <div class="flex gap-2">
+            <button id="btnSkipVoiceToLink" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-xs text-white/80 transition">Skip (Original Audio)</button>
+            <button id="btnGoToMovieLinkStep" class="px-5 py-2 rounded-xl glow-btn text-xs font-semibold text-white transition flex items-center gap-1.5">
+              <span>Next: Movie Link</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: MOVIE LINK (AT LAST) & TIMESTAMP-ONLY PARTIAL FETCH -->
+      <div id="stepMovieLink" class="hidden space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Option A: Movie Link (Timestamp-Only Download) -->
+          <div class="studio-glass p-5 border border-white/10 rounded-xl flex flex-col justify-between space-y-3">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-[#0071e3]/20 flex items-center justify-center text-[#2997ff] mb-3">
+                <i data-lucide="link" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-semibold text-base mb-1">Movie Link (Timestamp-Only Fetch)</h3>
+              <p class="text-xs text-white/60 mb-2">Paste MovieBox / direct .mp4 / .m3u8 URL. Only the matched scene timestamps are downloaded—never the full movie.</p>
             </div>
-            <h4 class="font-semibold text-sm mb-1">Cartesia AI Voice (Auto)</h4>
-            <p class="text-xs text-white/60">Generate ultra-realistic storyteller narration using your Cartesia API key.</p>
+            <div class="space-y-2">
+              <input type="url" id="movieUrlInput" placeholder="https://moviebox.com/... or direct .mp4 / .m3u8 link" 
+                     class="w-full px-3 py-2 rounded-lg bg-black/60 border border-white/15 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]">
+              <button id="btnFetchTimestampsLink" class="w-full py-2.5 rounded-xl glow-btn text-xs font-semibold text-white transition flex items-center justify-center gap-1.5">
+                <i data-lucide="scissors" class="w-3.5 h-3.5"></i>
+                <span>Fetch Scene Timestamps &amp; Preview</span>
+              </button>
+            </div>
           </div>
 
-          <!-- Option B: Own Voice -->
-          <div class="studio-glass p-5 border border-white/10 rounded-xl cursor-pointer hover:border-[#0071e3] transition voice-option" data-mode="own_voice">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 mb-3">
-              <i data-lucide="user-voice" class="w-5 h-5"></i>
+          <!-- Option B: Local Movie File (Zero-Network Instant Slice) -->
+          <div class="studio-glass p-5 border border-white/10 rounded-xl flex flex-col justify-between space-y-3">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 mb-3">
+                <i data-lucide="file-video" class="w-5 h-5"></i>
+              </div>
+              <h3 class="font-semibold text-base mb-1">Local Video File (Instant Slice)</h3>
+              <p class="text-xs text-white/60 mb-2">Or select a local video file from your device for instant 0-bandwidth timestamp preview.</p>
             </div>
-            <h4 class="font-semibold text-sm mb-1">Use Own Voice (Manual)</h4>
-            <p class="text-xs text-white/60">AI generates script, you record/upload your own voice, and video syncs to it.</p>
-          </div>
-
-          <!-- Option C: Original Audio -->
-          <div class="studio-glass p-5 border border-white/10 rounded-xl cursor-pointer hover:border-[#0071e3] transition voice-option" data-mode="original">
-            <div class="w-10 h-10 rounded-xl bg-teal-500/20 flex items-center justify-center text-teal-400 mb-3">
-              <i data-lucide="volume-2" class="w-5 h-5"></i>
+            <div>
+              <input type="file" id="videoFileInput" accept="video/mp4,video/mkv,video/webm" class="hidden">
+              <button id="btnTriggerFile" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition flex items-center justify-center gap-1.5">
+                <i data-lucide="upload" class="w-4 h-4"></i>
+                <span>Select Local Video File</span>
+              </button>
+              <p id="selectedVideoName" class="text-[11px] text-white/40 text-center mt-2 truncate">No file chosen</p>
             </div>
-            <h4 class="font-semibold text-sm mb-1">Original Movie Sound</h4>
-            <p class="text-xs text-white/60">No narration added; cuts and exports key action & dialogue scenes as-is.</p>
           </div>
         </div>
 
-        <div class="flex justify-between items-center pt-4">
-          <button id="btnBackToSrt" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-white/70 transition">
-            ← Back
-          </button>
-          <button id="btnOpenStudioWorkspace" class="px-5 py-2.5 rounded-xl glow-btn text-xs font-semibold text-white transition flex items-center gap-2">
-            <span>Launch Studio Workspace</span>
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
-          </button>
+        <!-- Partial Download Progress Indicator -->
+        <div id="timestampFetchProgress" class="hidden p-4 rounded-xl bg-[#0071e3]/10 border border-[#0071e3]/25 space-y-2 text-xs">
+          <div class="flex justify-between font-medium text-[#2997ff]">
+            <span id="fetchStatusLbl">Fetching matched scene timestamps (skipping full movie)...</span>
+            <span id="fetchPercentLbl">0%</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+            <div id="fetchProgressBar" class="h-full bg-[#0071e3] transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-start">
+          <button id="btnBackToVoiceStep" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-white/70 transition">← Back to Voice</button>
         </div>
       </div>
     </div>
@@ -218,84 +254,45 @@
             </div>
           </div>
 
-          <!-- Dynamic Panel: Script & Audio Control -->
+          <!-- Dynamic Panel: Script & Voice Duration Sync -->
           <div id="panelScriptAudio" class="studio-glass p-5 rounded-2xl border border-white/10 space-y-3">
             <div class="flex items-center justify-between">
               <h3 class="text-sm font-semibold flex items-center gap-2">
                 <i data-lucide="file-text" class="w-4 h-4 text-[#2997ff]"></i>
-                <span id="panelTitle">Narration Script & Audio</span>
+                <span id="panelTitle">Synced Script &amp; Voiceover</span>
               </h3>
               <button id="btnGenerateScript" class="px-3 py-1 rounded-lg bg-[#0071e3] hover:bg-[#0077ed] text-xs font-medium text-white transition flex items-center gap-1.5">
-                <i data-lucide="wand-2" class="w-3.5 h-3.5"></i> Generate AI Script
+                <i data-lucide="wand-2" class="w-3.5 h-3.5"></i> Regenerate Script
               </button>
             </div>
             
-            <textarea id="txtScriptContent" rows="4" placeholder="AI-generated script or your custom movie explanation will appear here..." 
+            <textarea id="txtScriptContent" rows="4" placeholder="Your AI-generated movie recap script..." 
                       class="w-full p-3 rounded-xl bg-black/60 border border-white/10 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]"></textarea>
 
-            <!-- Own Voice Specific Subpanel -->
-            <div id="subpanelOwnVoice" class="hidden p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
+            <!-- Own Voice Synced Status & Audio Element -->
+            <div id="subpanelOwnVoice" class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
               <div class="flex items-center justify-between text-amber-300 font-medium">
-                <span>Record or Upload Your Voiceover Audio</span>
-                <span id="audioRecordedDuration">00:00</span>
+                <span>Uploaded Voiceover Track</span>
+                <span id="audioRecordedDuration">No audio uploaded (Original movie sound)</span>
               </div>
+              <audio id="voicePreviewPlayer" controls class="hidden w-full h-8"></audio>
               <div class="flex gap-2">
                 <input type="file" id="customAudioInput" accept="audio/*" class="hidden">
                 <button id="btnUploadVoiceAudio" class="flex-1 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-white transition text-xs flex items-center justify-center gap-1">
-                  <i data-lucide="upload" class="w-3.5 h-3.5"></i> Upload Voice File (.mp3/.wav)
+                  <i data-lucide="upload" class="w-3.5 h-3.5"></i> Change / Upload Voice File (.mp3/.wav)
                 </button>
               </div>
-            </div>
-
-            <!-- Cartesia Specific Subpanel (Multilingual) -->
-            <div id="subpanelCartesia" class="hidden p-3 rounded-xl bg-[#0071e3]/10 border border-[#0071e3]/20 text-xs space-y-2.5">
-              <div class="flex items-center justify-between">
-                <span class="text-[#2997ff] font-medium flex items-center gap-1.5">
-                  <i data-lucide="languages" class="w-3.5 h-3.5"></i>
-                  <span>Cartesia Sonic Multilingual</span>
-                </span>
-                <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#0071e3]/20 text-[#2997ff]">Urdu & English Ready</span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-2">
-                <div>
-                  <label class="block text-[11px] text-white/70 mb-1">Language</label>
-                  <select id="selCartesiaLanguage" class="w-full bg-black/80 border border-white/20 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[#0071e3]">
-                    <option value="en" selected>English (Global)</option>
-                    <option value="ur">Urdu (اردو)</option>
-                    <option value="hi">Hindi (हिंदी)</option>
-                    <option value="es">Spanish (Español)</option>
-                    <option value="fr">French (Français)</option>
-                    <option value="de">German (Deutsch)</option>
-                    <option value="ar">Arabic (العربية)</option>
-                    <option value="tr">Turkish (Türkçe)</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-[11px] text-white/70 mb-1">Voice Persona</label>
-                  <select id="selCartesiaVoice" class="w-full bg-black/80 border border-white/20 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[#0071e3]">
-                    <option value="a0e99841-438c-4a64-b679-ae501e7d6091">Cinematic Narrator (Male)</option>
-                    <option value="79a125e8-cd45-4c13-8a67-188112f4dd22">Documentary Storyteller (Male)</option>
-                    <option value="ee7ea9f8-c0c1-498c-9f79-f164da738024">Female Storyteller / Drama</option>
-                    <option value="2ee87190-8f84-4925-97da-e52547f9462c">Deep Baritone Trailer</option>
-                  </select>
-                </div>
-              </div>
-
-              <button id="btnSynthesizeVoice" class="w-full py-2.5 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-white font-medium transition flex items-center justify-center gap-2 shadow-md shadow-[#0071e3]/20">
-                <i data-lucide="volume-2" class="w-4 h-4"></i> Synthesize Multilingual Narration
-              </button>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Detected Scenes & In-Browser Slicer -->
+        <!-- Right Column: Detected Scenes & Final Preview Render -->
         <div class="lg:col-span-5 space-y-4">
           <div class="studio-glass p-5 rounded-2xl border border-white/10 space-y-4">
             <div class="flex items-center justify-between">
               <h3 class="text-sm font-semibold flex items-center gap-2">
                 <i data-lucide="film" class="w-4 h-4 text-purple-400"></i>
-                <span>Detected Scene Clips</span>
+                <span>Matched Scene Timestamps</span>
               </h3>
               <span id="sceneCountBadge" class="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/60">0 Clips</span>
             </div>
@@ -303,7 +300,7 @@
             <!-- Clips List Container -->
             <div id="detectedClipsList" class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
               <div class="p-4 rounded-xl bg-white/5 border border-white/5 text-center text-xs text-white/40">
-                Click "Generate AI Script" or load subtitles to automatically detect scene highlights.
+                Scene timestamps matched to your voiceover duration will appear here.
               </div>
             </div>
 
@@ -311,7 +308,7 @@
             <div class="pt-3 border-t border-white/10 space-y-3">
               <div id="renderProgressContainer" class="hidden space-y-1.5">
                 <div class="flex justify-between text-xs text-white/60">
-                  <span id="renderStatusText">Processing clip...</span>
+                  <span id="renderStatusText">Rendering final recap...</span>
                   <span id="renderPercentText">0%</span>
                 </div>
                 <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
@@ -321,10 +318,10 @@
 
               <button id="btnExportFinalVideo" class="w-full py-3 rounded-xl glow-btn text-xs font-semibold text-white transition flex items-center justify-center gap-2">
                 <i data-lucide="download" class="w-4 h-4"></i>
-                <span>Export & Download Movie Recap Clip (MP4)</span>
+                <span>Final Render &amp; Download Recap (MP4)</span>
               </button>
               <p class="text-[11px] text-white/40 text-center">
-                Rendered completely inside your browser via WebCodecs & Wasm.
+                Only matched scene timestamps are processed directly in your browser.
               </p>
             </div>
           </div>
@@ -333,42 +330,44 @@
     </div>
   </main>
 
-  <!-- SETTINGS MODAL (BYOK API Keys) -->
+  <!-- FIRST-TIME ONBOARDING & API SETTINGS MODAL (BYOK) -->
   <div id="settingsModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="studio-glass max-w-md w-full p-6 border border-white/15 rounded-2xl space-y-5">
+    <div class="studio-glass max-w-md w-full p-6 border border-white/15 rounded-2xl space-y-4 relative">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <h3 class="font-semibold text-base flex items-center gap-2">
-          <i data-lucide="key" class="w-4 h-4 text-[#2997ff]"></i>
-          <span>API Settings (BYOK)</span>
-        </h3>
-        <button id="btnCloseSettings" class="text-white/50 hover:text-white transition">
+        <div>
+          <h3 class="font-semibold text-base flex items-center gap-2">
+            <i data-lucide="key" class="w-4 h-4 text-[#2997ff]"></i>
+            <span id="settingsModalTitle">AI Provider Setup (One-Time)</span>
+          </h3>
+          <p class="text-[11px] text-white/50 mt-0.5" id="settingsModalSubtitle">Connect OpenCode, Gemini, OpenRouter, or any Custom Base URL.</p>
+        </div>
+        <button id="btnCloseSettings" class="w-7 h-7 rounded-full bg-white/5 hover:bg-white/15 flex items-center justify-center text-white/60 hover:text-white transition" title="Close (X)">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <div class="space-y-4 text-xs">
-        <!-- AI Scripting Provider (Gemini / OpenRouter / Custom) -->
-        <div class="space-y-2 p-3 rounded-xl bg-white/5 border border-white/10">
-          <label class="block font-semibold text-white/90">AI Script Provider (Scene & Hook Analysis)</label>
+      <div class="space-y-3 text-xs">
+        <div class="space-y-2.5 p-3 rounded-xl bg-white/5 border border-white/10">
           <div class="grid grid-cols-2 gap-2">
             <div>
               <label class="block text-[11px] text-white/60 mb-1">Provider Preset</label>
               <select id="selAiProvider" class="w-full p-2 rounded-lg bg-black/60 border border-white/15 text-white focus:outline-none focus:border-[#0071e3]">
                 <option value="gemini">Google Gemini (Free/Paid)</option>
                 <option value="openrouter" selected>OpenRouter</option>
+                <option value="opencode">OpenCode</option>
                 <option value="openai">OpenAI Official</option>
-                <option value="custom">Custom Provider</option>
+                <option value="custom">Custom Base URL</option>
               </select>
             </div>
             <div>
               <label class="block text-[11px] text-white/60 mb-1">Model Name</label>
-              <input type="text" id="inputAiModel" placeholder="e.g. gemini-1.5-flash or openai/gpt-4o-mini" 
+              <input type="text" id="inputAiModel" placeholder="e.g. gemini-2.5-flash" 
                      class="w-full p-2 rounded-lg bg-black/60 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]">
             </div>
           </div>
 
           <div>
-            <label class="block text-[11px] text-white/60 mb-1">API Base URL</label>
+            <label class="block text-[11px] text-white/60 mb-1">Custom Base URL</label>
             <input type="url" id="inputAiBaseUrl" placeholder="https://openrouter.ai/api/v1" 
                    class="w-full p-2 rounded-lg bg-black/60 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]">
           </div>
@@ -389,24 +388,11 @@
             </a>
           </div>
         </div>
-
-        <!-- Cartesia TTS Provider with Direct Redirect Link -->
-        <div class="space-y-2 p-3 rounded-xl bg-white/5 border border-white/10">
-          <label class="block font-semibold text-white/90">Cartesia API Key (Voiceover Narration)</label>
-          <input type="password" id="inputCartesiaKey" placeholder="sk-cartesia-..." 
-                 class="w-full p-2 rounded-lg bg-black/60 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-[#0071e3]">
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-[11px] text-white/40">Free or paid account</span>
-            <a href="https://play.cartesia.ai/console" target="_blank" rel="noopener noreferrer" class="text-[#2997ff] hover:underline flex items-center gap-1 text-[11px] font-semibold">
-              <i data-lucide="external-link" class="w-3 h-3"></i> Get Cartesia API Key (Direct Link) ↗
-            </a>
-          </div>
-        </div>
       </div>
 
       <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
-        <button id="btnSaveSettings" class="px-5 py-2 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-xs font-semibold text-white transition">
-          Save Settings
+        <button id="btnSaveSettings" class="w-full py-2.5 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-xs font-semibold text-white transition">
+          Save &amp; Start Editing
         </button>
       </div>
     </div>
